@@ -12,7 +12,7 @@ from fpdf import FPDF
 from dotenv import load_dotenv
 
 # --- Config & Initialization (Direct Mode) ---
-load_dotenv("backend/.env")
+load_dotenv() # Busca el archivo .env en el directorio actual (o usa variables de entorno del sistema)
 IS_AI_ACTIVE = False
 model = None
 try:
