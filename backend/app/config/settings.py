@@ -1,0 +1,37 @@
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+env_path = Path(__file__).parent.parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
+
+class Settings:
+    PROJECT_TITLE: str = "AutoProof Check IA - Enterprise Backend"
+    REPORTS_DIR: str = "reports"
+    IS_AI_ACTIVE: bool = False
+    MODEL = None
+
+    @classmethod
+    def init_ai(cls):
+        try:
+            import vertexai
+            from vertexai.generative_models import GenerativeModel
+            vertexai.init()
+            cls.MODEL = GenerativeModel("gemini-1.5-flash")
+            cls.IS_AI_ACTIVE = True
+            print("Vertex AI Active (Direct Authentication)")
+        except Exception as e:
+            print(f"Vertex AI Initialization Failed: {str(e)}")
+            try:
+                import google.generativeai as genai
+                GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+                if GEMINI_API_KEY and GEMINI_API_KEY != "YOUR_GEMINI_API_KEY_HERE":
+                    genai.configure(api_key=GEMINI_API_KEY)
+                    cls.MODEL = genai.GenerativeModel('gemini-flash-latest')
+                    cls.IS_AI_ACTIVE = True
+                    print("Gemini AI Active (API Key Fallback)")
+            except Exception as e2:
+                print(f"Simulation Mode Active: {str(e2)}")
+
+settings = Settings()
+settings.init_ai()
