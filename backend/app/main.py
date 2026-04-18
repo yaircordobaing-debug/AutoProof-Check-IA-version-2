@@ -19,7 +19,8 @@ app.add_middleware(
 app.include_router(analysis.router, prefix="/v1", tags=["IA Analysis"])
 app.include_router(reports.router, prefix="/v1", tags=["Reports"])
 
-# Static Files (Frontend)
+# Servir carpetas específicas para asegurar que el frontend encuentre todo
+app.mount("/src", StaticFiles(directory="src"), name="src")
 app.mount("/", StaticFiles(directory=".", html=True), name="frontend")
 
 if __name__ == "__main__":
