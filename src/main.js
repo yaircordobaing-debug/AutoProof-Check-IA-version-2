@@ -297,6 +297,7 @@ window.closeLegalModal = window.appActions.closeLegalModal;
 window.confirmLegalValidation = window.appActions.confirmLegalValidation;
 window.clearSignature = window.appActions.clearSignature;
 window.retryAnalysis = window.appActions.retryAnalysis;
+window.saveResultWithStatus = window.appActions.saveResultWithStatus;
 
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
