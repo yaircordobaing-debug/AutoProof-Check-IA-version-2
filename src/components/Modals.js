@@ -110,10 +110,11 @@ export function renderModals() {
                     <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl mb-6 text-[10px] text-amber-800 italic">
                         "Declaro bajo mi responsabilidad que este componente se encuentra en buen estado. En caso de falla posterior, la responsabilidad recae exclusivamente en el conductor."
                     </div>
-                    <label class="flex items-center gap-3 cursor-pointer mb-4 p-2 hover:bg-amber-50 rounded-xl transition-colors">
+                    <label id="legalCheckboxLabel" class="flex items-center gap-4 cursor-pointer mb-6 p-5 border-2 border-gray-100 rounded-[2rem] transition-all duration-300 bg-gray-50">
                         <input type="checkbox" id="legalCheckbox" 
-                            class="w-7 h-7 accent-amber-600 border-2 border-amber-200 rounded-lg cursor-pointer">
-                        <span class="text-xs font-bold text-gray-700">Acepto los términos de responsabilidad operativa.</span>
+                            onchange="const l=document.getElementById('legalCheckboxLabel'); l.classList.toggle('bg-amber-100'); l.classList.toggle('border-amber-500'); l.classList.toggle('scale-[1.02]');"
+                            class="w-10 h-10 accent-amber-600 cursor-pointer">
+                        <span class="text-sm font-black text-gray-800 leading-tight">Acepto los términos de responsabilidad operativa.</span>
                     </label>
                     <textarea id="legalComment" rows="2" class="w-full p-3 bg-gray-50 border rounded-xl text-sm" placeholder="Comentario opcional..."></textarea>
                 </div>
