@@ -116,7 +116,17 @@ window.appActions = {
     logout: () => { currentUser = handleLogout(navigate); activeTrip = null; },
     navigate: navigate,
     initTripSetup: () => initTripSetup(currentUser, ["Mazda 3", "Toyota Hilux"], navigate),
-    confirmTripSetup: () => { pendingTrip = confirmTripSetup(navigate); },
+    initBusTripSetup: () => initTripSetup(currentUser, ["Bus Urbano 1", "Bus Intermunicipal 2", "Bus Escolar 3"], navigate),
+    confirmTripSetup: () => { 
+        pendingTrip = confirmTripSetup(navigate); 
+        if (pendingTrip) {
+            activeTrip = { ...pendingTrip, status: 'Active', startTime: new Date().toLocaleTimeString() };
+            pendingTrip = null;
+            inspectionResults = {};
+            renderChecklist(inspectionResults);
+            navigate('checklist');
+        }
+    },
     startOBDScan: () => runOBDScan(),
     
     // Trip Lifecycle Actions
@@ -379,35 +389,27 @@ window.appActions = {
             currentFinalReport.signature = canvas.toDataURL();
         }
 
-        // Si es la primera firma (viniendo del checklist), solo guardamos y mostramos el reporte
-        if (currentView === 'checklist') {
-            $('#reportScoreText').innerText = `${currentFinalReport.score}/100`;
-            $('#reportStatusBadge').innerText = currentFinalReport.status;
-            $('#finalModal').classList.add('hidden');
-            navigate('report');
-            return;
-        }
-
-        if (!email) {
-            showNotification("Por favor ingresa un correo");
+        if (!email || !email.includes('@')) {
+            showNotification("Por favor ingresa un correo válido");
             return;
         }
 
         const res = await submitFinalReport(currentFinalReport, email, reportsHistory);
         if (res) {
-            showNotification("Reporte enviado con éxito");
-            window.open(res.url, '_blank');
-            
-            // Si es iniciar viaje (desde la pantalla de reporte)
-            if (currentView === 'report') {
-                activeTrip = { ...pendingTrip, status: 'Active', startTime: new Date().toLocaleTimeString() };
-                pendingTrip = null;
-                inspectionResults = {};
-                renderChecklist(inspectionResults);
-                $('#finalModal').classList.add('hidden');
-                navigate('dashboard');
+            $('#finalModal').classList.add('hidden');
+            activeTrip = null;
+            pendingTrip = null;
+            inspectionResults = {};
+            renderChecklist(inspectionResults);
+            showNotification("Reporte generado y enviado correctamente.");
+            if (res.url) {
+                window.open(res.url, '_blank');
             }
+            navigate('dashboard');
+            return;
         }
+
+        showNotification("No se pudo generar o enviar el reporte. Intenta de nuevo.");
     }
 };
 
@@ -417,6 +419,7 @@ window.login = window.appActions.login;
 window.logout = window.appActions.logout;
 window.navigate = window.appActions.navigate;
 window.initTripSetup = window.appActions.initTripSetup;
+window.initBusTripSetup = window.appActions.initBusTripSetup;
 window.confirmTripSetup = window.appActions.confirmTripSetup;
 window.startOBDScan = window.appActions.startOBDScan;
 window.openModal = window.appActions.openModal;

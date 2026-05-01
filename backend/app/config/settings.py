@@ -11,6 +11,15 @@ class Settings:
     IS_AI_ACTIVE: bool = False
     MODEL = None
 
+    SMTP_HOST: str = os.getenv("SMTP_HOST", "")
+    SMTP_PORT: int = int(os.getenv("SMTP_PORT", "587"))
+    SMTP_USER: str = os.getenv("SMTP_USER", "")
+    SMTP_PASS: str = os.getenv("SMTP_PASS", "")
+    EMAIL_FROM: str = os.getenv("EMAIL_FROM", "no-reply@autoproof.com")
+    SMTP_USE_TLS: bool = os.getenv("SMTP_USE_TLS", "true").lower() in ["1", "true", "yes"]
+    SMTP_USE_SSL: bool = os.getenv("SMTP_USE_SSL", "false").lower() in ["1", "true", "yes"]
+    SEND_EMAILS: bool = bool(SMTP_HOST and SMTP_USER and SMTP_PASS and EMAIL_FROM)
+
     @classmethod
     def init_ai(cls):
         try:

@@ -29,12 +29,13 @@ export function updateDashboard(currentUser, activeTrip, reportsHistory) {
     if (activeTrip) {
         $('#dashActiveTrip').classList.remove('hidden');
         $('#btnStartNewTrip').classList.add('hidden');
+        $('#btnStartBusTrip').classList.add('hidden');
         $('#activeCarName').innerText = activeTrip.car;
         $('#activeEndTime').innerText = activeTrip.time;
         $('#activeDriverName').innerText = activeTrip.driver;
-        $('#activeCompanions').innerText = activeTrip.companions || 'Sin acompañantes';
     } else {
         $('#dashActiveTrip').classList.add('hidden');
         $('#btnStartNewTrip').classList.remove('hidden');
+        $('#btnStartBusTrip').classList.remove('hidden');
     }
 }

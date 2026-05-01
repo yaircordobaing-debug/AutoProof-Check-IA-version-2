@@ -12,7 +12,23 @@ export function initTripSetup(currentUser, companyFleet, navigate) {
         carSelect.innerHTML = `<option value="Vehículo Personal">Mi Vehículo Personal</option>`;
     }
 
-    $('#tripCompanions').value = '';
+    $('#tripTime').value = '';
+    
+    navigate('trip-setup');
+}
+
+export function initBusTripSetup(currentUser, companyFleet, navigate) {
+    const driverInput = $('#tripDriver');
+    const carSelect = $('#tripCar');
+
+    if (currentUser) {
+        driverInput.value = currentUser.name;
+        carSelect.innerHTML = companyFleet.map(car => `<option value="${car}">${car}</option>`).join('');
+    } else {
+        driverInput.value = 'Usuario Invitado';
+        carSelect.innerHTML = `<option value="Vehículo Personal">Mi Vehículo Personal</option>`;
+    }
+
     $('#tripTime').value = '';
     
     navigate('trip-setup');
@@ -28,11 +44,9 @@ export function confirmTripSetup(navigate) {
     const pendingTrip = {
         car: $('#tripCar').value,
         driver: $('#tripDriver').value,
-        companions: $('#tripCompanions').value,
         time: time
     };
 
-    navigate('obd');
     return pendingTrip;
 }
 

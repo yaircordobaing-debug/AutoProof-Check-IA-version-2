@@ -1,12 +1,49 @@
 import os
 import uuid
 import base64
+import smtplib
+from email.message import EmailMessage
 from datetime import datetime
 from fpdf import FPDF
 from backend.app.config.settings import settings
 from backend.app.models.schemas import ReportRequest
 
 class PDFService:
+    @staticmethod
+    def send_pdf_email(request: ReportRequest, file_path: str, file_name: str):
+        if not settings.SEND_EMAILS or not request.email or '@' not in request.email:
+            return False
+        try:
+            msg = EmailMessage()
+            msg['Subject'] = f"Reporte de Inspección {request.trip_id}"
+            msg['From'] = settings.EMAIL_FROM
+            msg['To'] = request.email
+            msg.set_content(
+                f"Adjunto encontrarás el reporte de inspección {request.trip_id}.\n\n"
+                f"Estado: {request.status}\n"
+                f"Score: {request.score}%\n\n"
+                "Gracias por usar AutoProof Check IA."
+            )
+            with open(file_path, 'rb') as f:
+                pdf_data = f.read()
+            msg.add_attachment(pdf_data, maintype='application', subtype='pdf', filename=file_name)
+
+            if settings.SMTP_USE_SSL:
+                server = smtplib.SMTP_SSL(settings.SMTP_HOST, settings.SMTP_PORT, timeout=30)
+            else:
+                server = smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT, timeout=30)
+            server.ehlo()
+            if settings.SMTP_USE_TLS and not settings.SMTP_USE_SSL:
+                server.starttls()
+                server.ehlo()
+            server.login(settings.SMTP_USER, settings.SMTP_PASS)
+            server.send_message(msg)
+            server.quit()
+            return True
+        except Exception as e:
+            print(f"Email send failed: {e}")
+            return False
+
     @staticmethod
     def generate_inspection_pdf(request: ReportRequest):
         pdf = FPDF()
@@ -143,10 +180,13 @@ class PDFService:
             os.makedirs(settings.REPORTS_DIR)
         pdf.output(file_path)
 
+        email_sent = PDFService.send_pdf_email(request, file_path, file_name)
+
         return {
             "report_id": request.trip_id,
             "status": "Finalizado",
             "hash": fake_hash,
             "url": f"/reports/{file_name}",
-            "path": file_path
+            "path": file_path,
+            "email_sent": email_sent
         }
