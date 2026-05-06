@@ -56,10 +56,25 @@ export function submitTripReview(currentRating, navigate) {
         return false;
     }
 
+    const tripEndKM = $('#tripEndKM') ? $('#tripEndKM').value : '';
+    if (!tripEndKM) {
+        showNotification("Por favor ingresa el kilometraje final.");
+        return false;
+    }
+
     const reviewText = $('#tripReviewText').value;
-    console.log("Reseña enviada:", currentRating, "Estrellas. Texto:", reviewText);
+    console.log("Reseña enviada:", currentRating, "Estrellas. Texto:", reviewText, "KM Final:", tripEndKM);
+
+    // Mock Maintenance Logic
+    if (parseInt(tripEndKM) > 50000) {
+        setTimeout(() => {
+            alert(`⚠️ ALERTA DE MANTENIMIENTO ⚠️\n\nEl vehículo ha superado los 50,000 KM.\nRequiere cambio de aceite y revisión general preventiva en el próximo servicio.`);
+        }, 1000);
+    }
 
     $('#tripReviewText').value = '';
+    if ($('#tripEndKM')) $('#tripEndKM').value = '';
+    
     showNotification("Reseña enviada exitosamente. Vehículo liberado.");
     navigate('dashboard');
     return true;

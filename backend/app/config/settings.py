@@ -2,8 +2,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-env_path = Path(__file__).parent.parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
+env_path = Path(__file__).parent.parent.parent.parent / ".env"
+load_dotenv(dotenv_path=env_path, override=True)
 
 class Settings:
     PROJECT_TITLE: str = "AutoProof Check IA - Enterprise Backend"
@@ -11,14 +11,14 @@ class Settings:
     IS_AI_ACTIVE: bool = False
     MODEL = None
 
-    SMTP_HOST: str = os.getenv("SMTP_HOST", "")
-    SMTP_PORT: int = int(os.getenv("SMTP_PORT", "587"))
-    SMTP_USER: str = os.getenv("SMTP_USER", "")
-    SMTP_PASS: str = os.getenv("SMTP_PASS", "")
-    EMAIL_FROM: str = os.getenv("EMAIL_FROM", "no-reply@autoproof.com")
-    SMTP_USE_TLS: bool = os.getenv("SMTP_USE_TLS", "true").lower() in ["1", "true", "yes"]
-    SMTP_USE_SSL: bool = os.getenv("SMTP_USE_SSL", "false").lower() in ["1", "true", "yes"]
-    SEND_EMAILS: bool = bool(SMTP_HOST and SMTP_USER and SMTP_PASS and EMAIL_FROM)
+    SMTP_HOST: str = os.getenv("SMTP_HOST", "smtp.gmail.com")
+    SMTP_PORT: int = int(os.getenv("SMTP_PORT", "465"))
+    SMTP_USER: str = os.getenv("SMTP_USER", "yaocoepa654@gmail.com")
+    SMTP_PASS: str = os.getenv("SMTP_PASS", "jzzsbhryddtugtdb")
+    EMAIL_FROM: str = os.getenv("EMAIL_FROM", "yaocoepa654@gmail.com")
+    SMTP_USE_TLS: bool = os.getenv("SMTP_USE_TLS", "false").lower() in ["1", "true", "yes"]
+    SMTP_USE_SSL: bool = os.getenv("SMTP_USE_SSL", "true").lower() in ["1", "true", "yes"]
+    SEND_EMAILS: bool = True
 
     @classmethod
     def init_ai(cls):

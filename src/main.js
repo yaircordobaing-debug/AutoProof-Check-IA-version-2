@@ -11,6 +11,15 @@ import { evaluarReporte as runEvaluarReporte, submitFinalReport } from './servic
 import { updateDashboard } from './views/DashboardView.js';
 import { renderModals } from './components/Modals.js';
 import { renderBottomNav } from './components/Navigation.js';
+import { 
+    initAccidentReport, 
+    handleAccidentPhoto, 
+    nextAccidentPhoto, 
+    previewDoc, 
+    addWitness, 
+    removeWitness, 
+    submitAccidentReport 
+} from './services/accident.js';
 
 // --- Global State ---
 let currentUser = null;
@@ -120,14 +129,28 @@ window.appActions = {
     confirmTripSetup: () => { 
         pendingTrip = confirmTripSetup(navigate); 
         if (pendingTrip) {
-            activeTrip = { ...pendingTrip, status: 'Active', startTime: new Date().toLocaleTimeString() };
-            pendingTrip = null;
             inspectionResults = {};
             renderChecklist(inspectionResults);
             navigate('checklist');
         }
     },
+    cancelTripSetup: () => {
+        if (confirm("¿Estás seguro de que quieres cancelar el chequeo pre-viaje? Se perderá el progreso.")) {
+            pendingTrip = null;
+            inspectionResults = {};
+            navigate('dashboard');
+        }
+    },
     startOBDScan: () => runOBDScan(),
+    
+    // Accident Report Actions
+    initAccidentReport: () => initAccidentReport(navigate),
+    handleAccidentPhoto: (input) => handleAccidentPhoto(input),
+    nextAccidentPhoto: () => nextAccidentPhoto(navigate),
+    previewDoc: (input, imgId) => previewDoc(input, imgId),
+    addWitness: () => addWitness(),
+    removeWitness: (id) => removeWitness(id),
+    submitAccidentReport: () => submitAccidentReport(navigate),
     
     // Trip Lifecycle Actions
     setRating: (rating) => {
@@ -397,11 +420,24 @@ window.appActions = {
         const res = await submitFinalReport(currentFinalReport, email, reportsHistory);
         if (res) {
             $('#finalModal').classList.add('hidden');
-            activeTrip = null;
-            pendingTrip = null;
+            
+            if (pendingTrip) {
+                activeTrip = { ...pendingTrip, status: 'Active', startTime: new Date().toLocaleTimeString() };
+                pendingTrip = null;
+            }
             inspectionResults = {};
             renderChecklist(inspectionResults);
-            showNotification("Reporte generado y enviado correctamente.");
+            
+            let finalMsg = "Viaje Iniciado correctamente.";
+            if (res.email_sent) {
+                finalMsg += " 📧 ¡PDF enviado exitosamente al correo!";
+                alert("✅ ¡ÉXITO!\n\nEl reporte PDF ha sido generado y enviado exitosamente al correo que proporcionaste.\n\nHaz clic en 'Aceptar' para visualizar el documento.");
+            } else {
+                finalMsg += " ⚠️ PDF generado, pero no se pudo enviar el correo.";
+                alert("⚠️ ATENCIÓN\n\nEl reporte PDF fue generado correctamente, pero hubo un error al enviarlo al correo. Verifica la conexión o las credenciales.\n\nHaz clic en 'Aceptar' para visualizar el documento.");
+            }
+            showNotification(finalMsg);
+            
             if (res.url) {
                 window.open(res.url, '_blank');
             }
@@ -421,7 +457,18 @@ window.navigate = window.appActions.navigate;
 window.initTripSetup = window.appActions.initTripSetup;
 window.initBusTripSetup = window.appActions.initBusTripSetup;
 window.confirmTripSetup = window.appActions.confirmTripSetup;
+window.cancelTripSetup = window.appActions.cancelTripSetup;
 window.startOBDScan = window.appActions.startOBDScan;
+
+// Accident Report
+window.initAccidentReport = window.appActions.initAccidentReport;
+window.handleAccidentPhoto = window.appActions.handleAccidentPhoto;
+window.nextAccidentPhoto = window.appActions.nextAccidentPhoto;
+window.previewDoc = window.appActions.previewDoc;
+window.addWitness = window.appActions.addWitness;
+window.removeWitness = window.appActions.removeWitness;
+window.submitAccidentReport = window.appActions.submitAccidentReport;
+
 window.openModal = window.appActions.openModal;
 window.closeModal = window.appActions.closeModal;
 window.startAnalysis = window.appActions.startAnalysis;
