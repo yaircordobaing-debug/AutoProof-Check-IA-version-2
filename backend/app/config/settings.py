@@ -13,9 +13,9 @@ class Settings:
 
     SMTP_HOST: str = os.getenv("SMTP_HOST", "smtp.gmail.com")
     SMTP_PORT: int = int(os.getenv("SMTP_PORT", "465"))
-    SMTP_USER: str = os.getenv("SMTP_USER", "yaocoepa654@gmail.com")
-    SMTP_PASS: str = os.getenv("SMTP_PASS", "jzzsbhryddtugtdb")
-    EMAIL_FROM: str = os.getenv("EMAIL_FROM", "yaocoepa654@gmail.com")
+    SMTP_USER: str = os.getenv("SMTP_USER", "")
+    SMTP_PASS: str = os.getenv("SMTP_PASS", "")
+    EMAIL_FROM: str = os.getenv("EMAIL_FROM", "")
     SMTP_USE_TLS: bool = os.getenv("SMTP_USE_TLS", "false").lower() in ["1", "true", "yes"]
     SMTP_USE_SSL: bool = os.getenv("SMTP_USE_SSL", "true").lower() in ["1", "true", "yes"]
     SEND_EMAILS: bool = True
