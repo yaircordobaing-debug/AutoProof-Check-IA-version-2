@@ -13,20 +13,60 @@ const accidentSteps = [
 let currentAccidentStep = 0;
 let accidentPhotos = [];
 let witnesses = [];
+let currentGPS = { lat: null, lng: null };
 
-export function initAccidentReport(navigate) {
+export function initAccidentReport(navigate, currentUser, activeTrip) {
     currentAccidentStep = 0;
     accidentPhotos = [];
     witnesses = [];
-    
+    currentGPS = { lat: null, lng: null };
+
+    // Request Geolocation
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                currentGPS.lat = pos.coords.latitude;
+                currentGPS.lng = pos.coords.longitude;
+                showNotification("Ubicación GPS capturada con éxito.");
+            },
+            (err) => {
+                console.warn("GPS Denied or Error", err);
+                showNotification("No se pudo obtener GPS. Usa ubicación manual.");
+            },
+            { enableHighAccuracy: true, timeout: 10000 }
+        );
+    }
+
     updateAccidentPhotoUI();
     
-    // Clear Form Fields
-    ['accDriverName', 'accDriverId', 'accDriverPhone', 'accDriverLicense', 
+    // Clear Form Fields initially
+    ['accLocation', 'accSeverity', 'accDriverName', 'accDriverId', 'accDriverPhone', 'accDriverLicense', 
      'accVehiclePlate', 'accVehicleSOAT', 'accVehicleInsurance'].forEach(id => {
          const el = $(`#${id}`);
          if (el) el.value = '';
     });
+    
+    // Auto-fill Driver Data
+    if (currentUser) {
+        if ($('#accDriverName')) $('#accDriverName').value = currentUser.name || '';
+        if ($('#accDriverId')) $('#accDriverId').value = currentUser.driver_id || '';
+        if ($('#accDriverPhone')) $('#accDriverPhone').value = currentUser.phone || '';
+        if ($('#accDriverLicense')) $('#accDriverLicense').value = currentUser.license || '';
+    }
+    
+    // Auto-fill Vehicle Data
+    // Priority: 1. activeTrip.vehicle, 2. currentUser.assignedVehicle
+    const vehicle = (activeTrip && activeTrip.vehicle) ? activeTrip.vehicle : (currentUser && currentUser.assignedVehicle ? currentUser.assignedVehicle : null);
+    
+    if (vehicle) {
+        // En activeTrip guardábamos car (string), pero asumiendo vehicle object o assignedVehicle
+        // Como activeTrip.car es string, preferimos assignedVehicle si es el mismo
+        const plate = vehicle.plate || (activeTrip ? activeTrip.car : '');
+        if ($('#accVehiclePlate')) $('#accVehiclePlate').value = plate;
+    }
+    
+    const severitySelect = $('#accSeverity');
+    if (severitySelect) severitySelect.value = 'Leve';
     
     ['accDocSOAT', 'accDocLic', 'accDocProp'].forEach(id => {
         const el = $(`#${id}`);
@@ -141,6 +181,10 @@ export async function submitAccidentReport(navigate) {
     
     // Prepare the payload
     const payload = {
+        location: $('#accLocation') ? $('#accLocation').value : "",
+        severity: $('#accSeverity') ? $('#accSeverity').value : "Leve",
+        latitude: currentGPS.lat,
+        longitude: currentGPS.lng,
         driver_name: $('#accDriverName').value,
         driver_id: $('#accDriverId').value || "",
         driver_phone: $('#accDriverPhone').value || "",

@@ -94,12 +94,12 @@
                     <div class="space-y-4 mb-8 slide-up" style="animation-delay: 0.1s;">
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" placeholder="Correo corporativo"
+                            <input type="text" id="loginEmail" placeholder="Correo corporativo"
                                 class="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-jungle">
                         </div>
                         <div class="relative">
                             <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="password" placeholder="Contraseña"
+                            <input type="password" id="loginPassword" placeholder="Contraseña"
                                 class="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-jungle">
                         </div>
                         <button onclick="login(true)"
@@ -249,6 +249,13 @@
 
                     <div>
                         <label class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1"><i
+                                class="fa-solid fa-gauge-high text-jungle mr-1"></i> Kilometraje Inicial</label>
+                        <input type="number" id="tripStartKM" placeholder="Ej. 125000"
+                            class="w-full mt-1 p-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-jungle text-gray-800 font-medium">
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1"><i
                                 class="fa-solid fa-clock text-jungle mr-1"></i> Hora est. de entrega</label>
                         <input type="time" id="tripTime"
                             class="w-full mt-1 p-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-jungle text-gray-800 font-medium">
@@ -303,6 +310,20 @@
                 </header>
 
                 <div class="space-y-6">
+                    <!-- Siniestro Info -->
+                    <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-gray-800 mb-4"><i class="fa-solid fa-location-dot text-red-500 mr-2"></i>Detalles Adicionales</h3>
+                        <label class="text-xs font-bold text-gray-400 uppercase mb-1 block">Dirección / Ubicación</label>
+                        <input type="text" id="accLocation" placeholder="Ej. Autopista Norte km 15" class="w-full p-3 mb-4 bg-gray-50 border border-gray-200 rounded-xl text-sm">
+                        
+                        <label class="text-xs font-bold text-gray-400 uppercase mb-1 block">Gravedad</label>
+                        <select id="accSeverity" class="w-full p-3 mb-2 bg-gray-50 border border-gray-200 rounded-xl text-sm">
+                            <option value="Leve">Leve (Sin heridos, daños estéticos)</option>
+                            <option value="Moderado">Moderado (Daños funcionales, golpes fuertes)</option>
+                            <option value="Grave">Grave (Heridos, pérdida total, volcamiento)</option>
+                        </select>
+                    </div>
+
                     <!-- Conductor -->
                     <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100">
                         <h3 class="font-bold text-gray-800 mb-4"><i class="fa-solid fa-user text-red-500 mr-2"></i>Conductor</h3>

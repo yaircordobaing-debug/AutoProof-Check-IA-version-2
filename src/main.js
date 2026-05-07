@@ -54,6 +54,31 @@ const navigate = (viewId) => {
                     </div>
                 `).join('');
             }
+        },
+        profile: () => {
+            if (currentUser) {
+                $('#profileName').innerText = currentUser.name;
+                $('#profileEmail').innerText = currentUser.email;
+                if (currentUser.assignedVehicle) {
+                    $('#profileCarInfo').innerText = `${currentUser.assignedVehicle.brand} ${currentUser.assignedVehicle.model} (${currentUser.assignedVehicle.plate})`;
+                } else {
+                    $('#profileCarInfo').innerText = 'Sin Asignar';
+                }
+            } else {
+                $('#profileName').innerText = 'Invitado';
+                $('#profileEmail').innerText = 'Sin cuenta';
+                $('#profileCarInfo').innerText = 'Ninguno';
+            }
+        },
+        'vehicle-panel': () => {
+            if (currentUser && currentUser.assignedVehicle) {
+                const v = currentUser.assignedVehicle;
+                $('#vpPlate').innerText = v.plate;
+                $('#vpKM').innerText = `${v.current_km.toLocaleString()} KM`;
+            } else {
+                $('#vpPlate').innerText = 'Sin Vehículo';
+                $('#vpKM').innerText = '-- KM';
+            }
         }
     });
 };
@@ -121,7 +146,7 @@ window.onload = () => {
 
 // --- Expose Global Actions for index.html ---
 window.appActions = {
-    login: (isUser) => { currentUser = handleLogin(isUser, navigate); },
+    login: async (isUser) => { currentUser = await handleLogin(isUser, navigate); },
     logout: () => { currentUser = handleLogout(navigate); activeTrip = null; },
     navigate: navigate,
     initTripSetup: () => initTripSetup(currentUser, ["Mazda 3", "Toyota Hilux"], navigate),
@@ -144,7 +169,7 @@ window.appActions = {
     startOBDScan: () => runOBDScan(),
     
     // Accident Report Actions
-    initAccidentReport: () => initAccidentReport(navigate),
+    initAccidentReport: () => initAccidentReport(navigate, currentUser, activeTrip),
     handleAccidentPhoto: (input) => handleAccidentPhoto(input),
     nextAccidentPhoto: () => nextAccidentPhoto(navigate),
     previewDoc: (input, imgId) => previewDoc(input, imgId),

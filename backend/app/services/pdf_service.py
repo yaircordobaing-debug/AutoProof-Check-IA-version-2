@@ -225,6 +225,16 @@ class PDFService:
         pdf.cell(100, 8, txt=f"VEHÍCULO (PLACA): {request.vehicle_plate.upper()}", ln=True)
         pdf.set_x(15)
         pdf.cell(100, 8, txt=f"FECHA: {datetime.now().strftime('%d/%m/%Y %H:%M')}", ln=True)
+
+        pdf.set_x(15)
+        pdf.cell(100, 8, txt=f"GRAVEDAD: {request.severity.upper()}", ln=True)
+        
+        if request.location or (request.latitude and request.longitude):
+            pdf.set_x(15)
+            loc_text = f"UBICACIÓN: {request.location}"
+            if request.latitude and request.longitude:
+                loc_text += f" (GPS: {request.latitude}, {request.longitude})"
+            pdf.cell(100, 8, txt=loc_text, ln=True)
         
         # --- FOTOS DEL ACCIDENTE ---
         pdf.ln(15)

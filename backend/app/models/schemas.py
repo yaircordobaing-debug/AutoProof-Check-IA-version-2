@@ -22,6 +22,10 @@ class ReportRequest(BaseModel):
     signature: Optional[str] = ""
 
 class AccidentReportRequest(BaseModel):
+    location: Optional[str] = ""
+    severity: Optional[str] = "Leve"
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
     driver_name: str
     driver_id: str
     driver_phone: str

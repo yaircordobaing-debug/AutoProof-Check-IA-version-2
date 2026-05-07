@@ -13,6 +13,7 @@ export function initTripSetup(currentUser, companyFleet, navigate) {
     }
 
     $('#tripTime').value = '';
+    if ($('#tripStartKM')) $('#tripStartKM').value = '';
     
     navigate('trip-setup');
 }
@@ -30,12 +31,20 @@ export function initBusTripSetup(currentUser, companyFleet, navigate) {
     }
 
     $('#tripTime').value = '';
+    if ($('#tripStartKM')) $('#tripStartKM').value = '';
     
     navigate('trip-setup');
 }
 
 export function confirmTripSetup(navigate) {
     const time = $('#tripTime').value;
+    const startKm = $('#tripStartKM') ? $('#tripStartKM').value : '';
+
+    if (!startKm || isNaN(startKm) || parseInt(startKm) <= 0) {
+        showNotification("Es obligatorio ingresar un kilometraje inicial válido.");
+        return null;
+    }
+
     if (!time) {
         showNotification("Es obligatorio ingresar la hora estimada de entrega.");
         return null;
@@ -44,7 +53,8 @@ export function confirmTripSetup(navigate) {
     const pendingTrip = {
         car: $('#tripCar').value,
         driver: $('#tripDriver').value,
-        time: time
+        time: time,
+        startKm: parseInt(startKm)
     };
 
     return pendingTrip;
