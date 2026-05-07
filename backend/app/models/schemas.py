@@ -20,3 +20,17 @@ class ReportRequest(BaseModel):
     status: str
     email: str
     signature: Optional[str] = ""
+
+class AccidentReportRequest(BaseModel):
+    driver_name: str
+    driver_id: str
+    driver_phone: str
+    driver_license: str
+    vehicle_plate: str
+    vehicle_soat: str
+    vehicle_insurance: str
+    photos: List[str] # List of base64 images
+    witnesses: List[dict] # Not implemented completely but good to have
+    doc_soat: Optional[str] = ""
+    doc_lic: Optional[str] = ""
+    doc_prop: Optional[str] = ""

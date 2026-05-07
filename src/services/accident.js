@@ -130,13 +130,52 @@ export function removeWitness(id) {
     witnesses = witnesses.filter(w => w !== id);
 }
 
-export function submitAccidentReport(navigate) {
+export async function submitAccidentReport(navigate) {
     // Basic validation
     if (!$('#accDriverName').value || !$('#accVehiclePlate').value) {
         showNotification("Completa al menos el nombre del conductor y la placa del vehículo.");
         return;
     }
     
-    showNotification("Reporte de accidente enviado exitosamente.");
-    navigate('dashboard');
+    showNotification("Enviando reporte y generando PDF...", 5000);
+    
+    // Prepare the payload
+    const payload = {
+        driver_name: $('#accDriverName').value,
+        driver_id: $('#accDriverId').value || "",
+        driver_phone: $('#accDriverPhone').value || "",
+        driver_license: $('#accDriverLicense').value || "",
+        vehicle_plate: $('#accVehiclePlate').value,
+        vehicle_soat: $('#accVehicleSOAT').value || "",
+        vehicle_insurance: $('#accVehicleInsurance').value || "",
+        photos: accidentPhotos.filter(p => p !== undefined && p !== null),
+        witnesses: [], // Empty for now, but could be parsed from UI
+        doc_soat: $('#accDocSOAT') && !$('#accDocSOAT').classList.contains('hidden') ? $('#accDocSOAT').src : "",
+        doc_lic: $('#accDocLic') && !$('#accDocLic').classList.contains('hidden') ? $('#accDocLic').src : "",
+        doc_prop: $('#accDocProp') && !$('#accDocProp').classList.contains('hidden') ? $('#accDocProp').src : ""
+    };
+
+    try {
+        const response = await fetch('http://localhost:8000/v1/generate-accident-report', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Accident Report Generated:", data);
+        
+        showNotification("Reporte generado exitosamente. PDF guardado.");
+        navigate('dashboard');
+    } catch (error) {
+        console.error("Error generating accident report:", error);
+        showNotification("Error al enviar el reporte. Intenta de nuevo.");
+    }
 }
+

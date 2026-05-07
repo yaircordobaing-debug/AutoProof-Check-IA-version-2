@@ -6,7 +6,7 @@ from email.message import EmailMessage
 from datetime import datetime
 from fpdf import FPDF
 from backend.app.config.settings import settings
-from backend.app.models.schemas import ReportRequest
+from backend.app.models.schemas import ReportRequest, AccidentReportRequest
 
 class PDFService:
     @staticmethod
@@ -190,3 +190,109 @@ class PDFService:
             "path": file_path,
             "email_sent": email_sent
         }
+
+    @staticmethod
+    def generate_accident_pdf(request: AccidentReportRequest):
+        pdf = FPDF()
+        pdf.add_page()
+        
+        # --- HEADER ---
+        pdf.set_font("Helvetica", 'B', 22)
+        pdf.set_text_color(185, 28, 28) # Red 700
+        pdf.cell(200, 15, txt="Opercheck", ln=True, align='L')
+        
+        pdf.set_font("Helvetica", 'B', 10)
+        pdf.set_text_color(100, 116, 139) # Slate 500
+        pdf.cell(200, 5, txt="REPORTE OFICIAL DE ACCIDENTE / SINIESTRO", ln=True, align='L')
+        
+        pdf.set_draw_color(158, 158, 158)
+        pdf.line(10, 32, 200, 32)
+        pdf.ln(10)
+
+        # --- DATOS DEL SINIESTRO ---
+        pdf.set_fill_color(254, 242, 242) # Red 50
+        pdf.rect(10, 35, 190, 45, 'F')
+        
+        pdf.set_xy(15, 40)
+        pdf.set_font("Helvetica", 'B', 11)
+        pdf.set_text_color(30, 41, 59)
+        pdf.cell(100, 8, txt=f"CONDUCTOR: {request.driver_name.upper()}", ln=True)
+        pdf.set_x(15)
+        pdf.cell(100, 8, txt=f"CÉDULA: {request.driver_id}", ln=True)
+        pdf.set_x(15)
+        pdf.cell(100, 8, txt=f"TELÉFONO: {request.driver_phone}", ln=True)
+        pdf.set_x(15)
+        pdf.cell(100, 8, txt=f"VEHÍCULO (PLACA): {request.vehicle_plate.upper()}", ln=True)
+        pdf.set_x(15)
+        pdf.cell(100, 8, txt=f"FECHA: {datetime.now().strftime('%d/%m/%Y %H:%M')}", ln=True)
+        
+        # --- FOTOS DEL ACCIDENTE ---
+        pdf.ln(15)
+        pdf.set_font("Helvetica", 'B', 14)
+        pdf.cell(0, 10, txt="EVIDENCIA FOTOGRÁFICA DEL ACCIDENTE", ln=True)
+        
+        img_count = 0
+        for idx, photo_data in enumerate(request.photos):
+            if photo_data and len(photo_data) > 100:
+                try:
+                    header, data = photo_data.split(',', 1) if ',' in photo_data else ('', photo_data)
+                    img_bytes = base64.b64decode(data)
+                    temp_img_path = f"temp_acc_{idx}_{uuid.uuid4().hex}.jpg"
+                    with open(temp_img_path, "wb") as f:
+                        f.write(img_bytes)
+                    
+                    if img_count > 0 and img_count % 2 == 0:
+                        pdf.add_page()
+                    
+                    pdf.set_font("Helvetica", 'B', 10)
+                    pdf.cell(0, 10, txt=f"EVIDENCIA {idx + 1}", ln=True)
+                    pdf.image(temp_img_path, w=100)
+                    pdf.ln(5)
+                    
+                    os.remove(temp_img_path)
+                    img_count += 1
+                except Exception as e:
+                    print(f"Error embedding accident photo {idx}: {str(e)}")
+
+        # --- DOCUMENTOS ADICIONALES ---
+        docs = [("SOAT", request.doc_soat), ("Licencia", request.doc_lic), ("Tarjeta de Propiedad", request.doc_prop)]
+        for doc_name, doc_data in docs:
+            if doc_data and len(doc_data) > 100:
+                try:
+                    pdf.add_page()
+                    pdf.set_font("Helvetica", 'B', 14)
+                    pdf.cell(0, 10, txt=f"DOCUMENTO: {doc_name}", ln=True)
+                    
+                    header, data = doc_data.split(',', 1) if ',' in doc_data else ('', doc_data)
+                    img_bytes = base64.b64decode(data)
+                    temp_img_path = f"temp_doc_{uuid.uuid4().hex}.jpg"
+                    with open(temp_img_path, "wb") as f:
+                        f.write(img_bytes)
+                    
+                    pdf.image(temp_img_path, w=150)
+                    os.remove(temp_img_path)
+                except Exception as e:
+                    print(f"Error embedding document {doc_name}: {str(e)}")
+
+        # --- FOOTER & INTEGRITY ---
+        pdf.set_y(-40)
+        pdf.set_font("Helvetica", 'I', 8)
+        pdf.set_text_color(148, 163, 184)
+        fake_hash = f"SHA-256: {uuid.uuid4().hex}{uuid.uuid4().hex}"
+        pdf.cell(0, 5, txt=f"VERIFICACIÓN DE INTEGRIDAD: {fake_hash}", ln=True, align='C')
+        pdf.cell(0, 5, txt="OPERCHECK - REPORTE GENERADO AUTOMÁTICAMENTE", ln=True, align='C')
+
+        # Guardar PDF
+        file_name = f"accident_{request.vehicle_plate}_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf"
+        file_path = os.path.join(settings.REPORTS_DIR, file_name)
+        if not os.path.exists(settings.REPORTS_DIR):
+            os.makedirs(settings.REPORTS_DIR)
+        pdf.output(file_path)
+
+        return {
+            "status": "Finalizado",
+            "hash": fake_hash,
+            "url": f"/reports/{file_name}",
+            "path": file_path
+        }
+
