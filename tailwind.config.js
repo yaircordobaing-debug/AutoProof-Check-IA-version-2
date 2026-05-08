@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        jungle: '#6b9080',
-        muted: '#a4c3b2',
-        frozen: '#cce3de',
-        azure: '#eaf4f4',
-        mint: '#f6fff8',
+        jungle: '#1F6F5F',
+        muted: '#2FA084',
+        frozen: '#6FCF97',
+        azure: '#EEEEEE',
+        mint: '#FFFFFF',
         alert: '#e63946',
         warning: '#fbc02d'
       },
