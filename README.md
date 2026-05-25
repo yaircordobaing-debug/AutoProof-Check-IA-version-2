@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="https://via.placeholder.com/150/6b9080/ffffff?text=AutoProof+Check+IA" alt="AutoProof Check IA Logo" height="120">
+  <img src="https://via.placeholder.com/150/6b9080/ffffff?text=Opercheck+Check+IA" alt="Opercheck IA Logo" height="120">
   
-  # AutoProof Check IA
+  # Opercheck IA
   
   **Auditoría y Gestión de Flotas Vehiculares asistida por IA Multimodal**  
   *Convertimos inspecciones manuales vulnerables en certificaciones blindadas e inmutables.*
@@ -19,9 +19,9 @@
 Las empresas de logística y transporte enfrentan un enorme dolor operativo: **las inspecciones pre-viaje son manuales, subjetivas y altamente susceptibles a fraude**.
 Cuando ocurre un siniestro, la falta de evidencia forense (fotos con timestamp verificado, análisis objetivo) y exenciones de responsabilidad digital provocan **pérdidas millonarias por disputas** entre aseguradoras, conductores y dueños de la flota.
 
-## 🚀 La Solución: AutoProof Check IA
+## 🚀 La Solución: Opercheck IA
 
-**AutoProof Check IA** es una plataforma Enterprise PWA que transforma un simple teléfono móvil en un **perito técnico digital auditable**. 
+**Opercheck IA** es una plataforma Enterprise PWA que transforma un simple teléfono móvil en un **perito técnico digital auditable**. 
 
 A través de Inteligencia Artificial (Gemini Vision) y un flujo legal estructurado, la plataforma valida daños, piezas mecánicas y niveles de fluidos en tiempo real. En caso de fallas de la IA o sensores (OBD-II), el sistema activa un **flujo legal (Bypass de Responsabilidad)** que obliga al usuario a firmar digitalmente.
 
@@ -48,9 +48,9 @@ Diseñado para la escalabilidad y modularización, el proyecto divide la lógica
 ### Pasos
 1. **Clonar repositorio e inicializar entorno:**
    ```bash
-   git clone https://github.com/tu-usuario/AutoProof-Check-IA.git
-   git clone https://github.com/yaircordobaing-debug/AutoProof-Check-IA-version-2.git
-   cd AutoProof-Check-IA
+   git clone https://github.com/tu-usuario/Opercheck-Check-IA.git
+   git clone https://github.com/yaircordobaing-debug/Opercheck-Check-IA-version-2.git
+   cd Opercheck-Check-IA
    ```
 
 2. **Frontend (Vite):**

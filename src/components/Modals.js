@@ -208,5 +208,36 @@ export function renderModals() {
                 </div>
             </div>
         </div>
+
+        <!-- ================= MODAL RESULTADO PDF (PREMIUM ALERT) ================= -->
+        <div id="pdfResultModal" class="fixed inset-0 bg-black/80 z-[90] hidden flex-col justify-center items-center p-4 backdrop-blur-md">
+            <div class="bg-[#141a1f] border border-white/10 rounded-[2rem] w-full max-w-sm overflow-hidden shadow-2xl flex flex-col p-6 text-center">
+                <div id="pdfResultIconContainer" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4">
+                    <i id="pdfResultIcon" class="fa-solid text-3xl"></i>
+                </div>
+                <h3 id="pdfResultTitle" class="font-bold text-xl text-white mb-2 font-outfit"></h3>
+                <p id="pdfResultMsg" class="text-gray-300 text-sm mb-6 leading-relaxed whitespace-pre-line"></p>
+                <button id="pdfResultBtn" class="w-full py-4 bg-jungle text-white font-bold rounded-2xl shadow-lg hover:brightness-110 active:scale-95 transition-all text-sm uppercase tracking-wide">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= MODAL PREOPERACIONAL IA (EN CONSTRUCCIÓN) ================= -->
+        <div id="preopIAModal" class="fixed inset-0 bg-black/80 z-[95] hidden flex-col justify-center items-center p-4 backdrop-blur-md">
+            <div class="bg-[#141a1f] border border-white/10 rounded-[2rem] w-full max-w-sm overflow-hidden shadow-2xl flex flex-col p-6 text-center relative">
+                <button onclick="document.getElementById('preopIAModal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+                <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 bg-purple-500/10 border border-purple-500/20">
+                    <i class="fa-solid fa-wand-magic-sparkles text-3xl text-purple-400 animate-pulse"></i>
+                </div>
+                <h3 class="font-bold text-xl text-white mb-2 font-outfit">Próximamente</h3>
+                <p class="text-gray-300 text-sm mb-6 leading-relaxed">La funcionalidad de Preoperacional IA no está disponible en este momento. Se realizará el análisis con IA a llantas, vidrios, detección de funcionamiento de las luces, kit de carretera, entre otros componentes, y estará habilitado en muy poco tiempo.</p>
+                <button onclick="document.getElementById('preopIAModal').classList.add('hidden')" class="w-full py-4 bg-jungle hover:bg-jungle/90 text-white font-bold rounded-2xl shadow-lg active:scale-95 transition-all text-sm uppercase tracking-wide">
+                    Entendido
+                </button>
+            </div>
+        </div>
     `;
 }

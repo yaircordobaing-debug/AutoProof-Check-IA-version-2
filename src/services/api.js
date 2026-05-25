@@ -31,5 +31,15 @@ export async function generateReportAPI(reportData) {
     });
     
     if (!response.ok) throw new Error("Error generating report");
-    return await response.json();
+    const data = await response.json();
+    
+    // Convertir URL relativa a absoluta para que el frontend pueda abrir el PDF correctamente
+    if (data.url && !data.url.startsWith('http')) {
+        // Asegurarse de que API_BASE_URL no termine en slash y data.url empiece con slash
+        const baseUrl = API_BASE_URL.replace(/\/$/, '');
+        const pathUrl = data.url.startsWith('/') ? data.url : `/${data.url}`;
+        data.url = `${baseUrl}${pathUrl}`;
+    }
+    
+    return data;
 }

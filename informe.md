@@ -1,7 +1,7 @@
-# Informe Técnico: AutoProof Check IA
+# Informe Técnico: Opercheck IA
 
 ## 1. Resumen Ejecutivo
-**AutoProof Check IA** es una solución de nivel empresarial diseñada para transformar las inspecciones vehiculares manuales en procesos auditables, inmutables y asistidos por Inteligencia Artificial Multimodal. El proyecto aborda el problema crítico del fraude y la subjetividad en los checklists pre-viaje del sector logístico, utilizando **Gemini 1.5 Flash** para validación visual y acústica.
+**Opercheck IA** es una solución de nivel empresarial diseñada para transformar las inspecciones vehiculares manuales en procesos auditables, inmutables y asistidos por Inteligencia Artificial Multimodal. El proyecto aborda el problema crítico del fraude y la subjetividad en los checklists pre-viaje del sector logístico, utilizando **Gemini 1.5 Flash** para validación visual y acústica.
 
 La plataforma ofrece una ventaja competitiva mediante el "Blindaje Legal" (protocolo LEG), asegurando que cada inspección genere un rastro de evidencia forense protegido por hash criptográfico, reduciendo drásticamente las disputas con aseguradoras.
 

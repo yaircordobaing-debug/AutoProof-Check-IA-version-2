@@ -1,4 +1,4 @@
-# Plan de Mejoras y Escalabilidad: AutoProof Check IA
+# Plan de Mejoras y Escalabilidad: Opercheck IA
 
 ## 1. Propuesta de Arquitectura
 Para escalar a un nivel Enterprise, se recomienda la transición de un monolito acoplado a una **Arquitectura Modular Orientada a Servicios**:

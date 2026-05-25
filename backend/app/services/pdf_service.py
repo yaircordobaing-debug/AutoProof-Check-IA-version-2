@@ -22,7 +22,7 @@ class PDFService:
                 f"Adjunto encontrarás el reporte de inspección {request.trip_id}.\n\n"
                 f"Estado: {request.status}\n"
                 f"Score: {request.score}%\n\n"
-                "Gracias por usar AutoProof Check IA."
+                "Gracias por usar Opercheck IA."
             )
             with open(file_path, 'rb') as f:
                 pdf_data = f.read()
@@ -52,7 +52,7 @@ class PDFService:
         # Header
         pdf.set_font("Helvetica", 'B', 22)
         pdf.set_text_color(30, 41, 59)
-        pdf.cell(200, 15, txt="AutoProof Check IA", ln=True, align='L')
+        pdf.cell(200, 15, txt="Opercheck IA", ln=True, align='L')
         
         pdf.set_font("Helvetica", 'B', 10)
         pdf.set_text_color(100, 116, 139)

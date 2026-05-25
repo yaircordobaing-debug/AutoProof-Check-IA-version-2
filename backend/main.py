@@ -39,7 +39,7 @@ except Exception as e:
     except Exception as e2:
         print(f"Simulation Mode Active: {str(e2)}")
 
-app = FastAPI(title="AutoProof Check IA - Enterprise Backend")
+app = FastAPI(title="Opercheck IA - Enterprise Backend")
 
 app.add_middleware(
     CORSMiddleware,
@@ -162,7 +162,7 @@ async def generate_report(request: ReportRequest):
     # --- HEADER & BRANDING ---
     pdf.set_font("Helvetica", 'B', 22)
     pdf.set_text_color(30, 41, 59) # Slate 800
-    pdf.cell(200, 15, txt="AutoProof Check IA", ln=True, align='L')
+    pdf.cell(200, 15, txt="Opercheck IA", ln=True, align='L')
     
     pdf.set_font("Helvetica", 'B', 10)
     pdf.set_text_color(100, 116, 139) # Slate 500
@@ -306,7 +306,7 @@ async def generate_report(request: ReportRequest):
     pdf.set_text_color(148, 163, 184)
     fake_hash = f"SHA-256: {uuid.uuid4().hex}{uuid.uuid4().hex}"
     pdf.cell(0, 5, txt=f"VERIFICACIÓN DE INTEGRIDAD: {fake_hash}", ln=True, align='C')
-    pdf.cell(0, 5, txt="AUTOPROOF CHECK IA - SISTEMA DE GESTIÓN DE FLOTAS AUDITABLE", ln=True, align='C')
+    pdf.cell(0, 5, txt="OPERCHECK CHECK IA - SISTEMA DE GESTIÓN DE FLOTAS AUDITABLE", ln=True, align='C')
 
     # Guardar PDF
     file_name = f"report_{request.trip_id}_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf"
