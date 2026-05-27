@@ -1,4 +1,4 @@
-export const saasCompanies = {
+data = '''export const saasCompanies = {
     "transbus": {
         id: "transbus",
         name: "TransBus S.A.",
@@ -112,3 +112,7 @@ export const globalSystemLogs = [
 export const superAdmins = [
     { id: "sa1", name: "Super Admin Global", email: "super@autoproof.co", role: "superadmin", password: "super" }
 ];
+'''
+
+with open('src/data/saasData.js', 'w', encoding='utf-8') as f:
+    f.write(data)

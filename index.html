@@ -208,7 +208,7 @@
                             <p class="text-[10px] text-gray-400 mb-2 leading-relaxed">Selecciona un perfil de demostración para rellenar de forma segura sus credenciales:</p>
                             
                             <!-- Carlos Gómez -->
-                            <div onclick="window.appActions.fillCredentials('carlos.gomez@transbus.co', 'carlos123')" 
+                            <div onclick="window.appActions.fillCredentials('carlos.gomez@transbus.co', '123')" 
                                  class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-slateNavy transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
@@ -221,7 +221,7 @@
                             </div>
 
                             <!-- Jorge Herrera -->
-                            <div onclick="window.appActions.fillCredentials('jorge.herrera@logitruck.co', 'jorge123')" 
+                            <div onclick="window.appActions.fillCredentials('jorge.herrera@logitruck.co', '123')" 
                                  class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-sage transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
@@ -234,7 +234,7 @@
                             </div>
 
                             <!-- Juan Pérez -->
-                            <div onclick="window.appActions.fillCredentials('juan.perez@transporte.co', 'juan123')" 
+                            <div onclick="window.appActions.fillCredentials('juan.perez@transporte.co', '123')" 
                                  class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-fern transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
@@ -284,9 +284,21 @@
                                 </div>
                                 <span class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
                             </div>
+                            <!-- Super Admin Global -->
+                            <div onclick="window.appActions.fillCredentials('super@autoproof.co', 'super')" 
+                                 class="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20 hover:border-purple-400/50 transition-all cursor-pointer flex justify-between items-center group/item col-span-2">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-globe text-purple-400 text-[10px]"></i>
+                                        <span class="text-xs font-bold text-white">Super Admin Global</span>
+                                    </div>
+                                    <p class="text-[9px] text-gray-400">Dueño del SaaS</p>
+                                </div>
+                                <span class="text-[9px] text-purple-400 group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                            </div>
 
                             <!-- Super Admin Global -->
-                            <div onclick="window.appActions.fillCredentials('superadmin@opercheck.ia', 'superadmin123')" 
+                            <div onclick="window.appActions.fillCredentials('super@autoproof.co', 'super')" 
                                  class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-sage/40 transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
@@ -396,7 +408,7 @@
                     </button>
 
                     <!-- Weekly Deep IA Checklist -->
-                    <button id="btnStartBusTrip" onclick="window.appActions.showPreopIAModal()"
+                    <button id="btnStartBusTrip" onclick="startPreoperacional(true)"
                         class="w-full py-6 bg-gradient-to-r from-fern to-jungle hover:from-purple-700 hover:to-indigo-700 text-white rounded-3xl shadow-xl flex items-center justify-between px-6 active:scale-95 transition-transform relative overflow-hidden">
                         <div class="flex items-center gap-4">
                             <div class="p-3 bg-white/10 rounded-2xl animate-pulse"><i class="fa-solid fa-wand-magic-sparkles text-xl text-white"></i></div>

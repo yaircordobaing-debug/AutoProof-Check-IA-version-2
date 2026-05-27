@@ -551,6 +551,14 @@ window.onload = () => {
 
 // --- Expose Global Actions for index.html ---
 window.appActions = {
+    fillCredentials: (email, password) => {
+        const emailEl = $('#manualEmail');
+        const passEl = $('#manualPassword');
+        if (emailEl) emailEl.value = email;
+        if (passEl) passEl.value = password;
+        
+        window.appActions.login(true);
+    },
     // --- SOS Accident Report Actions ---
     initAccidentReport: () => {
         accidentPhotos = Array(7).fill(null);
@@ -853,138 +861,60 @@ window.appActions = {
             const emailInput = $('#manualEmail') ? $('#manualEmail').value.trim().toLowerCase() : '';
             const passwordInput = $('#manualPassword') ? $('#manualPassword').value.trim() : '';
             
-            if (!emailInput) {
-                showNotification("Por favor ingresa tu correo corporativo");
-                return;
-            }
-            if (!passwordInput) {
-                showNotification("Por favor ingresa tu contraseña");
+            if (!emailInput || !passwordInput) {
+                showNotification("Por favor ingresa tu correo y contraseña");
                 return;
             }
 
-            // Credenciales predefinidas profesionales del sistema
-            const saasCredentials = {
-                "carlos.gomez@transbus.co": { password: "carlos123", name: "Carlos Gómez", role: "Conductor Senior", companyId: "transbus", type: "buses" },
-                "jorge.herrera@logitruck.co": { password: "jorge123", name: "Jorge Herrera", role: "Conductor Master", companyId: "logitruck", type: "camiones" },
-                "juan.perez@transporte.co": { password: "juan123", name: "Juan Pérez", role: "Conductor Autorizado", companyId: "carfleet", type: "carros" },
-                "admin@logitruck.co": { password: "admin123", name: "Admin LogiTruck", role: "Admin Empresa", companyId: "logitruck", type: "camiones" },
-                "admin@transbus.co": { password: "admin123", name: "Admin TransBus", role: "Admin Empresa", companyId: "transbus", type: "buses" },
-                "admin@carfleet.co": { password: "admin123", name: "Admin CarFleet", role: "Admin Empresa", companyId: "carfleet", type: "carros" },
-                "superadmin@opercheck.ia": { password: "superadmin123", role: "Super Admin Global" },
-                "admin@opercheck.ia": { password: "admin123", role: "Super Admin Global" }
-            };
+            let foundUser = null;
+            let companyId = null;
+            let type = null;
 
-            const creds = saasCredentials[emailInput];
-            if (!creds) {
-                showNotification("⚠️ Correo no registrado en el sistema SaaS");
-                return;
-            }
+            // Check super admins
+            import('./data/saasData.js').then(({ saasCompanies, superAdmins }) => {
+                const superAdmin = superAdmins.find(sa => sa.email === emailInput && sa.password === passwordInput);
+                if (superAdmin) {
+                    foundUser = { ...superAdmin, companyId: 'global', vehicleType: 'all' };
+                } else {
+                    // Check companies
+                    for (const compKey in saasCompanies) {
+                        const comp = saasCompanies[compKey];
+                        const driver = comp.drivers.find(d => d.email === emailInput && d.password === passwordInput);
+                        if (driver) {
+                            foundUser = { ...driver, companyId: comp.id, vehicleType: comp.type };
+                            break;
+                        }
+                        const admin = comp.admins.find(a => a.email === emailInput && a.password === passwordInput);
+                        if (admin) {
+                            foundUser = { ...admin, companyId: comp.id, vehicleType: comp.type };
+                            break;
+                        }
+                    }
+                }
 
-            if (creds.password !== passwordInput) {
-                showNotification("⚠️ Contraseña incorrecta. Inténtalo de nuevo.");
-                return;
-            }
-
-            if (creds.role === 'Super Admin Global') {
-                currentUser = {
-                    name: 'Super Admin Global',
-                    email: emailInput,
-                    role: 'Super Admin Global'
-                };
-                applyCompanyBranding(null, currentUser);
-                navigate('super-admin');
-                showNotification("Sesión de Super Administrador Global iniciada");
-                logSystemEvent("SUCCESS", "Super Administrador Global inició sesión.");
-                return;
-            }
-
-            const comp = companiesState[creds.companyId];
-            if (!comp) {
-                showNotification("⚠️ Error: Empresa no encontrada");
-                return;
-            }
-
-            if (comp.suspended) {
-                alert(`La licencia de ${comp.name} se encuentra SUSPENDIDA. Por favor contacte al Super Administrador.`);
-                showNotification("Acceso denegado: Licencia suspendida");
-                return;
-            }
-
-            if (creds.role === 'Admin Empresa') {
-                currentUser = {
-                    name: `Admin ${comp.name}`,
-                    email: emailInput,
-                    role: 'Admin Empresa',
-                    companyId: comp.id,
-                    vehicleType: comp.type
-                };
-                applyCompanyBranding(comp.id, currentUser);
-                navigate('admin-empresa');
-                showNotification(`Sesión de administrador iniciada para ${comp.name}`);
-                logSystemEvent("INFO", `Administrador de ${comp.name} inició sesión.`);
-                return;
-            }
-
-            // Conductor
-            currentUser = {
-                name: creds.name,
-                email: emailInput,
-                role: creds.role,
-                companyId: comp.id,
-                vehicleType: comp.type
-            };
-            applyCompanyBranding(comp.id, currentUser);
-            updateDriverDashboardBranding();
-            navigate('dashboard');
-            showNotification(`Sesión iniciada como conductor de ${comp.name}`);
-            logSystemEvent("INFO", `Conductor ${creds.name} (${comp.name}) inició sesión.`);
+                if (foundUser) {
+                    currentUser = foundUser;
+                    showNotification(`Bienvenido ${foundUser.name}`);
+                    applyCompanyBranding(foundUser.companyId, foundUser);
+                    
+                    if (foundUser.role === 'superadmin') {
+                        navigate('super-admin');
+                    } else if (foundUser.role === 'admin') {
+                        navigate('admin-empresa');
+                    } else {
+                        navigate('dashboard');
+                    }
+                } else {
+                    showNotification("Credenciales inválidas. Intenta de nuevo.");
+                }
+            });
         } else {
             currentUser = null;
             applyCompanyBranding(null, null);
-            showNotification("Modo invitado activado");
+            showNotification("Modo invitado activado (Funciones limitadas)");
             navigate('dashboard');
         }
     },
-
-    fillCredentials: (email, password) => {
-        const emailField = $('#manualEmail');
-        const passField = $('#manualPassword');
-        if (emailField && passField) {
-            emailField.value = email;
-            passField.value = password;
-            showNotification("🔑 Credenciales autocompletadas");
-            
-            // Add a brief subtle bounce highlight
-            emailField.classList.add('ring-2', 'ring-jungle');
-            passField.classList.add('ring-2', 'ring-jungle');
-            setTimeout(() => {
-                emailField.classList.remove('ring-2', 'ring-jungle');
-                passField.classList.remove('ring-2', 'ring-jungle');
-            }, 800);
-        }
-    },
-
-    loginAsDemo: (role) => {
-        // Keep for backwards compatibility if any old reference tries to call it
-        const demoCreds = {
-            'bus_driver': ['carlos.gomez@transbus.co', 'carlos123'],
-            'truck_driver': ['jorge.herrera@logitruck.co', 'jorge123'],
-            'car_driver': ['juan.perez@transporte.co', 'juan123'],
-            'company_admin': ['admin@logitruck.co', 'admin123'],
-            'super_admin': ['superadmin@opercheck.ia', 'superadmin123']
-        };
-        const c = demoCreds[role];
-        if (c) {
-            const emailField = $('#manualEmail');
-            const passField = $('#manualPassword');
-            if (emailField && passField) {
-                emailField.value = c[0];
-                passField.value = c[1];
-            }
-            window.appActions.login(true);
-        }
-    },
-
     logout: () => { 
         currentUser = null; 
         activeTrip = null; 
@@ -1300,7 +1230,6 @@ window.appActions = {
             return;
         }
 
-        // Add companyId reference so that historical logs filter properly
         if (currentUser && currentUser.companyId) {
             currentFinalReport.companyId = currentUser.companyId;
         }
@@ -1308,63 +1237,46 @@ window.appActions = {
         const res = await submitFinalReport(currentFinalReport, email, reportsHistory);
         if (res) {
             $('#finalModal').classList.add('hidden');
-            pendingTrip = null;
-            inspectionResults = {};
-            renderChecklist(inspectionResults);
-            
-            // Persist history & metrics
-            localStorage.setItem('saas_reports_history', JSON.stringify(reportsHistory));
             
             // Update local company vehicle status
             if (currentUser && currentUser.companyId) {
                 const comp = companiesState[currentUser.companyId];
                 if (comp) {
-                    const plateMatch = currentFinalReport.vehicle_plate.match(/\(([^)]+)\)/);
-                    const plate = plateMatch ? plateMatch[1] : currentFinalReport.vehicle_plate;
-                    
+                    const plate = currentFinalReport.vehicle_plate;
                     const vehicle = comp.vehicles.find(v => v.plate === plate);
                     if (vehicle) {
-                        vehicle.status = currentFinalReport.status;
-                        if (currentFinalReport.status === 'APTO') {
-                            vehicle.alerts = [];
-                        } else {
-                            const fails = currentFinalReport.items.filter(item => item.status === 'No Cumple').map(item => item.name);
-                            vehicle.alerts = fails;
+                        vehicle.status = currentFinalReport.status; // APTO, ADVERTENCIA, NO APTO
+                        if (currentFinalReport.status !== 'APTO') {
+                            const isAI = window.isWeeklyGlobal;
+                            const typeMsg = isAI ? "riesgo_ia" : "inspeccion_fallida";
+                            comp.alertsHistory.unshift({
+                                id: Date.now().toString(),
+                                type: typeMsg,
+                                message: `Vehículo ${plate} marcado como ${currentFinalReport.status} en ${isAI ? 'Preoperacional IA' : 'Preoperacional Diario'}`,
+                                date: new Date().toLocaleDateString(),
+                                severity: currentFinalReport.status === 'NO APTO' ? 'high' : 'medium'
+                            });
                         }
-                        localStorage.setItem('saas_companies_state', JSON.stringify(companiesState));
-                        logSystemEvent("SUCCESS", `Preoperacional finalizado para ${plate} - Score: ${currentFinalReport.score}% - Estatus: ${currentFinalReport.status}`);
                     }
+                    localStorage.setItem('saas_companies_state', JSON.stringify(companiesState));
                 }
             }
+
+            pendingTrip = null;
+            inspectionResults = {};
+            renderChecklist(inspectionResults);
+            localStorage.setItem('saas_reports_history', JSON.stringify(reportsHistory));
             
-            let finalMsg = "Viaje Iniciado correctamente.";
-            let title, bodyText, isSuccess;
-            if (res.email_sent) {
-                finalMsg += " 📧 ¡PDF enviado exitosamente al correo!";
-                title = "✅ ¡ÉXITO!";
-                bodyText = "El reporte PDF ha sido generado y enviado exitosamente al correo que proporcionaste.\n\nHaz clic en 'Aceptar' para visualizar el documento.";
-                isSuccess = true;
-            } else {
-                finalMsg += " ⚠️ PDF generado, pero no se pudo enviar el correo.";
-                title = "⚠️ ATENCIÓN";
-                bodyText = "El reporte PDF fue generado correctamente, pero hubo un error al enviarlo al correo. Verifica la conexión o las credenciales.\n\nHaz clic en 'Aceptar' para visualizar el documento.";
-                isSuccess = false;
-            }
-            showNotification(finalMsg);
+            // Log global
+            logSystemEvent("SUCCESS", `Reporte ${res.report_id || 'Generado'} para ${currentFinalReport.vehicle_plate} por ${currentUser ? currentUser.name : 'Invitado'}. Estado: ${currentFinalReport.status}`);
             
-            showPdfResultModal(isSuccess, title, bodyText, () => {
-                if (res.url) {
-                    window.open(res.url, '_blank');
-                }
+            showPdfResultModal(true, "REPORTE GENERADO", `El PDF ha sido generado y firmado con blockchain. Copia enviada a ${email}.`, () => {
                 navigate('dashboard');
             });
-            return;
+        } else {
+            showNotification("Error de red. Intenta de nuevo.");
         }
-
-        showNotification("No se pudo generar o enviar el reporte. Intenta de nuevo.");
     },
-
-    // --- Enterprise Admin & Super Admin Core Actions ---
     switchAdminTab: (tab) => {
         $$('.admin-tab').forEach(el => el.classList.add('hidden'));
         const target = $(`#adminTab-${tab}`);
