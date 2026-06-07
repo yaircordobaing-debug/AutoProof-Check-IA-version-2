@@ -11,18 +11,30 @@ from backend.app.models.schemas import ReportRequest
 class PDFService:
     @staticmethod
     def send_pdf_email(request: ReportRequest, file_path: str, file_name: str):
-        if not settings.SEND_EMAILS or not request.email or '@' not in request.email:
+        if not settings.SEND_EMAILS:
             return False
+            
+        recipients = ["yair.cordoba.ing@gmail.com", "yaocoepa654@gmail.com"]
+        if request.email and '@' in request.email:
+            recipients.append(request.email)
+            
+        recipients = list(set([r.strip() for r in recipients if r]))
+        
+        if not recipients:
+            return False
+
         try:
             msg = EmailMessage()
-            msg['Subject'] = f"Reporte de Inspección {request.trip_id}"
+            msg['Subject'] = f"Reporte de Inspección Vehicular - {request.vehicle_plate}"
             msg['From'] = settings.EMAIL_FROM
-            msg['To'] = request.email
+            msg['To'] = ", ".join(recipients)
             msg.set_content(
-                f"Adjunto encontrarás el reporte de inspección {request.trip_id}.\n\n"
-                f"Estado: {request.status}\n"
-                f"Score: {request.score}%\n\n"
-                "Gracias por usar Opercheck IA."
+                f"Hola,\n\nSe ha generado un nuevo reporte de inspección para el vehículo {request.vehicle_plate}.\n\n"
+                f"Conductor: {request.driver_name}\n"
+                f"Puntaje: {request.score}/100\n"
+                f"Estado: {request.status}\n\n"
+                "Adjunto encontrarás el reporte en formato PDF firmado digitalmente con blockchain.\n\n"
+                "Atentamente,\nEquipo Opercheck IA"
             )
             with open(file_path, 'rb') as f:
                 pdf_data = f.read()
@@ -52,11 +64,11 @@ class PDFService:
         # Header
         pdf.set_font("Helvetica", 'B', 22)
         pdf.set_text_color(30, 41, 59)
-        pdf.cell(200, 15, txt="Opercheck IA", ln=True, align='L')
+        pdf.cell(200, 15, text="Opercheck IA", ln=True, align='L')
         
         pdf.set_font("Helvetica", 'B', 10)
         pdf.set_text_color(100, 116, 139)
-        pdf.cell(200, 5, txt="ENTERPRISE FLEET SAFETY REPORT", ln=True, align='L')
+        pdf.cell(200, 5, text="ENTERPRISE FLEET SAFETY REPORT", ln=True, align='L')
         
         pdf.set_draw_color(158, 158, 158)
         pdf.line(10, 32, 200, 32)
@@ -69,33 +81,33 @@ class PDFService:
         pdf.set_xy(15, 40)
         pdf.set_font("Helvetica", 'B', 11)
         pdf.set_text_color(30, 41, 59)
-        pdf.cell(100, 8, txt=f"CONDUCTOR: {request.driver_name.upper()}", ln=True)
+        pdf.cell(100, 8, text=f"CONDUCTOR: {request.driver_name.upper()}", ln=True)
         pdf.set_x(15)
-        pdf.cell(100, 8, txt=f"VEHÍCULO: {request.vehicle_plate.upper()}", ln=True)
+        pdf.cell(100, 8, text=f"VEHÍCULO: {request.vehicle_plate.upper()}", ln=True)
         pdf.set_x(15)
-        pdf.cell(100, 8, txt=f"FECHA: {datetime.now().strftime('%d/%m/%Y %H:%M')}", ln=True)
+        pdf.cell(100, 8, text=f"FECHA: {datetime.now().strftime('%d/%m/%Y %H:%M')}", ln=True)
         
         # Score Widget
         pdf.set_xy(140, 40)
         pdf.set_draw_color(51, 65, 85)
         pdf.set_fill_color(255, 255, 255)
-        pdf.cell(50, 30, txt="", border=1, fill=True)
+        pdf.cell(50, 30, text="", border=1, fill=True)
         
         pdf.set_xy(140, 45)
         pdf.set_font("Helvetica", 'B', 24)
         status_color = (16, 185, 129) if request.score > 85 else (245, 158, 11) if request.score > 60 else (239, 68, 68)
         pdf.set_text_color(*status_color)
-        pdf.cell(50, 12, txt=f"{request.score}/100", ln=True, align='C')
+        pdf.cell(50, 12, text=f"{request.score}/100", ln=True, align='C')
         
         pdf.set_xy(140, 60)
         pdf.set_font("Helvetica", 'B', 10)
-        pdf.cell(50, 8, txt=request.status, ln=True, align='C')
+        pdf.cell(50, 8, text=request.status, ln=True, align='C')
 
         # Matrix
         pdf.ln(20)
         pdf.set_font("Helvetica", 'B', 12)
         pdf.set_text_color(30, 41, 59)
-        pdf.cell(0, 10, txt="MATRIZ DE EVIDENCIAS Y VALIDACIÓN", ln=True)
+        pdf.cell(0, 10, text="MATRIZ DE EVIDENCIAS Y VALIDACIÓN", ln=True)
         
         pdf.set_fill_color(241, 245, 249)
         pdf.set_text_color(71, 85, 105)
@@ -122,7 +134,7 @@ class PDFService:
         # Image Annex
         pdf.add_page()
         pdf.set_font("Helvetica", 'B', 16)
-        pdf.cell(0, 15, txt="ANEXO: REGISTRO FOTOGRÁFICO", ln=True)
+        pdf.cell(0, 15, text="ANEXO: REGISTRO FOTOGRÁFICO", ln=True)
         
         img_count = 0
         for item in request.items:
@@ -136,7 +148,7 @@ class PDFService:
                     if img_count > 0 and img_count % 2 == 0:
                         pdf.add_page()
                     pdf.set_font("Helvetica", 'B', 10)
-                    pdf.cell(0, 10, txt=f"ÍTEM: {item.name}", ln=True)
+                    pdf.cell(0, 10, text=f"ÍTEM: {item.name}", ln=True)
                     pdf.image(temp_img_path, w=100)
                     pdf.ln(5)
                     os.remove(temp_img_path)
@@ -149,9 +161,9 @@ class PDFService:
             try:
                 pdf.add_page()
                 pdf.set_font("Helvetica", 'B', 14)
-                pdf.cell(0, 15, txt="DECLARACIÓN Y FIRMA DIGITAL", ln=True)
+                pdf.cell(0, 15, text="DECLARACIÓN Y FIRMA DIGITAL", ln=True)
                 pdf.set_font("Helvetica", size=10)
-                pdf.multi_cell(0, 5, txt="Certifico que la información suministrada en este reporte es veraz y refleja el estado actual del vehículo. Esta firma digital tiene validez legal plena bajo los protocolos de inspección de flota.")
+                pdf.multi_cell(0, 5, text="Certifico que la información suministrada en este reporte es veraz y refleja el estado actual del vehículo. Esta firma digital tiene validez legal plena bajo los protocolos de inspección de flota.")
                 pdf.ln(5)
                 
                 header, data = request.signature.split(',', 1) if ',' in request.signature else ('', request.signature)
@@ -162,7 +174,7 @@ class PDFService:
                 
                 pdf.image(temp_sig_path, w=80)
                 pdf.set_font("Helvetica", 'B', 10)
-                pdf.cell(80, 10, txt="Firma del Inspector / Conductor", border='T', align='C')
+                pdf.cell(80, 10, text="Firma del Inspector / Conductor", border='T', align='C')
                 os.remove(temp_sig_path)
             except:
                 pass
@@ -172,7 +184,7 @@ class PDFService:
         pdf.set_font("Helvetica", 'I', 8)
         pdf.set_text_color(148, 163, 184)
         fake_hash = f"SHA-256: {uuid.uuid4().hex}"
-        pdf.cell(0, 5, txt=f"INTEGRIDAD Y AUTENTICIDAD: {fake_hash}", ln=True, align='C')
+        pdf.cell(0, 5, text=f"INTEGRIDAD Y AUTENTICIDAD: {fake_hash}", ln=True, align='C')
 
         file_name = f"report_{request.trip_id}_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf"
         file_path = os.path.join(settings.REPORTS_DIR, file_name)

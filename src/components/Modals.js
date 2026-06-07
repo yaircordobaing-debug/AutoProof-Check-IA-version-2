@@ -167,12 +167,7 @@ export function renderModals() {
             <div class="bg-white rounded-[2.5rem] w-full max-w-sm overflow-hidden shadow-2xl flex flex-col">
                 <div class="p-6 bg-jungle text-white font-bold text-center">FINALIZAR INSPECCIÓN</div>
                 <div class="p-6">
-                    <div class="flex justify-between items-center mb-1">
-                        <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Enviar Reporte a:</label>
-                        <button onclick="document.getElementById('driverEmail').value='yair.cordoba.ing@gmail.com'" class="text-[10px] font-bold text-jungle uppercase hover:underline">Usar Correo Empresa</button>
-                    </div>
-                    <input type="email" id="driverEmail" class="w-full p-4 bg-gray-50 border rounded-2xl mb-4" placeholder="correo@empresa.com">
-                    
+                    <p class="text-xs text-gray-400 mb-4 text-center">Al generar el reporte, se enviará automáticamente una copia al correo de la empresa.</p>                    
                     <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Firma Digital Única</label>
                     <div class="relative mb-6 mt-1">
                         <canvas id="signature-pad" width="350" height="180" class="w-full border-2 border-dashed border-gray-200 rounded-2xl bg-gray-50 touch-none cursor-crosshair"></canvas>
@@ -180,7 +175,7 @@ export function renderModals() {
                     </div>
 
                     <button onclick="submitFinalReport()" class="w-full bg-jungle text-white py-4 rounded-2xl font-bold shadow-lg active:scale-95 transition-all">Generar Reporte PDF</button>
-                    <button onclick="document.getElementById('finalModal').classList.add('hidden')" class="w-full mt-3 text-gray-400 text-xs font-bold uppercase">Volver</button>
+                    <button onclick="document.getElementById('finalModal').classList.add('hidden')" class="w-full mt-3 text-gray-400 text-xs font-bold uppercase">Volver a la inspección</button>
                 </div>
             </div>
         </div>

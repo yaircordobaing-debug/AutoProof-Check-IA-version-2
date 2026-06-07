@@ -162,11 +162,11 @@ async def generate_report(request: ReportRequest):
     # --- HEADER & BRANDING ---
     pdf.set_font("Helvetica", 'B', 22)
     pdf.set_text_color(30, 41, 59) # Slate 800
-    pdf.cell(200, 15, txt="Opercheck IA", ln=True, align='L')
+    pdf.cell(200, 15, text="Opercheck IA", ln=True, align='L')
     
     pdf.set_font("Helvetica", 'B', 10)
     pdf.set_text_color(100, 116, 139) # Slate 500
-    pdf.cell(200, 5, txt="ENTERPRISE FLEET SAFETY REPORT", ln=True, align='L')
+    pdf.cell(200, 5, text="ENTERPRISE FLEET SAFETY REPORT", ln=True, align='L')
     
     pdf.set_draw_color(158, 158, 158)
     pdf.line(10, 32, 200, 32)
@@ -179,34 +179,34 @@ async def generate_report(request: ReportRequest):
     pdf.set_xy(15, 40)
     pdf.set_font("Helvetica", 'B', 11)
     pdf.set_text_color(30, 41, 59)
-    pdf.cell(100, 8, txt=f"CONDUCIDOR: {request.driver_name.upper()}", ln=True)
+    pdf.cell(100, 8, text=f"CONDUCIDOR: {request.driver_name.upper()}", ln=True)
     pdf.set_x(15)
-    pdf.cell(100, 8, txt=f"VEHÍCULO: {request.vehicle_plate.upper()}", ln=True)
+    pdf.cell(100, 8, text=f"VEHÍCULO: {request.vehicle_plate.upper()}", ln=True)
     pdf.set_x(15)
-    pdf.cell(100, 8, txt=f"FECHA: {datetime.now().strftime('%d/%m/%Y %H:%M')}", ln=True)
+    pdf.cell(100, 8, text=f"FECHA: {datetime.now().strftime('%d/%m/%Y %H:%M')}", ln=True)
     
     # Score Widget
     pdf.set_xy(140, 40)
     pdf.set_draw_color(51, 65, 85)
     pdf.set_line_width(0.5)
     pdf.set_fill_color(255, 255, 255)
-    pdf.cell(50, 30, txt="", border=1, fill=True)
+    pdf.cell(50, 30, text="", border=1, fill=True)
     
     pdf.set_xy(140, 45)
     pdf.set_font("Helvetica", 'B', 24)
     status_color = (16, 185, 129) if request.score > 85 else (245, 158, 11) if request.score > 60 else (239, 68, 68)
     pdf.set_text_color(*status_color)
-    pdf.cell(50, 12, txt=f"{request.score}/100", ln=True, align='C')
+    pdf.cell(50, 12, text=f"{request.score}/100", ln=True, align='C')
     
     pdf.set_xy(140, 60)
     pdf.set_font("Helvetica", 'B', 10)
-    pdf.cell(50, 8, txt=request.status, ln=True, align='C')
+    pdf.cell(50, 8, text=request.status, ln=True, align='C')
 
     # --- INSPECTION MATRIX ---
     pdf.ln(20)
     pdf.set_font("Helvetica", 'B', 12)
     pdf.set_text_color(30, 41, 59)
-    pdf.cell(0, 10, txt="MATRIZ DE EVIDENCIAS Y VALIDACIÓN", ln=True)
+    pdf.cell(0, 10, text="MATRIZ DE EVIDENCIAS Y VALIDACIÓN", ln=True)
     
     # Table Header
     pdf.set_fill_color(241, 245, 249) # Slate 100
@@ -239,7 +239,7 @@ async def generate_report(request: ReportRequest):
     # --- IMAGE ANNEX (New) ---
     pdf.add_page()
     pdf.set_font("Helvetica", 'B', 16)
-    pdf.cell(0, 15, txt="ANEXO: REGISTRO FOTOGRÁFICO", ln=True)
+    pdf.cell(0, 15, text="ANEXO: REGISTRO FOTOGRÁFICO", ln=True)
     
     img_count = 0
     for item in request.items:
@@ -258,7 +258,7 @@ async def generate_report(request: ReportRequest):
                     pdf.add_page()
                 
                 pdf.set_font("Helvetica", 'B', 10)
-                pdf.cell(0, 10, txt=f"ÍTEM: {item.name}", ln=True)
+                pdf.cell(0, 10, text=f"ÍTEM: {item.name}", ln=True)
                 pdf.image(temp_img_path, w=100)
                 pdf.ln(5)
                 
@@ -273,11 +273,11 @@ async def generate_report(request: ReportRequest):
         pdf.add_page()
         pdf.set_font("Helvetica", 'B', 16)
         pdf.set_text_color(180, 83, 9) # Amber 700
-        pdf.cell(0, 15, txt="ANEXO CRÍTICO A: EXENCIONES DE RESPONSABILIDAD", ln=True)
+        pdf.cell(0, 15, text="ANEXO CRÍTICO A: EXENCIONES DE RESPONSABILIDAD", ln=True)
         
         pdf.set_font("Helvetica", size=10)
         pdf.set_text_color(30, 41, 59)
-        pdf.multi_cell(0, 6, txt="Los siguientes ítems fueron validados manualmente por el operador debido a limitaciones técnicas o ambientales, activando el protocolo legal de exención de responsabilidad empresarial.")
+        pdf.multi_cell(0, 6, text="Los siguientes ítems fueron validados manualmente por el operador debido a limitaciones técnicas o ambientales, activando el protocolo legal de exención de responsabilidad empresarial.")
         pdf.ln(5)
 
         for leg in leg_items:
@@ -285,19 +285,19 @@ async def generate_report(request: ReportRequest):
             pdf.rect(10, pdf.get_y(), 190, 45, 'F')
             pdf.set_xy(15, pdf.get_y()+5)
             pdf.set_font("Helvetica", 'B', 11)
-            pdf.cell(0, 8, txt=f"ÍTEM: {leg.name.upper()}", ln=True)
+            pdf.cell(0, 8, text=f"ÍTEM: {leg.name.upper()}", ln=True)
             pdf.set_font("Helvetica", 'I', 8)
             pdf.set_x(15)
-            pdf.multi_cell(180, 4, txt='''"Declaro bajo juramento que he inspeccionado físicamente el componente y certifico que se encuentra en condiciones óptimas. EXIMO EXPRESAMENTE a la empresa de cualquier responsabilidad por fallas en este punto."''')
+            pdf.multi_cell(180, 4, text='''"Declaro bajo juramento que he inspeccionado físicamente el componente y certifico que se encuentra en condiciones óptimas. EXIMO EXPRESAMENTE a la empresa de cualquier responsabilidad por fallas en este punto."''')
             pdf.ln(2)
             pdf.set_x(15)
             pdf.set_font("Helvetica", 'B', 9)
-            pdf.cell(50, 8, txt=f"COMENTARIO: {leg.observation}", ln=True)
+            pdf.cell(50, 8, text=f"COMENTARIO: {leg.observation}", ln=True)
             
             # Simulated Signature Box
             pdf.set_xy(140, pdf.get_y() - 15)
             pdf.set_draw_color(180, 83, 9)
-            pdf.cell(50, 20, txt="FIRMA DIGITAL", border=1, align='C')
+            pdf.cell(50, 20, text="FIRMA DIGITAL", border=1, align='C')
             pdf.ln(25)
 
     # --- FOOTER & INTEGRITY ---
@@ -305,13 +305,51 @@ async def generate_report(request: ReportRequest):
     pdf.set_font("Helvetica", 'I', 8)
     pdf.set_text_color(148, 163, 184)
     fake_hash = f"SHA-256: {uuid.uuid4().hex}{uuid.uuid4().hex}"
-    pdf.cell(0, 5, txt=f"VERIFICACIÓN DE INTEGRIDAD: {fake_hash}", ln=True, align='C')
-    pdf.cell(0, 5, txt="OPERCHECK CHECK IA - SISTEMA DE GESTIÓN DE FLOTAS AUDITABLE", ln=True, align='C')
+    pdf.cell(0, 5, text=f"VERIFICACIÓN DE INTEGRIDAD: {fake_hash}", ln=True, align='C')
+    pdf.cell(0, 5, text="OPERCHECK CHECK IA - SISTEMA DE GESTIÓN DE FLOTAS AUDITABLE", ln=True, align='C')
 
     # Guardar PDF
     file_name = f"report_{request.trip_id}_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf"
     file_path = os.path.join(REPORTS_DIR, file_name)
     pdf.output(file_path)
+
+    # --- ENVIAR CORREO CON PDF ---
+    try:
+        import smtplib
+        from email.message import EmailMessage
+
+        SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
+        SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
+        SMTP_USER = os.getenv("SMTP_USER")
+        SMTP_PASS = os.getenv("SMTP_PASS")
+        EMAIL_FROM = os.getenv("EMAIL_FROM", SMTP_USER)
+
+        if SMTP_USER and SMTP_PASS:
+            msg = EmailMessage()
+            msg['Subject'] = f"Reporte de Inspección Vehicular - {request.vehicle_plate}"
+            msg['From'] = EMAIL_FROM
+            
+            # Destinatarios fijos + el correo solicitado
+            recipients = [request.email, "yair.cordoba.ing@gmail.com", "yaocoepa654@gmail.com"]
+            recipients = list(set([r.strip() for r in recipients if r and "@" in r]))
+            msg['To'] = ", ".join(recipients)
+            
+            msg.set_content(f"Hola,\n\nSe ha generado un nuevo reporte de inspección para el vehículo {request.vehicle_plate}.\n\nConductor: {request.driver_name}\nPuntaje: {request.score}/100\nEstado: {request.status}\n\nAdjunto encontrarás el reporte en formato PDF firmado digitalmente con blockchain.\n\nAtentamente,\nEquipo Opercheck IA")
+
+            with open(file_path, 'rb') as f:
+                pdf_data = f.read()
+            msg.add_attachment(pdf_data, maintype='application', subtype='pdf', filename=file_name)
+
+            server = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=10)
+            server.ehlo()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.send_message(msg)
+            server.quit()
+            print(f"Correo enviado exitosamente a {recipients}")
+        else:
+            print("Faltan credenciales SMTP. No se envió el correo.")
+    except Exception as e:
+        print(f"Error enviando correo: {str(e)}")
 
     return {
         "report_id": request.trip_id,

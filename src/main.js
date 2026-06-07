@@ -924,6 +924,19 @@ window.appActions = {
     },
 
     navigate: navigate,
+
+    cancelActiveInspection: () => {
+        if(confirm('¿Seguro que deseas salir de la inspección? Se perderá todo tu progreso y se cancelará el reporte.')) {
+            activeTrip = null;
+            pendingTrip = null;
+            inspectionResults = {};
+            if (currentUser) {
+                updateDashboard(currentUser, activeTrip, reportsHistory);
+            }
+            navigate('dashboard');
+        }
+    },
+    
     
     startPreoperacional: (isWeeklyIA) => {
         let companyFleet = ["Vehículo Demo 1", "Vehículo Demo 2"];
@@ -1219,22 +1232,47 @@ window.appActions = {
     },
 
     submitFinalReport: async () => {
-        const email = $('#driverEmail').value;
+        const email = currentUser ? currentUser.email : "yair.cordoba.ing@gmail.com";
         const canvas = document.getElementById('signature-pad');
         if (canvas) {
             currentFinalReport.signature = canvas.toDataURL();
-        }
-
-        if (!email || !email.includes('@')) {
-            showNotification("Por favor ingresa un correo válido");
-            return;
         }
 
         if (currentUser && currentUser.companyId) {
             currentFinalReport.companyId = currentUser.companyId;
         }
 
+        const finalBtn = $('#finalModal').querySelector('button[onclick="submitFinalReport()"]');
+        if (finalBtn) {
+            finalBtn.disabled = true;
+            finalBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> GENERANDO...';
+        }
+        
+        const loader = $('#loadingOverlay');
+        if (loader) {
+            const h3 = loader.querySelector('h3');
+            const p = loader.querySelector('p');
+            if(h3) h3.innerText = "GENERANDO REPORTE...";
+            if(p) p.innerText = "Firmando y enviando por correo electrónico...";
+            loader.classList.remove('hidden');
+            loader.classList.add('flex');
+        }
+
         const res = await submitFinalReport(currentFinalReport, email, reportsHistory);
+        
+        if (finalBtn) {
+            finalBtn.disabled = false;
+            finalBtn.innerHTML = 'Generar Reporte PDF';
+        }
+        if (loader) {
+            loader.classList.add('hidden');
+            loader.classList.remove('flex');
+            const h3 = loader.querySelector('h3');
+            const p = loader.querySelector('p');
+            if(h3) h3.innerText = "ANALIZANDO CON IA...";
+            if(p) p.innerText = "Por favor, espera un momento.";
+        }
+
         if (res) {
             $('#finalModal').classList.add('hidden');
             
@@ -1270,7 +1308,11 @@ window.appActions = {
             // Log global
             logSystemEvent("SUCCESS", `Reporte ${res.report_id || 'Generado'} para ${currentFinalReport.vehicle_plate} por ${currentUser ? currentUser.name : 'Invitado'}. Estado: ${currentFinalReport.status}`);
             
-            showPdfResultModal(true, "REPORTE GENERADO", `El PDF ha sido generado y firmado con blockchain. Copia enviada a ${email}.`, () => {
+            const msgBody = res.email_sent 
+                ? `El PDF ha sido generado y firmado con blockchain. Copia enviada a los administradores y a ${email}.`
+                : `El PDF ha sido generado. (Advertencia: Falló el envío de correo. Revisa tus credenciales de Gmail).`;
+            
+            showPdfResultModal(true, "REPORTE GENERADO", msgBody, () => {
                 navigate('dashboard');
             });
         } else {
@@ -1837,6 +1879,7 @@ window.simulateSend = window.appActions.simulateSend;
 window.login = window.appActions.login;
 window.logout = window.appActions.logout;
 window.navigate = window.appActions.navigate;
+window.cancelActiveInspection = window.appActions.cancelActiveInspection;
 window.initTripSetup = window.appActions.initTripSetup;
 window.initBusTripSetup = window.appActions.initBusTripSetup;
 window.confirmTripSetup = window.appActions.confirmTripSetup;
