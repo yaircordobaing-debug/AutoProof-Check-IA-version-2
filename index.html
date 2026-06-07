@@ -31,32 +31,43 @@
     </script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="/src/styles/main.css">
-    
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0c1013;
         }
-        h1, h2, h3, h4, .font-outfit {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-outfit {
             font-family: 'Outfit', sans-serif;
         }
+
         .premium-sidebar {
             background: rgba(20, 26, 31, 0.85);
             backdrop-filter: blur(20px);
             border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
+
         .console-log {
             font-family: 'Courier New', Courier, monospace;
             background-color: #06090c;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+
         /* Override Tailwind flex utility conflict */
-        .view.hidden, .hidden {
+        .view.hidden,
+        .hidden {
             display: none !important;
         }
     </style>
@@ -74,7 +85,8 @@
     </div>
 
     <!-- MAIN APP CONTAINER -->
-    <div id="phone-container" class="w-full h-[100dvh] flex flex-col relative overflow-hidden bg-darkBg md:max-w-[480px] md:mx-auto md:shadow-2xl md:border md:border-white/5 md:rounded-[2.5rem]">
+    <div id="phone-container"
+        class="w-full h-[100dvh] flex flex-col relative overflow-hidden bg-darkBg md:max-w-[480px] md:mx-auto md:shadow-2xl md:border md:border-white/5 md:rounded-[2.5rem]">
 
         <!-- ================= VIEWS ================= -->
         <main class="flex-1 h-0 overflow-y-auto w-full relative scroll-smooth pb-20" id="main-content">
@@ -95,34 +107,45 @@
             </div>
 
             <!-- 1.5. LANDING VIEW -->
-            <div id="view-landing" class="view hidden p-6 bg-darkBg min-h-full flex flex-col justify-between overflow-y-auto">
+            <div id="view-landing"
+                class="view hidden p-6 bg-darkBg min-h-full flex flex-col justify-between overflow-y-auto">
                 <div class="my-auto py-6 text-center space-y-6">
-                    <div class="inline-block p-4 bg-jungle/10 rounded-full border border-jungle/20 shadow-xl mb-2 animate-bounce">
+                    <div
+                        class="inline-block p-4 bg-jungle/10 rounded-full border border-jungle/20 shadow-xl mb-2 animate-bounce">
                         <i class="fa-solid fa-shield-halved text-5xl text-jungle animate-pulse"></i>
                     </div>
-                    <h2 class="text-3xl font-black text-white font-outfit tracking-tight">Ecosistema <span class="text-jungle">SaaS</span> Opercheck</h2>
-                    <p class="text-xs text-gray-400 max-w-sm mx-auto leading-relaxed">Plataforma inteligente de última generación para auditoría preoperacional, telemetría de flota y blindaje jurídico por Inteligencia Artificial.</p>
-                    
+                    <h2 class="text-3xl font-black text-white font-outfit tracking-tight">Ecosistema <span
+                            class="text-jungle">SaaS</span> Opercheck</h2>
+                    <p class="text-xs text-gray-400 max-w-sm mx-auto leading-relaxed">Plataforma inteligente de última
+                        generación para auditoría preoperacional, telemetría de flota y blindaje jurídico por
+                        Inteligencia Artificial.</p>
+
                     <div class="grid grid-cols-1 gap-3 text-left max-w-xs mx-auto">
                         <div class="glass p-3.5 rounded-2xl border border-white/5 flex gap-3 items-center">
-                            <div class="p-2.5 bg-jungle/15 rounded-xl text-jungle"><i class="fa-solid fa-wand-magic-sparkles text-sm"></i></div>
+                            <div class="p-2.5 bg-jungle/15 rounded-xl text-jungle"><i
+                                    class="fa-solid fa-wand-magic-sparkles text-sm"></i></div>
                             <div>
                                 <h4 class="text-xs font-bold text-white">IA Multimodal de Daños</h4>
-                                <p class="text-[10px] text-gray-400">Visión computacional para detectar fallas y abolladuras.</p>
+                                <p class="text-[10px] text-gray-400">Visión computacional para detectar fallas y
+                                    abolladuras.</p>
                             </div>
                         </div>
                         <div class="glass p-3.5 rounded-2xl border border-white/5 flex gap-3 items-center">
-                            <div class="p-2.5 bg-jungle/15 rounded-xl text-jungle"><i class="fa-solid fa-server text-sm"></i></div>
+                            <div class="p-2.5 bg-jungle/15 rounded-xl text-jungle"><i
+                                    class="fa-solid fa-server text-sm"></i></div>
                             <div>
                                 <h4 class="text-xs font-bold text-white">SaaS Multiempresa Avanzado</h4>
-                                <p class="text-[10px] text-gray-400">Dashboards y configuraciones por tipo de vehículo.</p>
+                                <p class="text-[10px] text-gray-400">Dashboards y configuraciones por tipo de vehículo.
+                                </p>
                             </div>
                         </div>
                         <div class="glass p-3.5 rounded-2xl border border-white/5 flex gap-3 items-center">
-                            <div class="p-2.5 bg-jungle/15 rounded-xl text-jungle"><i class="fa-solid fa-circle-check text-sm"></i></div>
+                            <div class="p-2.5 bg-jungle/15 rounded-xl text-jungle"><i
+                                    class="fa-solid fa-circle-check text-sm"></i></div>
                             <div>
                                 <h4 class="text-xs font-bold text-white">SOS Legal & Criptografía</h4>
-                                <p class="text-[10px] text-gray-400">Evidencias inmutables SHA-256 válidas ante litigios.</p>
+                                <p class="text-[10px] text-gray-400">Evidencias inmutables SHA-256 válidas ante
+                                    litigios.</p>
                             </div>
                         </div>
                     </div>
@@ -144,19 +167,24 @@
                         <div class="inline-block p-4 bg-sage/10 rounded-3xl border border-sage/20 shadow-md mb-4">
                             <i class="fa-solid fa-shield-halved text-4xl text-sage"></i>
                         </div>
-                        <h2 class="text-3xl font-extrabold text-white font-outfit tracking-tight">Opercheck <span class="text-sage">SaaS</span></h2>
-                        <p class="text-gray-400 text-xs mt-2 font-medium">Auditoría Preoperacional & Inteligencia de Flota</p>
+                        <h2 class="text-3xl font-extrabold text-white font-outfit tracking-tight">Opercheck <span
+                                class="text-sage">SaaS</span></h2>
+                        <p class="text-gray-400 text-xs mt-2 font-medium">Auditoría Preoperacional & Inteligencia de
+                            Flota</p>
                     </div>
 
                     <!-- Realistic Enterprise Login Form -->
                     <div class="bg-[#141a1f] border border-white/5 rounded-3xl p-6 mb-6 shadow-2xl space-y-4 slide-up">
-                        <h3 class="text-xs font-bold text-gray-300 uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <h3
+                            class="text-xs font-bold text-gray-300 uppercase tracking-widest mb-1 flex items-center gap-2">
                             <i class="fa-solid fa-lock text-sage"></i> Acceso Corporativo
                         </h3>
-                        
+
                         <!-- Email Input -->
                         <div>
-                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1.5 ml-1">Correo Electrónico</label>
+                            <label
+                                class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1.5 ml-1">Correo
+                                Electrónico</label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-500">
                                     <i class="fa-solid fa-envelope text-xs"></i>
@@ -168,7 +196,8 @@
 
                         <!-- Password Input -->
                         <div>
-                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1.5 ml-1">Contraseña</label>
+                            <label
+                                class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1.5 ml-1">Contraseña</label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-500">
                                     <i class="fa-solid fa-key text-xs"></i>
@@ -185,10 +214,11 @@
                                 <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
                             </button>
                         </div>
-                        
+
                         <div class="flex items-center justify-between text-[11px] text-gray-400 px-1 pt-1">
                             <label class="flex items-center gap-2 cursor-pointer select-none">
-                                <input type="checkbox" class="rounded border-white/10 bg-gray-900 text-sage focus:ring-0 w-3.5 h-3.5">
+                                <input type="checkbox"
+                                    class="rounded border-white/10 bg-gray-900 text-sage focus:ring-0 w-3.5 h-3.5">
                                 Recordarme
                             </label>
                             <a href="#" class="hover:text-white transition-colors">¿Olvidó su contraseña?</a>
@@ -196,20 +226,24 @@
                     </div>
 
                     <!-- Collapsible Credentials Directory Accordion -->
-                    <details class="group bg-white/5 border border-white/5 rounded-3xl p-2 mb-4 transition-all duration-300 slide-up overflow-hidden">
-                        <summary class="list-none flex items-center justify-between p-3 cursor-pointer text-xs font-bold text-gray-400 hover:text-white transition-colors">
+                    <details
+                        class="group bg-white/5 border border-white/5 rounded-3xl p-2 mb-4 transition-all duration-300 slide-up overflow-hidden">
+                        <summary
+                            class="list-none flex items-center justify-between p-3 cursor-pointer text-xs font-bold text-gray-400 hover:text-white transition-colors">
                             <span class="flex items-center gap-2">
                                 <i class="fa-solid fa-users text-sage"></i>
-                                Directorio de Cuentas de Prueba
+                                Directorio de Cuentas de Pruebas
                             </span>
-                            <i class="fa-solid fa-chevron-down text-[10px] transform group-open:rotate-180 transition-transform duration-300"></i>
+                            <i
+                                class="fa-solid fa-chevron-down text-[10px] transform group-open:rotate-180 transition-transform duration-300"></i>
                         </summary>
                         <div class="p-3 border-t border-white/5 mt-2 space-y-2 max-h-[220px] overflow-y-auto pr-1">
-                            <p class="text-[10px] text-gray-400 mb-2 leading-relaxed">Selecciona un perfil de demostración para rellenar de forma segura sus credenciales:</p>
-                            
+                            <p class="text-[10px] text-gray-400 mb-2 leading-relaxed">Selecciona un perfil de
+                                demostración para rellenar de forma segura sus credenciales:</p>
+
                             <!-- Carlos Gómez -->
-                            <div onclick="window.appActions.fillCredentials('carlos.gomez@transbus.co', '123')" 
-                                 class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-slateNavy transition-all cursor-pointer flex justify-between items-center group/item">
+                            <div onclick="window.appActions.fillCredentials('carlos.gomez@transbus.co', '123')"
+                                class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-slateNavy transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-bus text-sage text-[10px]"></i>
@@ -217,12 +251,14 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Conductor Bus (TransBus)</p>
                                 </div>
-                                <span class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
 
                             <!-- Jorge Herrera -->
-                            <div onclick="window.appActions.fillCredentials('jorge.herrera@logitruck.co', '123')" 
-                                 class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-sage transition-all cursor-pointer flex justify-between items-center group/item">
+                            <div onclick="window.appActions.fillCredentials('jorge.herrera@logitruck.co', '123')"
+                                class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-sage transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-truck text-amber-400 text-[10px]"></i>
@@ -230,12 +266,14 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Conductor Camión (LogiTruck)</p>
                                 </div>
-                                <span class="text-[9px] text-amber-400 group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-amber-400 group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
 
                             <!-- Juan Pérez -->
-                            <div onclick="window.appActions.fillCredentials('juan.perez@transporte.co', '123')" 
-                                 class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-fern transition-all cursor-pointer flex justify-between items-center group/item">
+                            <div onclick="window.appActions.fillCredentials('juan.perez@transporte.co', '123')"
+                                class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-fern transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-car text-emerald-400 text-[10px]"></i>
@@ -243,12 +281,14 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Conductor Carro (CarFleet)</p>
                                 </div>
-                                <span class="text-[9px] text-emerald-400 group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-emerald-400 group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
 
                             <!-- Admin Empresa -->
-                            <div onclick="window.appActions.fillCredentials('admin@logitruck.co', 'admin123')" 
-                                 class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-jungle/40 transition-all cursor-pointer flex justify-between items-center group/item">
+                            <div onclick="window.appActions.fillCredentials('admin@logitruck.co', 'admin123')"
+                                class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-jungle/40 transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-building-user text-sage text-[10px]"></i>
@@ -256,12 +296,14 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Administrador de Empresa</p>
                                 </div>
-                                <span class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
 
-<!-- Admin TransBus -->
-                            <div onclick="window.appActions.fillCredentials('admin@transbus.co', 'admin123')" 
-                                 class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-jungle/40 transition-all cursor-pointer flex justify-between items-center group/item">
+                            <!-- Admin TransBus -->
+                            <div onclick="window.appActions.fillCredentials('admin@transbus.co', 'admin123')"
+                                class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-jungle/40 transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-building-user text-sage text-[10px]"></i>
@@ -269,12 +311,14 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Administrador de Empresa</p>
                                 </div>
-                                <span class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
 
                             <!-- Admin CarFleet -->
-                            <div onclick="window.appActions.fillCredentials('admin@carfleet.co', 'admin123')" 
-                                 class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-jungle/40 transition-all cursor-pointer flex justify-between items-center group/item">
+                            <div onclick="window.appActions.fillCredentials('admin@carfleet.co', 'admin123')"
+                                class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-jungle/40 transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-building-user text-sage text-[10px]"></i>
@@ -282,11 +326,13 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Administrador de Empresa</p>
                                 </div>
-                                <span class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
                             <!-- Super Admin Global -->
-                            <div onclick="window.appActions.fillCredentials('super@autoproof.co', 'super')" 
-                                 class="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20 hover:border-purple-400/50 transition-all cursor-pointer flex justify-between items-center group/item col-span-2">
+                            <div onclick="window.appActions.fillCredentials('super@autoproof.co', 'super')"
+                                class="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20 hover:border-purple-400/50 transition-all cursor-pointer flex justify-between items-center group/item col-span-2">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-globe text-purple-400 text-[10px]"></i>
@@ -294,12 +340,14 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Dueño del SaaS</p>
                                 </div>
-                                <span class="text-[9px] text-purple-400 group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-purple-400 group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
 
                             <!-- Super Admin Global -->
-                            <div onclick="window.appActions.fillCredentials('super@autoproof.co', 'super')" 
-                                 class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-sage/40 transition-all cursor-pointer flex justify-between items-center group/item">
+                            <div onclick="window.appActions.fillCredentials('super@autoproof.co', 'super')"
+                                class="p-2.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-sage/40 transition-all cursor-pointer flex justify-between items-center group/item">
                                 <div>
                                     <div class="flex items-center gap-1.5">
                                         <i class="fa-solid fa-user-shield text-sage text-[10px]"></i>
@@ -307,11 +355,13 @@
                                     </div>
                                     <p class="text-[9px] text-gray-400">Consola Central SaaS</p>
                                 </div>
-                                <span class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i class="fa-solid fa-key"></i></span>
+                                <span
+                                    class="text-[9px] text-sage group-hover/item:translate-x-1 transition-transform"><i
+                                        class="fa-solid fa-key"></i></span>
                             </div>
                         </div>
                     </details>
-                    
+
                     <!-- Guest Button -->
                     <button onclick="login(false)"
                         class="w-full py-3 bg-transparent border border-white/5 text-gray-400 font-medium rounded-2xl hover:bg-white/5 hover:text-white transition-all text-xs slide-up">
@@ -325,17 +375,20 @@
                 <!-- Branding Header -->
                 <header class="flex justify-between items-center mb-6">
                     <div class="flex items-center gap-3">
-                        <div id="companyLogoCircle" class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl bg-white/5 border border-white/10">
+                        <div id="companyLogoCircle"
+                            class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl bg-white/5 border border-white/10">
                             <i id="companyLogo" class="fa-solid fa-shield-halved text-jungle"></i>
                         </div>
                         <div>
                             <h2 class="text-xl font-bold tracking-tight text-white" id="dashName">Hola</h2>
-                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest" id="dashRole">Perfil</p>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest" id="dashRole">
+                                Perfil</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <button onclick="window.appActions.toggleTheme()"
-                            class="bg-white/5 p-3 rounded-2xl border border-white/10 text-white active:scale-95 transition-all" id="themeToggleBtn">
+                            class="bg-white/5 p-3 rounded-2xl border border-white/10 text-white active:scale-95 transition-all"
+                            id="themeToggleBtn">
                             <i class="fa-solid fa-moon text-lg"></i>
                         </button>
                         <button onclick="navigate('profile')"
@@ -346,9 +399,11 @@
                 </header>
 
                 <!-- Dynamic Company Branding Title Banner -->
-                <div id="companyBanner" class="p-5 rounded-3xl bg-gradient-to-r from-slateNavy/30 to-cardBg border border-jungle/10 mb-6 relative overflow-hidden">
+                <div id="companyBanner"
+                    class="p-5 rounded-3xl bg-gradient-to-r from-slateNavy/30 to-cardBg border border-jungle/10 mb-6 relative overflow-hidden">
                     <div class="relative z-10">
-                        <span id="companyLabelType" class="bg-jungle/20 text-sage px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest">Transporte</span>
+                        <span id="companyLabelType"
+                            class="bg-jungle/20 text-sage px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest">Transporte</span>
                         <h3 id="companyBannerName" class="text-xl font-black text-white mt-1">Nombre Empresa</h3>
                         <p class="text-xs text-gray-400 mt-1">Auditoría Preoperacional Activa en la Flota.</p>
                     </div>
@@ -373,7 +428,8 @@
                         <div class="flex justify-between items-start mb-4">
                             <div>
                                 <span
-                                    class="bg-white/20 px-2.5 py-1 rounded-md text-[9px] font-bold uppercase tracking-widest">Viaje en Curso</span>
+                                    class="bg-white/20 px-2.5 py-1 rounded-md text-[9px] font-bold uppercase tracking-widest">Viaje
+                                    en Curso</span>
                                 <h3 class="text-xl font-black mt-2" id="activeCarName">Vehículo</h3>
                             </div>
                             <div class="text-right">
@@ -382,8 +438,8 @@
                             </div>
                         </div>
                         <div class="text-xs opacity-90 mb-5 bg-white/5 p-3 rounded-xl border border-white/5">
-                            <p class="mb-1 text-gray-300"><i class="fa-solid fa-user-tie w-5 text-sage"></i> Conductor: <span
-                                    id="activeDriverName" class="font-semibold text-white"></span></p>
+                            <p class="mb-1 text-gray-300"><i class="fa-solid fa-user-tie w-5 text-sage"></i> Conductor:
+                                <span id="activeDriverName" class="font-semibold text-white"></span></p>
                         </div>
                         <button onclick="navigate('trip-end')"
                             class="w-full py-3 bg-white text-gray-900 font-bold rounded-2xl shadow active:scale-95 transition-transform flex items-center justify-center gap-2 text-xs">
@@ -398,9 +454,11 @@
                     <button id="btnStartNewTrip" onclick="startPreoperacional(false)"
                         class="w-full py-6 bg-gradient-to-r from-jungle to-slateNavy hover:from-blue-700 hover:to-indigo-700 text-white rounded-3xl shadow-xl flex items-center justify-between px-6 active:scale-95 transition-transform relative overflow-hidden">
                         <div class="flex items-center gap-4">
-                            <div class="p-3 bg-white/10 rounded-2xl"><i class="fa-solid fa-circle-check text-xl text-white"></i></div>
+                            <div class="p-3 bg-white/10 rounded-2xl"><i
+                                    class="fa-solid fa-circle-check text-xl text-white"></i></div>
                             <div class="text-left">
-                                <span class="text-xs font-bold uppercase tracking-widest text-blue-200">Inspección Rápida</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-blue-200">Inspección
+                                    Rápida</span>
                                 <h3 class="text-lg font-black text-white leading-tight">Preoperacional Diario</h3>
                             </div>
                         </div>
@@ -411,9 +469,11 @@
                     <button id="btnStartBusTrip" onclick="startPreoperacional(true)"
                         class="w-full py-6 bg-gradient-to-r from-fern to-jungle hover:from-purple-700 hover:to-indigo-700 text-white rounded-3xl shadow-xl flex items-center justify-between px-6 active:scale-95 transition-transform relative overflow-hidden">
                         <div class="flex items-center gap-4">
-                            <div class="p-3 bg-white/10 rounded-2xl animate-pulse"><i class="fa-solid fa-wand-magic-sparkles text-xl text-white"></i></div>
+                            <div class="p-3 bg-white/10 rounded-2xl animate-pulse"><i
+                                    class="fa-solid fa-wand-magic-sparkles text-xl text-white"></i></div>
                             <div class="text-left">
-                                <span class="text-xs font-bold uppercase tracking-widest text-purple-200">Visión IA Multimodal</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-purple-200">Visión IA
+                                    Multimodal</span>
                                 <h3 class="text-lg font-black text-white leading-tight">Preoperacional IA</h3>
                             </div>
                         </div>
@@ -424,9 +484,11 @@
                     <button id="btnReportAccident" onclick="navigate('accident-report')"
                         class="w-full py-6 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white rounded-3xl shadow-xl flex items-center justify-between px-6 active:scale-95 transition-transform relative overflow-hidden">
                         <div class="flex items-center gap-4">
-                            <div class="p-3 bg-white/10 rounded-2xl"><i class="fa-solid fa-kit-medical text-xl text-white"></i></div>
+                            <div class="p-3 bg-white/10 rounded-2xl"><i
+                                    class="fa-solid fa-kit-medical text-xl text-white"></i></div>
                             <div class="text-left">
-                                <span class="text-xs font-bold uppercase tracking-widest text-red-200">SOS Legal & Siniestros</span>
+                                <span class="text-xs font-bold uppercase tracking-widest text-red-200">SOS Legal &
+                                    Siniestros</span>
                                 <h3 class="text-lg font-black text-white leading-tight">Reportar Accidente</h3>
                             </div>
                         </div>
@@ -436,7 +498,8 @@
 
                 <!-- Custom Dashboard Metrics Cards based on Company -->
                 <div class="mb-6">
-                    <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Métricas Operativas</h4>
+                    <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Métricas Operativas
+                    </h4>
                     <div id="companyMetricsGrid" class="grid grid-cols-2 gap-3">
                         <!-- Filled dynamically by JS -->
                     </div>
@@ -453,7 +516,8 @@
                 </header>
 
                 <div class="space-y-4 bg-white/5 p-6 rounded-3xl border border-white/5">
-                    <p class="text-xs text-gray-400 mb-2 leading-relaxed">Configura la asignación antes de realizar tu checklist físico.</p>
+                    <p class="text-xs text-gray-400 mb-2 leading-relaxed">Configura la asignación antes de realizar tu
+                        checklist físico.</p>
 
                     <div>
                         <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest ml-1"><i
@@ -500,11 +564,13 @@
                 </button>
 
                 <div id="obd-connect" class="flex-1 flex flex-col items-center justify-center text-center">
-                    <div class="w-28 h-28 bg-jungle/10 border border-jungle/20 rounded-full flex items-center justify-center mb-6 relative">
+                    <div
+                        class="w-28 h-28 bg-jungle/10 border border-jungle/20 rounded-full flex items-center justify-center mb-6 relative">
                         <i class="fa-brands fa-bluetooth-b text-4xl text-jungle animate-pulse"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-white mb-2 font-outfit">Sincronizar OBD-II</h2>
-                    <p class="text-gray-400 text-xs mb-8 leading-relaxed px-6">Vincula el escáner al bus de datos del vehículo para lectura de códigos DTC.</p>
+                    <p class="text-gray-400 text-xs mb-8 leading-relaxed px-6">Vincula el escáner al bus de datos del
+                        vehículo para lectura de códigos DTC.</p>
                     <button onclick="startOBDScan()"
                         class="w-full py-4 bg-jungle hover:bg-jungle/90 text-white font-bold rounded-2xl shadow-lg transition-all text-sm">
                         Escanear Puerto OBD-II
@@ -523,11 +589,13 @@
                 </div>
 
                 <div id="obd-done" class="flex-1 flex-col items-center justify-center text-center hidden">
-                    <div class="w-20 h-20 bg-emerald-600/10 border border-emerald-500/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <div
+                        class="w-20 h-20 bg-emerald-600/10 border border-emerald-500/20 rounded-full flex items-center justify-center mb-6 mx-auto">
                         <i class="fa-solid fa-circle-check text-4xl text-emerald-500"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-white mb-2">OBD Diagnóstico OK</h2>
-                    <p class="text-gray-400 text-xs mb-8">Todos los sensores y parámetros de la ECU responden correctamente.</p>
+                    <p class="text-gray-400 text-xs mb-8">Todos los sensores y parámetros de la ECU responden
+                        correctamente.</p>
                     <button onclick="navigate('checklist')"
                         class="w-full py-4 bg-jungle hover:bg-jungle/90 text-white font-bold rounded-2xl shadow-lg transition-all text-sm">
                         Continuar Inspección
@@ -560,7 +628,8 @@
                     <!-- Categories and items injected dynamically -->
                 </div>
 
-                <div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-gray-900/90 border-t border-white/5 p-4 flex justify-center z-20 backdrop-blur-md rounded-t-3xl">
+                <div
+                    class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-gray-900/90 border-t border-white/5 p-4 flex justify-center z-20 backdrop-blur-md rounded-t-3xl">
                     <button onclick="evaluarReporte()"
                         class="bg-jungle hover:bg-jungle/90 text-white py-4 rounded-2xl font-bold shadow-lg transition-all w-full flex items-center justify-center gap-2 text-sm">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -577,18 +646,21 @@
                         <i id="reportIcon" class="fa-solid fa-circle-check text-4xl text-emerald-500"></i>
                     </div>
                     <h2 class="text-2xl font-extrabold text-white mb-1 font-outfit">Chequeo Guardado</h2>
-                    <p class="text-[9px] text-gray-400 font-bold tracking-widest uppercase">Firma Digital & GPS Integrado</p>
+                    <p class="text-[9px] text-gray-400 font-bold tracking-widest uppercase">Firma Digital & GPS
+                        Integrado</p>
                 </div>
 
                 <div class="space-y-4">
                     <div class="bg-white/5 rounded-3xl p-5 border border-white/5">
-                        <h3 class="font-bold text-xs text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <h3
+                            class="font-bold text-xs text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-shield-halved text-jungle"></i> Evidencia Criptográfica
                         </h3>
                         <div class="space-y-3">
                             <div class="flex justify-between items-center text-xs">
                                 <span class="text-gray-400">Estado Certificación</span>
-                                <span id="reportStatusBadge" class="font-bold px-2.5 py-1 rounded bg-emerald-600/20 text-emerald-400 text-[10px]">APTO</span>
+                                <span id="reportStatusBadge"
+                                    class="font-bold px-2.5 py-1 rounded bg-emerald-600/20 text-emerald-400 text-[10px]">APTO</span>
                             </div>
                             <div class="flex justify-between items-center text-xs pt-3 border-t border-white/5">
                                 <span class="text-gray-400">Puntaje IA</span>
@@ -598,8 +670,10 @@
                     </div>
 
                     <div id="reportFailsContainer" class="hidden">
-                        <h4 class="text-[10px] font-bold text-red-400 uppercase tracking-widest mb-2">Fallas Reportadas</h4>
-                        <ul id="reportFailsList" class="text-xs text-red-200 bg-red-950/20 border border-red-500/20 p-4 rounded-2xl list-disc pl-5 space-y-1">
+                        <h4 class="text-[10px] font-bold text-red-400 uppercase tracking-widest mb-2">Fallas Reportadas
+                        </h4>
+                        <ul id="reportFailsList"
+                            class="text-xs text-red-200 bg-red-950/20 border border-red-500/20 p-4 rounded-2xl list-disc pl-5 space-y-1">
                         </ul>
                     </div>
                 </div>
@@ -632,20 +706,28 @@
                     <h2 class="text-xl font-bold text-white">Finalizar Turno</h2>
                 </header>
 
-                <div class="bg-white/5 p-6 rounded-3xl border border-white/5 flex flex-col items-center text-center flex-1 justify-center">
-                    <div class="w-16 h-16 bg-jungle/10 border border-jungle/20 text-jungle rounded-full flex items-center justify-center mb-4 text-2xl">
+                <div
+                    class="bg-white/5 p-6 rounded-3xl border border-white/5 flex flex-col items-center text-center flex-1 justify-center">
+                    <div
+                        class="w-16 h-16 bg-jungle/10 border border-jungle/20 text-jungle rounded-full flex items-center justify-center mb-4 text-2xl">
                         <i class="fa-solid fa-clipboard-check"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2 text-white font-outfit">Evaluación de Desempeño</h3>
-                    <p class="text-xs text-gray-400 mb-6 px-4">Califica el funcionamiento del vehículo para auditorías predictivas de mantenimiento.</p>
+                    <p class="text-xs text-gray-400 mb-6 px-4">Califica el funcionamiento del vehículo para auditorías
+                        predictivas de mantenimiento.</p>
 
                     <!-- Stars -->
                     <div class="flex gap-3 mb-6" id="starRating">
-                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors" onclick="setRating(1)"></i>
-                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors" onclick="setRating(2)"></i>
-                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors" onclick="setRating(3)"></i>
-                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors" onclick="setRating(4)"></i>
-                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors" onclick="setRating(5)"></i>
+                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors"
+                            onclick="setRating(1)"></i>
+                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors"
+                            onclick="setRating(2)"></i>
+                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors"
+                            onclick="setRating(3)"></i>
+                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors"
+                            onclick="setRating(4)"></i>
+                        <i class="fa-solid fa-star text-3xl text-gray-700 cursor-pointer transition-colors"
+                            onclick="setRating(5)"></i>
                     </div>
 
                     <div class="w-full text-left mb-4">
@@ -656,7 +738,8 @@
                     </div>
 
                     <div class="w-full text-left">
-                        <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest ml-1">Comentarios / Observaciones</label>
+                        <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest ml-1">Comentarios /
+                            Observaciones</label>
                         <textarea id="tripReviewText" rows="3"
                             placeholder="Detalla ruidos, novedades mecánicas o desgastes observados durante el viaje..."
                             class="w-full mt-2 p-4 bg-gray-900 border border-white/10 rounded-2xl text-white text-xs mb-4 resize-none"></textarea>
@@ -670,7 +753,7 @@
             </div>
 
             <!-- SOS ACCIDENT REPORT VIEW -->
-                        <div id="view-accident-report" class="view hidden p-6 bg-darkBg min-h-full pb-24">
+            <div id="view-accident-report" class="view hidden p-6 bg-darkBg min-h-full pb-24">
                 <header class="flex items-center gap-4 mb-6">
                     <button onclick="navigate('dashboard')"
                         class="p-3 bg-white/5 border border-white/10 rounded-2xl text-gray-300 active:scale-95 transition-transform"><i
@@ -681,32 +764,36 @@
                 <div class="space-y-6">
                     <!-- Geolocation & Assets Card -->
                     <div class="bg-white/5 rounded-3xl p-5 border border-white/5 space-y-4">
-                        <h3 class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
+                        <h3
+                            class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
                             <i class="fa-solid fa-circle-info text-jungle"></i> Datos Autocompletados (Legal)
                         </h3>
-                        
+
                         <div class="grid grid-cols-2 gap-3 text-xs">
-                           <div class="bg-white/5 p-3 rounded-2xl border border-white/5">
-                               <span class="text-[9px] text-gray-400 block uppercase font-bold">Conductor</span>
-                               <span id="accDriverName" class="font-bold text-white block mt-1">Cargando...</span>
-                               <span id="accDriverEmail" class="text-[10px] text-gray-400 block">Cargando...</span>
-                           </div>
-                           <div class="bg-white/5 p-3 rounded-2xl border border-white/5">
-                               <span class="text-[9px] text-gray-400 block uppercase font-bold">Vehículo</span>
-                               <span id="accVehiclePlate" class="font-bold text-white block mt-1">Cargando...</span>
-                               <span id="accVehicleInfo" class="text-[10px] text-gray-400 block">Cargando...</span>
-                           </div>
+                            <div class="bg-white/5 p-3 rounded-2xl border border-white/5">
+                                <span class="text-[9px] text-gray-400 block uppercase font-bold">Conductor</span>
+                                <span id="accDriverName" class="font-bold text-white block mt-1">Cargando...</span>
+                                <span id="accDriverEmail" class="text-[10px] text-gray-400 block">Cargando...</span>
+                            </div>
+                            <div class="bg-white/5 p-3 rounded-2xl border border-white/5">
+                                <span class="text-[9px] text-gray-400 block uppercase font-bold">Vehículo</span>
+                                <span id="accVehiclePlate" class="font-bold text-white block mt-1">Cargando...</span>
+                                <span id="accVehicleInfo" class="text-[10px] text-gray-400 block">Cargando...</span>
+                            </div>
                         </div>
 
                         <!-- Simulated GPS & Weather context -->
                         <div class="bg-white/5 p-4 rounded-2xl border border-white/5 space-y-2">
                             <div class="flex justify-between items-center">
                                 <span class="text-[9px] text-gray-400 uppercase font-bold flex items-center gap-1.5">
-                                    <i class="fa-solid fa-location-dot text-red-500 animate-pulse"></i> Ubicación Forense (GPS)
+                                    <i class="fa-solid fa-location-dot text-red-500 animate-pulse"></i> Ubicación
+                                    Forense (GPS)
                                 </span>
-                                <span class="text-[8px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-extrabold uppercase">Sincronizado</span>
+                                <span
+                                    class="text-[8px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-extrabold uppercase">Sincronizado</span>
                             </div>
-                            <p id="accLocationAddress" class="text-xs text-white font-bold leading-snug">Calle 26 # 68C-61, Terminal Salitre, Bogotá, Colombia</p>
+                            <p id="accLocationAddress" class="text-xs text-white font-bold leading-snug">Calle 26 #
+                                68C-61, Terminal Salitre, Bogotá, Colombia</p>
                             <div class="grid grid-cols-3 gap-2 text-[9px] text-gray-400 pt-2 border-t border-white/5">
                                 <div>
                                     <span class="block">Coordenadas</span>
@@ -726,33 +813,43 @@
 
                     <!-- Email to send PDF -->
                     <div class="bg-white/5 rounded-3xl p-5 border border-white/5 space-y-3">
-                        <h3 class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
+                        <h3
+                            class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
                             <i class="fa-solid fa-envelope text-jungle"></i> Envío de Reporte PDF
                         </h3>
-                        <p class="text-[10px] text-gray-400">El reporte PDF se enviará automáticamente a la empresa (afrodev.general@gmail.com). Ingresa tu correo para recibir una copia:</p>
+                        <p class="text-[10px] text-gray-400">El reporte PDF se enviará automáticamente a la empresa
+                            (afrodev.general@gmail.com). Ingresa tu correo para recibir una copia:</p>
                         <input type="email" id="accUserEmail" placeholder="Tu correo electrónico"
                             class="w-full p-4 bg-gray-900 border border-white/10 rounded-2xl text-white text-xs focus:outline-none focus:ring-2 focus:ring-red-500/30">
                     </div>
 
                     <!-- Información a Recolectar (Otro Conductor y Vehículo) -->
                     <div class="bg-white/5 rounded-3xl p-5 border border-white/5 space-y-4">
-                        <h3 class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
+                        <h3
+                            class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
                             <i class="fa-solid fa-users text-jungle"></i> Info. Otro Conductor y Vehículo
                         </h3>
                         <div class="space-y-3">
-                            <input type="text" id="otherDriverName" placeholder="Nombre completo del otro conductor" class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
-                            <input type="text" id="otherDriverId" placeholder="Cédula" class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
-                            <input type="text" id="otherDriverPhone" placeholder="Teléfono" class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
-                            <input type="text" id="otherDriverLicense" placeholder="Licencia de conducción" class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
-                            <input type="text" id="otherVehiclePlate" placeholder="Placa del otro vehículo" class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
-                            
+                            <input type="text" id="otherDriverName" placeholder="Nombre completo del otro conductor"
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
+                            <input type="text" id="otherDriverId" placeholder="Cédula"
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
+                            <input type="text" id="otherDriverPhone" placeholder="Teléfono"
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
+                            <input type="text" id="otherDriverLicense" placeholder="Licencia de conducción"
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
+                            <input type="text" id="otherVehiclePlate" placeholder="Placa del otro vehículo"
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
+
                             <div class="flex gap-4 pt-2">
                                 <label class="flex items-center gap-2 text-xs text-gray-400 cursor-pointer">
-                                    <input type="checkbox" id="otherVehicleSOAT" class="rounded border-white/10 bg-gray-900 text-jungle focus:ring-0">
+                                    <input type="checkbox" id="otherVehicleSOAT"
+                                        class="rounded border-white/10 bg-gray-900 text-jungle focus:ring-0">
                                     ¿Tiene SOAT vigente?
                                 </label>
                                 <label class="flex items-center gap-2 text-xs text-gray-400 cursor-pointer">
-                                    <input type="checkbox" id="otherVehicleInsurance" class="rounded border-white/10 bg-gray-900 text-jungle focus:ring-0">
+                                    <input type="checkbox" id="otherVehicleInsurance"
+                                        class="rounded border-white/10 bg-gray-900 text-jungle focus:ring-0">
                                     ¿Tiene seguro todo riesgo?
                                 </label>
                             </div>
@@ -761,91 +858,137 @@
 
                     <!-- Testigos -->
                     <div class="bg-white/5 rounded-3xl p-5 border border-white/5 space-y-4">
-                        <h3 class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
+                        <h3
+                            class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
                             <i class="fa-solid fa-user-group text-jungle"></i> Testigos
                         </h3>
                         <div class="space-y-3">
-                            <input type="text" id="witnessName" placeholder="Nombre del testigo" class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
-                            <input type="text" id="witnessPhone" placeholder="Teléfono del testigo" class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
-                            <textarea id="witnessVersion" rows="2" placeholder="Breve versión de lo ocurrido según el testigo..." class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs resize-none"></textarea>
+                            <input type="text" id="witnessName" placeholder="Nombre del testigo"
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
+                            <input type="text" id="witnessPhone" placeholder="Teléfono del testigo"
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs">
+                            <textarea id="witnessVersion" rows="2"
+                                placeholder="Breve versión de lo ocurrido según el testigo..."
+                                class="w-full p-3 bg-gray-900 border border-white/10 rounded-xl text-white text-xs resize-none"></textarea>
                         </div>
                     </div>
 
                     <!-- Legal Photo Guides -->
                     <div class="space-y-4">
                         <div class="px-1">
-                            <h3 class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
+                            <h3
+                                class="font-bold text-xs text-gray-300 uppercase tracking-widest flex items-center gap-2 font-outfit">
                                 <i class="fa-solid fa-camera-retro text-jungle"></i> Registro Fotográfico (CLAVE)
                             </h3>
-                            <p class="text-[11px] text-gray-400 leading-relaxed mt-1">Toma fotos ANTES de mover los vehículos en este orden. Estas pruebas son vitales para tu defensa jurídica.</p>
+                            <p class="text-[11px] text-gray-400 leading-relaxed mt-1">Toma fotos ANTES de mover los
+                                vehículos en este orden. Estas pruebas son vitales para tu defensa jurídica.</p>
                         </div>
 
                         <div class="space-y-4">
                             <!-- Foto 1 -->
-                            <div class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
                                 <div class="flex justify-between items-start mb-2">
                                     <div>
-                                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto 1</span>
+                                        <span
+                                            class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto
+                                            1</span>
                                         <h4 class="text-sm font-bold text-white mt-1">A. Panorámica general</h4>
                                     </div>
-                                    <span id="accPhotoStatus1" class="text-[10px] font-bold text-gray-500"><i class="fa-solid fa-lock mr-1"></i>Requerida</span>
+                                    <span id="accPhotoStatus1" class="text-[10px] font-bold text-gray-500"><i
+                                            class="fa-solid fa-lock mr-1"></i>Requerida</span>
                                 </div>
-                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Toma fotos desde lejos (10-20m) que abarque ambos vehículos, la vía completa, semáforos, postes y el entorno para ubicar el contexto.</p>
-                                
-                                <div onclick="triggerAccidentPhoto(1)" class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
-                                    <input type="file" id="accFileInput1" accept="image/*" class="hidden" onchange="handleAccidentImage(event, 1)">
-                                    <img id="accImagePreview1" class="w-full h-full object-cover hidden absolute inset-0">
-                                    
-                                    <div id="accOverlay1" class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
+                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Toma fotos desde lejos (10-20m)
+                                    que abarque ambos vehículos, la vía completa, semáforos, postes y el entorno para
+                                    ubicar el contexto.</p>
+
+                                <div onclick="triggerAccidentPhoto(1)"
+                                    class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
+                                    <input type="file" id="accFileInput1" accept="image/*" class="hidden"
+                                        onchange="handleAccidentImage(event, 1)">
+                                    <img id="accImagePreview1"
+                                        class="w-full h-full object-cover hidden absolute inset-0">
+
+                                    <div id="accOverlay1"
+                                        class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
                                         <div class="flex justify-between items-center">
-                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC SEAL</span>
-                                            <span class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256 VALIDADO</span>
+                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC
+                                                SEAL</span>
+                                            <span
+                                                class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256
+                                                VALIDADO</span>
                                         </div>
-                                        <div class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
-                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark1"></span></p>
-                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span id="accGpsWatermark1"></span></p>
-                                            <p><i class="fa-solid fa-link"></i> HASH: <span id="accHashWatermark1"></span></p>
+                                        <div
+                                            class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
+                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark1"></span>
+                                            </p>
+                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span
+                                                    id="accGpsWatermark1"></span></p>
+                                            <p><i class="fa-solid fa-link"></i> HASH: <span
+                                                    id="accHashWatermark1"></span></p>
                                         </div>
                                     </div>
-                                    
-                                    <div id="accPlaceholder1" class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
-                                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
+
+                                    <div id="accPlaceholder1"
+                                        class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
+                                        <div
+                                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
                                             <i class="fa-solid fa-panorama text-lg"></i>
                                         </div>
                                         <span class="text-xs font-bold text-gray-300">Presiona para Capturar</span>
-                                        <p class="text-[9px] text-gray-500 mt-1">Guías activas: ambos vehículos y vía</p>
+                                        <p class="text-[9px] text-gray-500 mt-1">Guías activas: ambos vehículos y vía
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <!-- Foto 2 -->
-                            <div class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
                                 <div class="flex justify-between items-start mb-2">
                                     <div>
-                                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto 2</span>
+                                        <span
+                                            class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto
+                                            2</span>
                                         <h4 class="text-sm font-bold text-white mt-1">B. Fotos de los vehículos</h4>
                                     </div>
-                                    <span id="accPhotoStatus2" class="text-[10px] font-bold text-gray-500"><i class="fa-solid fa-lock mr-1"></i>Requerida</span>
+                                    <span id="accPhotoStatus2" class="text-[10px] font-bold text-gray-500"><i
+                                            class="fa-solid fa-lock mr-1"></i>Requerida</span>
                                 </div>
-                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Toma fotos de cada vehículo desde el frente, parte trasera y laterales. Asegúrate que se vea la placa claramente y su posición final.</p>
-                                
-                                <div onclick="triggerAccidentPhoto(2)" class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
-                                    <input type="file" id="accFileInput2" accept="image/*" class="hidden" onchange="handleAccidentImage(event, 2)">
-                                    <img id="accImagePreview2" class="w-full h-full object-cover hidden absolute inset-0">
-                                    
-                                    <div id="accOverlay2" class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
+                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Toma fotos de cada vehículo
+                                    desde el frente, parte trasera y laterales. Asegúrate que se vea la placa claramente
+                                    y su posición final.</p>
+
+                                <div onclick="triggerAccidentPhoto(2)"
+                                    class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
+                                    <input type="file" id="accFileInput2" accept="image/*" class="hidden"
+                                        onchange="handleAccidentImage(event, 2)">
+                                    <img id="accImagePreview2"
+                                        class="w-full h-full object-cover hidden absolute inset-0">
+
+                                    <div id="accOverlay2"
+                                        class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
                                         <div class="flex justify-between items-center">
-                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC SEAL</span>
-                                            <span class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256 VALIDADO</span>
+                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC
+                                                SEAL</span>
+                                            <span
+                                                class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256
+                                                VALIDADO</span>
                                         </div>
-                                        <div class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
-                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark2"></span></p>
-                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span id="accGpsWatermark2"></span></p>
-                                            <p><i class="fa-solid fa-link"></i> HASH: <span id="accHashWatermark2"></span></p>
+                                        <div
+                                            class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
+                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark2"></span>
+                                            </p>
+                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span
+                                                    id="accGpsWatermark2"></span></p>
+                                            <p><i class="fa-solid fa-link"></i> HASH: <span
+                                                    id="accHashWatermark2"></span></p>
                                         </div>
                                     </div>
-                                    
-                                    <div id="accPlaceholder2" class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
-                                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
+
+                                    <div id="accPlaceholder2"
+                                        class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
+                                        <div
+                                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
                                             <i class="fa-solid fa-car text-lg"></i>
                                         </div>
                                         <span class="text-xs font-bold text-gray-300">Presiona para Capturar</span>
@@ -854,70 +997,108 @@
                                 </div>
                             </div>
                             <!-- Foto 3 -->
-                            <div class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
                                 <div class="flex justify-between items-start mb-2">
                                     <div>
-                                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto 3</span>
+                                        <span
+                                            class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto
+                                            3</span>
                                         <h4 class="text-sm font-bold text-white mt-1">C. Daños</h4>
                                     </div>
-                                    <span id="accPhotoStatus3" class="text-[10px] font-bold text-gray-500"><i class="fa-solid fa-lock mr-1"></i>Requerida</span>
+                                    <span id="accPhotoStatus3" class="text-[10px] font-bold text-gray-500"><i
+                                            class="fa-solid fa-lock mr-1"></i>Requerida</span>
                                 </div>
-                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Primeros planos de golpes, rayones y partes afectadas desde distintos ángulos.</p>
-                                
-                                <div onclick="triggerAccidentPhoto(3)" class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
-                                    <input type="file" id="accFileInput3" accept="image/*" class="hidden" onchange="handleAccidentImage(event, 3)">
-                                    <img id="accImagePreview3" class="w-full h-full object-cover hidden absolute inset-0">
-                                    
-                                    <div id="accOverlay3" class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
+                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Primeros planos de golpes,
+                                    rayones y partes afectadas desde distintos ángulos.</p>
+
+                                <div onclick="triggerAccidentPhoto(3)"
+                                    class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
+                                    <input type="file" id="accFileInput3" accept="image/*" class="hidden"
+                                        onchange="handleAccidentImage(event, 3)">
+                                    <img id="accImagePreview3"
+                                        class="w-full h-full object-cover hidden absolute inset-0">
+
+                                    <div id="accOverlay3"
+                                        class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
                                         <div class="flex justify-between items-center">
-                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC SEAL</span>
-                                            <span class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256 VALIDADO</span>
+                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC
+                                                SEAL</span>
+                                            <span
+                                                class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256
+                                                VALIDADO</span>
                                         </div>
-                                        <div class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
-                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark3"></span></p>
-                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span id="accGpsWatermark3"></span></p>
-                                            <p><i class="fa-solid fa-link"></i> HASH: <span id="accHashWatermark3"></span></p>
+                                        <div
+                                            class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
+                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark3"></span>
+                                            </p>
+                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span
+                                                    id="accGpsWatermark3"></span></p>
+                                            <p><i class="fa-solid fa-link"></i> HASH: <span
+                                                    id="accHashWatermark3"></span></p>
                                         </div>
                                     </div>
-                                    
-                                    <div id="accPlaceholder3" class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
-                                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
+
+                                    <div id="accPlaceholder3"
+                                        class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
+                                        <div
+                                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
                                             <i class="fa-solid fa-car-burst text-lg"></i>
                                         </div>
                                         <span class="text-xs font-bold text-gray-300">Presiona para Capturar</span>
-                                        <p class="text-[9px] text-gray-500 mt-1">Guías activas: primeros planos de golpes</p>
+                                        <p class="text-[9px] text-gray-500 mt-1">Guías activas: primeros planos de
+                                            golpes</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- Foto 4 -->
-                            <div class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
                                 <div class="flex justify-between items-start mb-2">
                                     <div>
-                                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto 4</span>
-                                        <h4 class="text-sm font-bold text-white mt-1">D. Señales de tránsito (MUY IMPORTANTE)</h4>
+                                        <span
+                                            class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto
+                                            4</span>
+                                        <h4 class="text-sm font-bold text-white mt-1">D. Señales de tránsito (MUY
+                                            IMPORTANTE)</h4>
                                     </div>
-                                    <span id="accPhotoStatus4" class="text-[10px] font-bold text-gray-500"><i class="fa-solid fa-lock mr-1"></i>Requerida</span>
+                                    <span id="accPhotoStatus4" class="text-[10px] font-bold text-gray-500"><i
+                                            class="fa-solid fa-lock mr-1"></i>Requerida</span>
                                 </div>
-                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Señales verticales (Pare, semáforos, velocidad) y horizontales (líneas, paso peatonal, flechas).</p>
-                                
-                                <div onclick="triggerAccidentPhoto(4)" class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
-                                    <input type="file" id="accFileInput4" accept="image/*" class="hidden" onchange="handleAccidentImage(event, 4)">
-                                    <img id="accImagePreview4" class="w-full h-full object-cover hidden absolute inset-0">
-                                    
-                                    <div id="accOverlay4" class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
+                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Señales verticales (Pare,
+                                    semáforos, velocidad) y horizontales (líneas, paso peatonal, flechas).</p>
+
+                                <div onclick="triggerAccidentPhoto(4)"
+                                    class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
+                                    <input type="file" id="accFileInput4" accept="image/*" class="hidden"
+                                        onchange="handleAccidentImage(event, 4)">
+                                    <img id="accImagePreview4"
+                                        class="w-full h-full object-cover hidden absolute inset-0">
+
+                                    <div id="accOverlay4"
+                                        class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
                                         <div class="flex justify-between items-center">
-                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC SEAL</span>
-                                            <span class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256 VALIDADO</span>
+                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC
+                                                SEAL</span>
+                                            <span
+                                                class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256
+                                                VALIDADO</span>
                                         </div>
-                                        <div class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
-                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark4"></span></p>
-                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span id="accGpsWatermark4"></span></p>
-                                            <p><i class="fa-solid fa-link"></i> HASH: <span id="accHashWatermark4"></span></p>
+                                        <div
+                                            class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
+                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark4"></span>
+                                            </p>
+                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span
+                                                    id="accGpsWatermark4"></span></p>
+                                            <p><i class="fa-solid fa-link"></i> HASH: <span
+                                                    id="accHashWatermark4"></span></p>
                                         </div>
                                     </div>
-                                    
-                                    <div id="accPlaceholder4" class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
-                                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
+
+                                    <div id="accPlaceholder4"
+                                        class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
+                                        <div
+                                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
                                             <i class="fa-solid fa-sign-hanging text-lg"></i>
                                         </div>
                                         <span class="text-xs font-bold text-gray-300">Presiona para Capturar</span>
@@ -926,34 +1107,52 @@
                                 </div>
                             </div>
                             <!-- Foto 5 -->
-                            <div class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
                                 <div class="flex justify-between items-start mb-2">
                                     <div>
-                                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto 5</span>
+                                        <span
+                                            class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto
+                                            5</span>
                                         <h4 class="text-sm font-bold text-white mt-1">E. Marcas en la vía</h4>
                                     </div>
-                                    <span id="accPhotoStatus5" class="text-[10px] font-bold text-gray-500"><i class="fa-solid fa-lock mr-1"></i>Requerida</span>
+                                    <span id="accPhotoStatus5" class="text-[10px] font-bold text-gray-500"><i
+                                            class="fa-solid fa-lock mr-1"></i>Requerida</span>
                                 </div>
-                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Huellas de frenado, restos de vidrios o plásticos, líquidos en el piso.</p>
-                                
-                                <div onclick="triggerAccidentPhoto(5)" class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
-                                    <input type="file" id="accFileInput5" accept="image/*" class="hidden" onchange="handleAccidentImage(event, 5)">
-                                    <img id="accImagePreview5" class="w-full h-full object-cover hidden absolute inset-0">
-                                    
-                                    <div id="accOverlay5" class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
+                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Huellas de frenado, restos de
+                                    vidrios o plásticos, líquidos en el piso.</p>
+
+                                <div onclick="triggerAccidentPhoto(5)"
+                                    class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
+                                    <input type="file" id="accFileInput5" accept="image/*" class="hidden"
+                                        onchange="handleAccidentImage(event, 5)">
+                                    <img id="accImagePreview5"
+                                        class="w-full h-full object-cover hidden absolute inset-0">
+
+                                    <div id="accOverlay5"
+                                        class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
                                         <div class="flex justify-between items-center">
-                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC SEAL</span>
-                                            <span class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256 VALIDADO</span>
+                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC
+                                                SEAL</span>
+                                            <span
+                                                class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256
+                                                VALIDADO</span>
                                         </div>
-                                        <div class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
-                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark5"></span></p>
-                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span id="accGpsWatermark5"></span></p>
-                                            <p><i class="fa-solid fa-link"></i> HASH: <span id="accHashWatermark5"></span></p>
+                                        <div
+                                            class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
+                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark5"></span>
+                                            </p>
+                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span
+                                                    id="accGpsWatermark5"></span></p>
+                                            <p><i class="fa-solid fa-link"></i> HASH: <span
+                                                    id="accHashWatermark5"></span></p>
                                         </div>
                                     </div>
-                                    
-                                    <div id="accPlaceholder5" class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
-                                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
+
+                                    <div id="accPlaceholder5"
+                                        class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
+                                        <div
+                                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
                                             <i class="fa-solid fa-road-spikes text-lg"></i>
                                         </div>
                                         <span class="text-xs font-bold text-gray-300">Presiona para Capturar</span>
@@ -962,70 +1161,107 @@
                                 </div>
                             </div>
                             <!-- Foto 6 -->
-                            <div class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
                                 <div class="flex justify-between items-start mb-2">
                                     <div>
-                                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto 6</span>
+                                        <span
+                                            class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto
+                                            6</span>
                                         <h4 class="text-sm font-bold text-white mt-1">F. Puntos de referencia</h4>
                                     </div>
-                                    <span id="accPhotoStatus6" class="text-[10px] font-bold text-gray-500"><i class="fa-solid fa-lock mr-1"></i>Requerida</span>
+                                    <span id="accPhotoStatus6" class="text-[10px] font-bold text-gray-500"><i
+                                            class="fa-solid fa-lock mr-1"></i>Requerida</span>
                                 </div>
-                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Direcciones (números de casas o locales), esquinas, nombres de calles, señales visibles.</p>
-                                
-                                <div onclick="triggerAccidentPhoto(6)" class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
-                                    <input type="file" id="accFileInput6" accept="image/*" class="hidden" onchange="handleAccidentImage(event, 6)">
-                                    <img id="accImagePreview6" class="w-full h-full object-cover hidden absolute inset-0">
-                                    
-                                    <div id="accOverlay6" class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
+                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Direcciones (números de casas o
+                                    locales), esquinas, nombres de calles, señales visibles.</p>
+
+                                <div onclick="triggerAccidentPhoto(6)"
+                                    class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
+                                    <input type="file" id="accFileInput6" accept="image/*" class="hidden"
+                                        onchange="handleAccidentImage(event, 6)">
+                                    <img id="accImagePreview6"
+                                        class="w-full h-full object-cover hidden absolute inset-0">
+
+                                    <div id="accOverlay6"
+                                        class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
                                         <div class="flex justify-between items-center">
-                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC SEAL</span>
-                                            <span class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256 VALIDADO</span>
+                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC
+                                                SEAL</span>
+                                            <span
+                                                class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256
+                                                VALIDADO</span>
                                         </div>
-                                        <div class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
-                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark6"></span></p>
-                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span id="accGpsWatermark6"></span></p>
-                                            <p><i class="fa-solid fa-link"></i> HASH: <span id="accHashWatermark6"></span></p>
+                                        <div
+                                            class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
+                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark6"></span>
+                                            </p>
+                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span
+                                                    id="accGpsWatermark6"></span></p>
+                                            <p><i class="fa-solid fa-link"></i> HASH: <span
+                                                    id="accHashWatermark6"></span></p>
                                         </div>
                                     </div>
-                                    
-                                    <div id="accPlaceholder6" class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
-                                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
+
+                                    <div id="accPlaceholder6"
+                                        class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
+                                        <div
+                                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
                                             <i class="fa-solid fa-map-location-dot text-lg"></i>
                                         </div>
                                         <span class="text-xs font-bold text-gray-300">Presiona para Capturar</span>
-                                        <p class="text-[9px] text-gray-500 mt-1">Guías activas: direcciones, esquinas</p>
+                                        <p class="text-[9px] text-gray-500 mt-1">Guías activas: direcciones, esquinas
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <!-- Foto 7 -->
-                            <div class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="bg-white/5 border border-white/5 rounded-3xl p-4 transition-all duration-300 relative overflow-hidden">
                                 <div class="flex justify-between items-start mb-2">
                                     <div>
-                                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto 7</span>
+                                        <span
+                                            class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Foto
+                                            7</span>
                                         <h4 class="text-sm font-bold text-white mt-1">G. Fotos a distancia</h4>
                                     </div>
-                                    <span id="accPhotoStatus7" class="text-[10px] font-bold text-gray-500"><i class="fa-solid fa-lock mr-1"></i>Requerida</span>
+                                    <span id="accPhotoStatus7" class="text-[10px] font-bold text-gray-500"><i
+                                            class="fa-solid fa-lock mr-1"></i>Requerida</span>
                                 </div>
-                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Mínimo 10-20 metros donde se vean ambos vehículos y se entienda la posición en la vía.</p>
-                                
-                                <div onclick="triggerAccidentPhoto(7)" class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
-                                    <input type="file" id="accFileInput7" accept="image/*" class="hidden" onchange="handleAccidentImage(event, 7)">
-                                    <img id="accImagePreview7" class="w-full h-full object-cover hidden absolute inset-0">
-                                    
-                                    <div id="accOverlay7" class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
+                                <p class="text-[11px] text-gray-400 leading-normal mb-3">Mínimo 10-20 metros donde se
+                                    vean ambos vehículos y se entienda la posición en la vía.</p>
+
+                                <div onclick="triggerAccidentPhoto(7)"
+                                    class="relative h-44 bg-gray-900 border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-jungle/40 hover:bg-white/5 transition-all overflow-hidden group">
+                                    <input type="file" id="accFileInput7" accept="image/*" class="hidden"
+                                        onchange="handleAccidentImage(event, 7)">
+                                    <img id="accImagePreview7"
+                                        class="w-full h-full object-cover hidden absolute inset-0">
+
+                                    <div id="accOverlay7"
+                                        class="hidden absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 p-3 flex flex-col justify-between text-[9px] font-mono text-emerald-400">
                                         <div class="flex justify-between items-center">
-                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC SEAL</span>
-                                            <span class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256 VALIDADO</span>
+                                            <span><i class="fa-solid fa-shield-halved text-xs"></i> OPERCHECK FORENSIC
+                                                SEAL</span>
+                                            <span
+                                                class="bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold text-[8px] uppercase">SHA-256
+                                                VALIDADO</span>
                                         </div>
-                                        <div class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
-                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark7"></span></p>
-                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span id="accGpsWatermark7"></span></p>
-                                            <p><i class="fa-solid fa-link"></i> HASH: <span id="accHashWatermark7"></span></p>
+                                        <div
+                                            class="space-y-0.5 text-left bg-black/60 p-2 rounded border border-emerald-500/10">
+                                            <p><i class="fa-solid fa-clock"></i> <span id="accTimeWatermark7"></span>
+                                            </p>
+                                            <p><i class="fa-solid fa-location-dot"></i> GPS: <span
+                                                    id="accGpsWatermark7"></span></p>
+                                            <p><i class="fa-solid fa-link"></i> HASH: <span
+                                                    id="accHashWatermark7"></span></p>
                                         </div>
                                     </div>
-                                    
-                                    <div id="accPlaceholder7" class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
-                                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
+
+                                    <div id="accPlaceholder7"
+                                        class="text-center p-4 group-hover:scale-105 transition-transform duration-300">
+                                        <div
+                                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-400">
                                             <i class="fa-solid fa-binoculars text-lg"></i>
                                         </div>
                                         <span class="text-xs font-bold text-gray-300">Presiona para Capturar</span>
@@ -1033,18 +1269,25 @@
                                     </div>
                                 </div>
                             </div>
-                                                    </div>
+                        </div>
                     </div>
 
                     <!-- Notes & Canvas Signature -->
                     <div class="bg-white/5 rounded-3xl p-5 border border-white/5 space-y-4">
                         <div>
-                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1.5 ml-1">Firma Digital de Conformidad (Forense)</label>
-                            <div class="bg-gray-900 rounded-2xl border border-white/10 p-3 relative flex flex-col items-center">
-                                <canvas id="accident-signature-pad" class="w-full h-32 bg-gray-950 rounded-xl cursor-crosshair border border-white/5"></canvas>
+                            <label
+                                class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1.5 ml-1">Firma
+                                Digital de Conformidad (Forense)</label>
+                            <div
+                                class="bg-gray-900 rounded-2xl border border-white/10 p-3 relative flex flex-col items-center">
+                                <canvas id="accident-signature-pad"
+                                    class="w-full h-32 bg-gray-950 rounded-xl cursor-crosshair border border-white/5"></canvas>
                                 <div class="flex justify-between w-full mt-2.5">
-                                    <button onclick="clearAccidentSignature()" class="text-[10px] font-bold text-red-400 hover:text-red-300 transition-colors py-1.5 px-3 bg-red-500/10 border border-red-500/10 rounded-xl"><i class="fa-solid fa-eraser mr-1"></i>Limpiar Firma</button>
-                                    <span class="text-[8px] text-gray-400 font-mono self-center">Firma Digital Criptográfica</span>
+                                    <button onclick="clearAccidentSignature()"
+                                        class="text-[10px] font-bold text-red-400 hover:text-red-300 transition-colors py-1.5 px-3 bg-red-500/10 border border-red-500/10 rounded-xl"><i
+                                            class="fa-solid fa-eraser mr-1"></i>Limpiar Firma</button>
+                                    <span class="text-[8px] text-gray-400 font-mono self-center">Firma Digital
+                                        Criptográfica</span>
                                 </div>
                             </div>
                         </div>
@@ -1057,7 +1300,7 @@
                     </button>
                 </div>
             </div>
-            
+
             <!-- 7. PROFILE VIEW -->
             <div id="view-profile" class="view hidden p-6 bg-darkBg min-h-full overflow-y-auto">
                 <div class="flex items-center gap-4 mb-6">
@@ -1068,18 +1311,23 @@
                 </div>
 
                 <!-- Driver Card -->
-                <div class="glass p-5 rounded-3xl border border-white/5 flex flex-col items-center mb-5 text-center relative overflow-hidden">
+                <div
+                    class="glass p-5 rounded-3xl border border-white/5 flex flex-col items-center mb-5 text-center relative overflow-hidden">
                     <div class="absolute -right-6 -top-6 w-20 h-20 bg-jungle/10 rounded-full blur-xl"></div>
                     <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-jungle/5 rounded-full blur-xl"></div>
-                    
-                    <div class="w-20 h-20 bg-gradient-to-tr from-jungle to-jungle/40 rounded-full p-0.5 shadow-lg mb-3 flex items-center justify-center">
-                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-white text-2xl font-black font-outfit" id="profileInitials">
+
+                    <div
+                        class="w-20 h-20 bg-gradient-to-tr from-jungle to-jungle/40 rounded-full p-0.5 shadow-lg mb-3 flex items-center justify-center">
+                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-white text-2xl font-black font-outfit"
+                            id="profileInitials">
                             IN
                         </div>
                     </div>
                     <h3 class="text-lg font-extrabold text-white font-outfit" id="profileName">Invitado</h3>
                     <p class="text-xs text-gray-400 mt-0.5" id="profileEmail">Sin cuenta activa</p>
-                    <span class="mt-2.5 px-3 py-1 bg-jungle/10 border border-jungle/20 rounded-full text-[10px] font-black text-jungle uppercase tracking-wider" id="profileRole">
+                    <span
+                        class="mt-2.5 px-3 py-1 bg-jungle/10 border border-jungle/20 rounded-full text-[10px] font-black text-jungle uppercase tracking-wider"
+                        id="profileRole">
                         Invitado
                     </span>
                 </div>
@@ -1087,59 +1335,79 @@
                 <div class="space-y-4">
                     <!-- Empresa Card -->
                     <div>
-                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Empresa Corporativa</h4>
+                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Empresa
+                            Corporativa</h4>
                         <div class="glass p-4 rounded-3xl border border-white/5 space-y-3">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-jungle" id="profileCompanyLogoContainer">
+                                    <div class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-jungle"
+                                        id="profileCompanyLogoContainer">
                                         <i class="fa-solid fa-building text-base" id="profileCompanyLogo"></i>
                                     </div>
                                     <div>
                                         <p class="text-xs font-black text-white" id="profileCompanyName">Ninguna</p>
-                                        <p class="text-[10px] text-gray-400 capitalize" id="profileCompanyType">Sin Empresa</p>
+                                        <p class="text-[10px] text-gray-400 capitalize" id="profileCompanyType">Sin
+                                            Empresa</p>
                                     </div>
                                 </div>
-                                <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20" id="profileCompanyStatus">ACTIVA</span>
+                                <span
+                                    class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20"
+                                    id="profileCompanyStatus">ACTIVA</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Vehículo Card -->
                     <div>
-                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Vehículo Asignado</h4>
+                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Vehículo
+                            Asignado</h4>
                         <div class="glass p-4 rounded-3xl border border-white/5 space-y-3" id="profileVehicleCard">
                             <div class="flex items-center justify-between pb-3 border-b border-white/5">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-jungle">
+                                    <div
+                                        class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-jungle">
                                         <i class="fa-solid fa-car text-base" id="profileVehicleTypeIcon"></i>
                                     </div>
                                     <div>
                                         <p class="text-xs font-black text-white" id="profileVehiclePlate">Ninguno</p>
-                                        <p class="text-[10px] text-gray-400" id="profileVehicleModel">Sin vehículo asignado</p>
+                                        <p class="text-[10px] text-gray-400" id="profileVehicleModel">Sin vehículo
+                                            asignado</p>
                                     </div>
                                 </div>
-                                <span class="text-[9px] font-bold text-gray-400 bg-gray-500/10 px-2.5 py-1 rounded-full border border-gray-500/20 uppercase" id="profileVehicleStatus">INACTIVO</span>
+                                <span
+                                    class="text-[9px] font-bold text-gray-400 bg-gray-500/10 px-2.5 py-1 rounded-full border border-gray-500/20 uppercase"
+                                    id="profileVehicleStatus">INACTIVO</span>
                             </div>
 
                             <div class="grid grid-cols-2 gap-3 pt-1">
                                 <div>
-                                    <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Kilometraje</span>
-                                    <span class="text-xs font-extrabold text-white mt-0.5 block" id="profileVehicleMileage">0 km</span>
+                                    <span
+                                        class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Kilometraje</span>
+                                    <span class="text-xs font-extrabold text-white mt-0.5 block"
+                                        id="profileVehicleMileage">0 km</span>
                                 </div>
                                 <div>
-                                    <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Licencia de Conducir</span>
-                                    <span class="text-[9px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 inline-block mt-0.5" id="profileDriverLicense">ACTIVA</span>
+                                    <span
+                                        class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Licencia
+                                        de Conducir</span>
+                                    <span
+                                        class="text-[9px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 inline-block mt-0.5"
+                                        id="profileDriverLicense">ACTIVA</span>
                                 </div>
                             </div>
 
                             <div class="pt-2 border-t border-white/5 space-y-2">
                                 <div class="flex justify-between items-center">
-                                    <span class="text-[9px] text-gray-400 font-bold uppercase">Estado de Documentación</span>
-                                    <span class="text-[9px] text-white font-bold" id="profileVehicleDocs">SOAT: N/A</span>
+                                    <span class="text-[9px] text-gray-400 font-bold uppercase">Estado de
+                                        Documentación</span>
+                                    <span class="text-[9px] text-white font-bold" id="profileVehicleDocs">SOAT:
+                                        N/A</span>
                                 </div>
                                 <div id="profileVehicleAlertsSection" class="hidden">
-                                    <span class="text-[9px] text-orange-400 font-bold uppercase block mb-1">Alertas Activas</span>
-                                    <ul id="profileVehicleAlertsList" class="space-y-1 text-[10px] text-gray-300 list-disc list-inside">
+                                    <span class="text-[9px] text-orange-400 font-bold uppercase block mb-1">Alertas
+                                        Activas</span>
+                                    <ul id="profileVehicleAlertsList"
+                                        class="space-y-1 text-[10px] text-gray-300 list-disc list-inside">
                                         <!-- Dynamic Alerts -->
                                     </ul>
                                 </div>
@@ -1149,11 +1417,13 @@
 
                     <!-- Tarjeta Control de Aceite -->
                     <div>
-                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Control Preventivo</h4>
+                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Control
+                            Preventivo</h4>
                         <div class="glass p-4 rounded-3xl border border-white/5 space-y-3">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-jungle">
+                                    <div
+                                        class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-jungle">
                                         <i class="fa-solid fa-oil-can text-base"></i>
                                     </div>
                                     <div>
@@ -1161,17 +1431,25 @@
                                         <p class="text-[10px] text-gray-400">Ciclo cada 5,000 Km</p>
                                     </div>
                                 </div>
-                                <span class="text-[9px] font-bold uppercase px-2.5 py-1 rounded-full border border-gray-500/20 text-gray-400 bg-gray-500/10" id="profileOilStatus">Calculando...</span>
+                                <span
+                                    class="text-[9px] font-bold uppercase px-2.5 py-1 rounded-full border border-gray-500/20 text-gray-400 bg-gray-500/10"
+                                    id="profileOilStatus">Calculando...</span>
                             </div>
-                            
+
                             <div class="grid grid-cols-2 gap-3 pt-1 border-t border-white/5">
                                 <div>
-                                    <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Último Cambio</span>
-                                    <span class="text-xs font-extrabold text-white mt-0.5 block" id="profileLastOilChange">0 km</span>
+                                    <span
+                                        class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Último
+                                        Cambio</span>
+                                    <span class="text-xs font-extrabold text-white mt-0.5 block"
+                                        id="profileLastOilChange">0 km</span>
                                 </div>
                                 <div>
-                                    <span class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Siguiente Cambio</span>
-                                    <span class="text-xs font-extrabold text-white mt-0.5 block" id="profileNextOilChange">5,000 km</span>
+                                    <span
+                                        class="text-[9px] text-gray-400 font-bold uppercase tracking-widest block">Siguiente
+                                        Cambio</span>
+                                    <span class="text-xs font-extrabold text-white mt-0.5 block"
+                                        id="profileNextOilChange">5,000 km</span>
                                 </div>
                             </div>
 
@@ -1184,30 +1462,35 @@
 
                     <!-- Tarjeta Galería de Fotos del Vehículo -->
                     <div>
-                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Galería de Estado del Vehículo</h4>
+                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Galería de
+                            Estado del Vehículo</h4>
                         <div class="grid grid-cols-2 gap-2" id="profileVehicleGallery">
-                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer" onclick="window.appActions.uploadVehiclePhoto(1)">
+                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer"
+                                onclick="window.appActions.uploadVehiclePhoto(1)">
                                 <img id="vehPhoto1" class="w-full h-full object-cover hidden">
                                 <div id="vehPlaceholder1" class="text-center p-2 text-gray-500">
                                     <i class="fa-solid fa-camera text-xs block mb-1"></i>
                                     <span class="text-[8px] font-bold uppercase">Frontal Izq (3/4)</span>
                                 </div>
                             </div>
-                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer" onclick="window.appActions.uploadVehiclePhoto(2)">
+                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer"
+                                onclick="window.appActions.uploadVehiclePhoto(2)">
                                 <img id="vehPhoto2" class="w-full h-full object-cover hidden">
                                 <div id="vehPlaceholder2" class="text-center p-2 text-gray-500">
                                     <i class="fa-solid fa-camera text-xs block mb-1"></i>
                                     <span class="text-[8px] font-bold uppercase">Frontal Der (3/4)</span>
                                 </div>
                             </div>
-                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer" onclick="window.appActions.uploadVehiclePhoto(3)">
+                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer"
+                                onclick="window.appActions.uploadVehiclePhoto(3)">
                                 <img id="vehPhoto3" class="w-full h-full object-cover hidden">
                                 <div id="vehPlaceholder3" class="text-center p-2 text-gray-500">
                                     <i class="fa-solid fa-camera text-xs block mb-1"></i>
                                     <span class="text-[8px] font-bold uppercase">Posterior</span>
                                 </div>
                             </div>
-                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer" onclick="window.appActions.uploadVehiclePhoto(4)">
+                            <div class="relative rounded-2xl overflow-hidden bg-gray-900 border border-white/5 aspect-video flex items-center justify-center group cursor-pointer"
+                                onclick="window.appActions.uploadVehiclePhoto(4)">
                                 <img id="vehPhoto4" class="w-full h-full object-cover hidden">
                                 <div id="vehPlaceholder4" class="text-center p-2 text-gray-500">
                                     <i class="fa-solid fa-camera text-xs block mb-1"></i>
@@ -1215,10 +1498,14 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="file" id="vehPhotoInput1" accept="image/*" class="hidden" onchange="window.appActions.handleVehiclePhotoUpload(event, 1)">
-                        <input type="file" id="vehPhotoInput2" accept="image/*" class="hidden" onchange="window.appActions.handleVehiclePhotoUpload(event, 2)">
-                        <input type="file" id="vehPhotoInput3" accept="image/*" class="hidden" onchange="window.appActions.handleVehiclePhotoUpload(event, 3)">
-                        <input type="file" id="vehPhotoInput4" accept="image/*" class="hidden" onchange="window.appActions.handleVehiclePhotoUpload(event, 4)">
+                        <input type="file" id="vehPhotoInput1" accept="image/*" class="hidden"
+                            onchange="window.appActions.handleVehiclePhotoUpload(event, 1)">
+                        <input type="file" id="vehPhotoInput2" accept="image/*" class="hidden"
+                            onchange="window.appActions.handleVehiclePhotoUpload(event, 2)">
+                        <input type="file" id="vehPhotoInput3" accept="image/*" class="hidden"
+                            onchange="window.appActions.handleVehiclePhotoUpload(event, 3)">
+                        <input type="file" id="vehPhotoInput4" accept="image/*" class="hidden"
+                            onchange="window.appActions.handleVehiclePhotoUpload(event, 4)">
                     </div>
                 </div>
 
@@ -1239,17 +1526,22 @@
 
                 <div class="space-y-6">
                     <div>
-                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 ml-1">Preferencias del Sistema</h4>
+                        <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 ml-1">Preferencias
+                            del Sistema</h4>
                         <div class="space-y-2">
-                            <div class="bg-white/5 p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+                            <div
+                                class="bg-white/5 p-4 rounded-2xl border border-white/5 flex items-center justify-between">
                                 <span class="text-xs text-gray-300">Sincronización Automática</span>
-                                <div class="w-10 h-6 bg-jungle rounded-full p-1 relative cursor-pointer flex items-center">
+                                <div
+                                    class="w-10 h-6 bg-jungle rounded-full p-1 relative cursor-pointer flex items-center">
                                     <div class="w-4 h-4 bg-white rounded-full absolute right-1"></div>
                                 </div>
                             </div>
-                            <div class="bg-white/5 p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+                            <div
+                                class="bg-white/5 p-4 rounded-2xl border border-white/5 flex items-center justify-between">
                                 <span class="text-xs text-gray-300">Modo Fuera de Línea</span>
-                                <div class="w-10 h-6 bg-gray-700 rounded-full p-1 relative cursor-pointer flex items-center">
+                                <div
+                                    class="w-10 h-6 bg-gray-700 rounded-full p-1 relative cursor-pointer flex items-center">
                                     <div class="w-4 h-4 bg-white rounded-full absolute left-1"></div>
                                 </div>
                             </div>
@@ -1273,94 +1565,127 @@
             </div>
 
             <!-- ================= NEW WIDESCREEN ADMIN DASHBOARDS (DESKTOP) ================= -->
-            
+
             <!-- A. ADMIN EMPRESA VIEW -->
-            <div id="view-admin-empresa" class="view hidden w-full h-full min-h-[100vh] pb-24 md:pb-0 flex flex-col md:flex-row bg-[#080c15] text-gray-200">
+            <div id="view-admin-empresa"
+                class="view hidden w-full h-full min-h-[100vh] pb-24 md:pb-0 flex flex-col md:flex-row bg-[#080c15] text-gray-200">
                 <!-- Sidebar -->
                 <aside class="w-full md:w-64 premium-sidebar flex flex-col p-6 gap-6 md:min-h-screen">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-jungle/20 border border-jungle/20 rounded-xl flex items-center justify-center text-lg text-sage">
+                        <div
+                            class="w-10 h-10 bg-jungle/20 border border-jungle/20 rounded-xl flex items-center justify-center text-lg text-sage">
                             <i class="fa-solid fa-building-user"></i>
                         </div>
                         <div>
-                            <h3 id="adminCompanyTitle" class="font-extrabold text-sm tracking-tight text-white font-outfit">Empresa Admin</h3>
-                            <span class="text-[9px] text-sage font-bold uppercase tracking-widest">Portal Corporativo</span>
+                            <h3 id="adminCompanyTitle"
+                                class="font-extrabold text-sm tracking-tight text-white font-outfit">Empresa Admin</h3>
+                            <span class="text-[9px] text-sage font-bold uppercase tracking-widest">Portal
+                                Corporativo</span>
                         </div>
                     </div>
-                    
+
                     <nav class="flex flex-col gap-2 mt-6 flex-1">
-                        <button onclick="switchAdminTab('dash')" id="tabBtn-dash" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold bg-white/10 text-white transition-all text-left">
+                        <button onclick="switchAdminTab('dash')" id="tabBtn-dash"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold bg-white/10 text-white transition-all text-left">
                             <i class="fa-solid fa-chart-pie text-sm text-sage w-5"></i> Módulo Dashboard
                         </button>
-                        <button onclick="switchAdminTab('vehicles')" id="tabBtn-vehicles" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
+                        <button onclick="switchAdminTab('vehicles')" id="tabBtn-vehicles"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
                             <i class="fa-solid fa-truck-monster text-sm w-5"></i> Inventario Flota
                         </button>
-                        <button onclick="switchAdminTab('drivers')" id="tabBtn-drivers" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
+                        <button onclick="switchAdminTab('drivers')" id="tabBtn-drivers"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
                             <i class="fa-solid fa-users text-sm w-5"></i> Conductores
                         </button>
-                        <button onclick="switchAdminTab('alerts')" id="tabBtn-alerts" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
+                        <button onclick="switchAdminTab('alerts')" id="tabBtn-alerts"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
                             <i class="fa-solid fa-triangle-exclamation text-sm w-5 text-red-500"></i> Alertas y Riesgos
                         </button>
-                        <button onclick="switchAdminTab('config')" id="tabBtn-config" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
+                        <button onclick="switchAdminTab('config')" id="tabBtn-config"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
                             <i class="fa-solid fa-gears text-sm w-5"></i> Reglas & SaaS
                         </button>
                     </nav>
-                    
-                    <button onclick="logout()" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-red-400 hover:bg-red-950/20 transition-all text-left">
+
+                    <button onclick="logout()"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-red-400 hover:bg-red-950/20 transition-all text-left">
                         <i class="fa-solid fa-right-from-bracket text-sm w-5"></i> Salir del Portal
                     </button>
                 </aside>
-                
+
                 <!-- Content Area -->
                 <main class="flex-1 p-6 md:p-10 overflow-y-auto max-h-screen">
                     <header class="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
                         <div>
-                            <h2 class="text-2xl font-black text-white tracking-tight font-outfit" id="adminActiveTabTitle">Panel de Administración</h2>
-                            <p class="text-xs text-gray-400 mt-1">Gestión predictiva y analítica de cumplimiento legal.</p>
+                            <h2 class="text-2xl font-black text-white tracking-tight font-outfit"
+                                id="adminActiveTabTitle">Panel de Administración</h2>
+                            <p class="text-xs text-gray-400 mt-1">Gestión predictiva y analítica de cumplimiento legal.
+                            </p>
                         </div>
                         <div class="flex items-center gap-3">
-                            <div class="bg-white/5 px-4 py-2 rounded-xl text-xs border border-white/5 font-semibold text-gray-300">
-                                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-1"></span> SaaS Enterprise Activo
+                            <div
+                                class="bg-white/5 px-4 py-2 rounded-xl text-xs border border-white/5 font-semibold text-gray-300">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-1"></span> SaaS
+                                Enterprise Activo
                             </div>
                         </div>
                     </header>
-                    
+
                     <!-- TAB 1: DASHBOARD METRICS -->
                     <div id="adminTab-dash" class="admin-tab space-y-8">
                         <!-- KPI Cards -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
+                            <div
+                                class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Flota Vehicular</p>
-                                    <h3 class="text-3xl font-black text-white mt-2 font-outfit" id="adminKpiVehicles">0</h3>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Flota Vehicular
+                                    </p>
+                                    <h3 class="text-3xl font-black text-white mt-2 font-outfit" id="adminKpiVehicles">0
+                                    </h3>
                                     <p class="text-[10px] text-sage mt-1 font-bold">100% Monitoreados</p>
                                 </div>
-                                <div class="w-12 h-12 bg-jungle/10 border border-jungle/20 rounded-2xl flex items-center justify-center text-xl text-sage"><i class="fa-solid fa-truck"></i></div>
+                                <div
+                                    class="w-12 h-12 bg-jungle/10 border border-jungle/20 rounded-2xl flex items-center justify-center text-xl text-sage">
+                                    <i class="fa-solid fa-truck"></i></div>
                             </div>
-                            <div class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
+                            <div
+                                class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Alertas Activas</p>
-                                    <h3 class="text-3xl font-black text-red-500 mt-2 font-outfit" id="adminKpiAlerts">0</h3>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Alertas Activas
+                                    </p>
+                                    <h3 class="text-3xl font-black text-red-500 mt-2 font-outfit" id="adminKpiAlerts">0
+                                    </h3>
                                     <p class="text-[10px] text-red-400 mt-1 font-bold">Requieren atención</p>
                                 </div>
-                                <div class="w-12 h-12 bg-red-600/10 border border-red-500/20 rounded-2xl flex items-center justify-center text-xl text-red-500"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                <div
+                                    class="w-12 h-12 bg-red-600/10 border border-red-500/20 rounded-2xl flex items-center justify-center text-xl text-red-500">
+                                    <i class="fa-solid fa-triangle-exclamation"></i></div>
                             </div>
-                            <div class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
+                            <div
+                                class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Inspecciones Hoy</p>
-                                    <h3 class="text-3xl font-black text-emerald-500 mt-2 font-outfit" id="adminKpiInspections">0</h3>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Inspecciones
+                                        Hoy</p>
+                                    <h3 class="text-3xl font-black text-emerald-500 mt-2 font-outfit"
+                                        id="adminKpiInspections">0</h3>
                                     <p class="text-[10px] text-emerald-400 mt-1 font-bold">Cumplimiento: 100%</p>
                                 </div>
-                                <div class="w-12 h-12 bg-emerald-600/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-xl text-emerald-500"><i class="fa-solid fa-circle-check"></i></div>
+                                <div
+                                    class="w-12 h-12 bg-emerald-600/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-xl text-emerald-500">
+                                    <i class="fa-solid fa-circle-check"></i></div>
                             </div>
                         </div>
-                        
+
                         <!-- Charts and Trends -->
                         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                             <div class="glass p-6 rounded-3xl border border-white/5 lg:col-span-2">
-                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i class="fa-solid fa-chart-line mr-2 text-sage"></i> Desempeño Operativo Semanal (Score Promedio)</h3>
-                                <div class="h-56 w-full flex items-end justify-between px-4 pb-2 border-b border-white/5 relative">
-                                    <div class="absolute inset-0 flex flex-col justify-between text-[9px] text-gray-500 pointer-events-none">
+                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i
+                                        class="fa-solid fa-chart-line mr-2 text-sage"></i> Desempeño Operativo Semanal
+                                    (Score Promedio)</h3>
+                                <div
+                                    class="h-56 w-full flex items-end justify-between px-4 pb-2 border-b border-white/5 relative">
+                                    <div
+                                        class="absolute inset-0 flex flex-col justify-between text-[9px] text-gray-500 pointer-events-none">
                                         <div class="border-b border-white/5 pb-1">100%</div>
                                         <div class="border-b border-white/5 pb-1">80%</div>
                                         <div class="border-b border-white/5 pb-1">60%</div>
@@ -1368,69 +1693,92 @@
                                     </div>
                                     <div class="flex flex-col items-center gap-2 z-10">
                                         <span class="text-[10px] font-bold text-gray-300">92%</span>
-                                        <div class="w-8 bg-jungle/20 border-t-2 border-jungle rounded-t-lg" style="height: 120px;"></div>
+                                        <div class="w-8 bg-jungle/20 border-t-2 border-jungle rounded-t-lg"
+                                            style="height: 120px;"></div>
                                         <span class="text-[8px] font-bold text-gray-400">Lunes</span>
                                     </div>
                                     <div class="flex flex-col items-center gap-2 z-10">
                                         <span class="text-[10px] font-bold text-gray-300">96%</span>
-                                        <div class="w-8 bg-jungle/20 border-t-2 border-jungle rounded-t-lg" style="height: 135px;"></div>
+                                        <div class="w-8 bg-jungle/20 border-t-2 border-jungle rounded-t-lg"
+                                            style="height: 135px;"></div>
                                         <span class="text-[8px] font-bold text-gray-400">Martes</span>
                                     </div>
                                     <div class="flex flex-col items-center gap-2 z-10">
                                         <span class="text-[10px] font-bold text-gray-300">88%</span>
-                                        <div class="w-8 bg-red-500/20 border-t-2 border-red-500 rounded-t-lg" style="height: 110px;"></div>
+                                        <div class="w-8 bg-red-500/20 border-t-2 border-red-500 rounded-t-lg"
+                                            style="height: 110px;"></div>
                                         <span class="text-[8px] font-bold text-gray-400">Miércoles</span>
                                     </div>
                                     <div class="flex flex-col items-center gap-2 z-10">
                                         <span class="text-[10px] font-bold text-gray-300">98%</span>
-                                        <div class="w-8 bg-jungle/20 border-t-2 border-jungle rounded-t-lg" style="height: 145px;"></div>
+                                        <div class="w-8 bg-jungle/20 border-t-2 border-jungle rounded-t-lg"
+                                            style="height: 145px;"></div>
                                         <span class="text-[8px] font-bold text-gray-400">Jueves</span>
                                     </div>
                                     <div class="flex flex-col items-center gap-2 z-10">
                                         <span class="text-[10px] font-bold text-gray-300">95%</span>
-                                        <div class="w-8 bg-jungle/30 border-t-2 border-indigo-400 rounded-t-lg" style="height: 130px;"></div>
+                                        <div class="w-8 bg-jungle/30 border-t-2 border-indigo-400 rounded-t-lg"
+                                            style="height: 130px;"></div>
                                         <span class="text-[8px] font-bold text-gray-400">Hoy</span>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
-                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i class="fa-solid fa-chart-pie mr-2 text-sage"></i> Estado General de Flota</h3>
+                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i
+                                        class="fa-solid fa-chart-pie mr-2 text-sage"></i> Estado General de Flota</h3>
                                 <div class="flex justify-center items-center py-4">
                                     <!-- Ring graph mock -->
-                                    <div class="w-32 h-32 rounded-full border-8 border-indigo-600 border-r-red-500 border-b-yellow-500 flex items-center justify-center relative">
+                                    <div
+                                        class="w-32 h-32 rounded-full border-8 border-indigo-600 border-r-red-500 border-b-yellow-500 flex items-center justify-center relative">
                                         <div class="text-center">
                                             <span class="text-2xl font-black text-white">84%</span>
-                                            <p class="text-[8px] text-gray-400 uppercase tracking-widest mt-0.5">Aptitud</p>
+                                            <p class="text-[8px] text-gray-400 uppercase tracking-widest mt-0.5">Aptitud
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="space-y-1.5 text-xs">
-                                    <div class="flex justify-between items-center"><span class="text-gray-400"><span class="w-2.5 h-2.5 bg-jungle rounded-full inline-block mr-1"></span> Aptos</span> <span class="font-bold">6 Vehículos</span></div>
-                                    <div class="flex justify-between items-center"><span class="text-gray-400"><span class="w-2.5 h-2.5 bg-yellow-500 rounded-full inline-block mr-1"></span> Con Observaciones</span> <span class="font-bold">2 Vehículos</span></div>
-                                    <div class="flex justify-between items-center"><span class="text-gray-400"><span class="w-2.5 h-2.5 bg-red-500 rounded-full inline-block mr-1"></span> Fuera de Operación</span> <span class="font-bold">1 Vehículo</span></div>
+                                    <div class="flex justify-between items-center"><span class="text-gray-400"><span
+                                                class="w-2.5 h-2.5 bg-jungle rounded-full inline-block mr-1"></span>
+                                            Aptos</span> <span class="font-bold">6 Vehículos</span></div>
+                                    <div class="flex justify-between items-center"><span class="text-gray-400"><span
+                                                class="w-2.5 h-2.5 bg-yellow-500 rounded-full inline-block mr-1"></span>
+                                            Con Observaciones</span> <span class="font-bold">2 Vehículos</span></div>
+                                    <div class="flex justify-between items-center"><span class="text-gray-400"><span
+                                                class="w-2.5 h-2.5 bg-red-500 rounded-full inline-block mr-1"></span>
+                                            Fuera de Operación</span> <span class="font-bold">1 Vehículo</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- TAB 2: VEHICLE CRUD -->
                     <div id="adminTab-vehicles" class="admin-tab space-y-6 hidden">
                         <div class="flex justify-between items-center bg-white/5 p-4 rounded-2xl border border-white/5">
-                            <span class="text-xs text-gray-400 font-bold uppercase tracking-widest">Base de Datos de Flota</span>
-                            <button onclick="openAddVehicleForm()" class="bg-jungle hover:bg-jungle/90 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all flex items-center gap-2">
+                            <span class="text-xs text-gray-400 font-bold uppercase tracking-widest">Base de Datos de
+                                Flota</span>
+                            <button onclick="openAddVehicleForm()"
+                                class="bg-jungle hover:bg-jungle/90 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-all flex items-center gap-2">
                                 <i class="fa-solid fa-plus"></i> Registrar Vehículo
                             </button>
                         </div>
-                        
+
                         <!-- ADD VEHICLE FORM (DYNAMICAL POPUP CONTAINER) -->
-                        <div id="addVehicleFormContainer" class="hidden glass p-6 rounded-3xl border border-jungle/20 space-y-4">
-                            <h3 class="text-sm font-extrabold text-white uppercase tracking-wider"><i class="fa-solid fa-plus-circle text-sage mr-1"></i> Añadir Nuevo Vehículo a la Empresa</h3>
+                        <div id="addVehicleFormContainer"
+                            class="hidden glass p-6 rounded-3xl border border-jungle/20 space-y-4">
+                            <h3 class="text-sm font-extrabold text-white uppercase tracking-wider"><i
+                                    class="fa-solid fa-plus-circle text-sage mr-1"></i> Añadir Nuevo Vehículo a la
+                                Empresa</h3>
                             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                <input type="text" id="vFormPlate" placeholder="Placa (ej. TRK-421)" class="p-3 bg-gray-900 border rounded-xl text-xs">
-                                <input type="text" id="vFormBrand" placeholder="Marca (ej. Kenworth)" class="p-3 bg-gray-900 border rounded-xl text-xs">
-                                <input type="text" id="vFormModel" placeholder="Modelo (ej. T800)" class="p-3 bg-gray-900 border rounded-xl text-xs">
-                                <input type="number" id="vFormMileage" placeholder="Kilometraje (ej. 120000)" class="p-3 bg-gray-900 border rounded-xl text-xs">
+                                <input type="text" id="vFormPlate" placeholder="Placa (ej. TRK-421)"
+                                    class="p-3 bg-gray-900 border rounded-xl text-xs">
+                                <input type="text" id="vFormBrand" placeholder="Marca (ej. Kenworth)"
+                                    class="p-3 bg-gray-900 border rounded-xl text-xs">
+                                <input type="text" id="vFormModel" placeholder="Modelo (ej. T800)"
+                                    class="p-3 bg-gray-900 border rounded-xl text-xs">
+                                <input type="number" id="vFormMileage" placeholder="Kilometraje (ej. 120000)"
+                                    class="p-3 bg-gray-900 border rounded-xl text-xs">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <select id="vFormDriver" class="p-3 bg-gray-900 border rounded-xl text-xs text-white">
@@ -1443,16 +1791,20 @@
                                 </select>
                             </div>
                             <div class="flex justify-end gap-3 pt-2">
-                                <button onclick="closeAddVehicleForm()" class="px-4 py-2 bg-transparent text-gray-400 font-bold text-xs">Cancelar</button>
-                                <button onclick="saveNewVehicle()" class="px-5 py-2.5 bg-jungle hover:bg-jungle/90 text-white font-bold rounded-xl text-xs">Guardar Registro</button>
+                                <button onclick="closeAddVehicleForm()"
+                                    class="px-4 py-2 bg-transparent text-gray-400 font-bold text-xs">Cancelar</button>
+                                <button onclick="saveNewVehicle()"
+                                    class="px-5 py-2.5 bg-jungle hover:bg-jungle/90 text-white font-bold rounded-xl text-xs">Guardar
+                                    Registro</button>
                             </div>
                         </div>
-                        
+
                         <!-- Table -->
                         <div class="glass rounded-3xl overflow-hidden border border-white/5">
                             <table class="w-full text-left border-collapse text-xs">
                                 <thead>
-                                    <tr class="bg-white/5 text-gray-400 font-bold uppercase tracking-widest border-b border-white/5">
+                                    <tr
+                                        class="bg-white/5 text-gray-400 font-bold uppercase tracking-widest border-b border-white/5">
                                         <th class="p-4">Placa</th>
                                         <th class="p-4">Tipo</th>
                                         <th class="p-4">Marca/Modelo</th>
@@ -1468,51 +1820,72 @@
                             </table>
                         </div>
                     </div>
-                    
+
                     <!-- TAB 3: DRIVERS -->
                     <div id="adminTab-drivers" class="admin-tab space-y-6 hidden">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="adminDriversContainer">
                             <!-- Filled dynamically by JS -->
                         </div>
                     </div>
-                    
+
                     <!-- TAB 4: ALERTS -->
                     <div id="adminTab-alerts" class="admin-tab space-y-6 hidden">
                         <div class="space-y-3" id="adminAlertsList">
                             <!-- Filled dynamically by JS -->
                         </div>
                     </div>
-                    
+
                     <!-- TAB 5: SAAS / RULE RULES -->
                     <div id="adminTab-config" class="admin-tab space-y-8 hidden">
                         <div class="glass p-6 rounded-3xl border border-white/5 space-y-6">
-                            <h3 class="font-bold text-sm text-gray-300 uppercase tracking-widest"><i class="fa-solid fa-sliders text-sage mr-2"></i> Reglas de Negocio del SaaS</h3>
-                            
+                            <h3 class="font-bold text-sm text-gray-300 uppercase tracking-widest"><i
+                                    class="fa-solid fa-sliders text-sage mr-2"></i> Reglas de Negocio del SaaS</h3>
+
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-2">Periodicidad de Inspección Profunda IA</label>
-                                    <select id="configIaPeriodicity" onchange="changeCompanyConfig()" class="w-full p-4 bg-gray-900 border border-white/10 rounded-2xl text-white font-bold text-xs">
+                                    <label
+                                        class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-2">Periodicidad
+                                        de Inspección Profunda IA</label>
+                                    <select id="configIaPeriodicity" onchange="changeCompanyConfig()"
+                                        class="w-full p-4 bg-gray-900 border border-white/10 rounded-2xl text-white font-bold text-xs">
                                         <option value="semanal">Semanal (Recomendado)</option>
                                         <option value="quincenal">Quincenal (Cada 15 Días)</option>
                                         <option value="mensual">Mensual</option>
                                     </select>
-                                    <p class="text-[10px] text-gray-400 mt-1">Define cada cuánto tiempo el sistema exige un preoperacional profundo con IA.</p>
+                                    <p class="text-[10px] text-gray-400 mt-1">Define cada cuánto tiempo el sistema exige
+                                        un preoperacional profundo con IA.</p>
                                 </div>
-                                
+
                                 <div class="space-y-4">
-                                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">Módulos Tecnológicos Activos</span>
+                                    <span
+                                        class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">Módulos
+                                        Tecnológicos Activos</span>
                                     <div class="space-y-2">
-                                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                                            <span class="text-xs text-gray-300"><i class="fa-brands fa-bluetooth text-sage mr-2"></i> Diagnóstico OBD-II Automático</span>
-                                            <input type="checkbox" id="moduleObdCheck" onchange="changeCompanyConfig()" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 rounded border-white/10 bg-gray-900">
+                                        <div
+                                            class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
+                                            <span class="text-xs text-gray-300"><i
+                                                    class="fa-brands fa-bluetooth text-sage mr-2"></i> Diagnóstico
+                                                OBD-II Automático</span>
+                                            <input type="checkbox" id="moduleObdCheck" onchange="changeCompanyConfig()"
+                                                class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 rounded border-white/10 bg-gray-900">
                                         </div>
-                                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                                            <span class="text-xs text-gray-300"><i class="fa-solid fa-microphone-lines text-sage mr-2"></i> Analizador de Audio (IA Acústica)</span>
-                                            <input type="checkbox" id="moduleVoiceCheck" onchange="changeCompanyConfig()" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 rounded border-white/10 bg-gray-900">
+                                        <div
+                                            class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
+                                            <span class="text-xs text-gray-300"><i
+                                                    class="fa-solid fa-microphone-lines text-sage mr-2"></i> Analizador
+                                                de Audio (IA Acústica)</span>
+                                            <input type="checkbox" id="moduleVoiceCheck"
+                                                onchange="changeCompanyConfig()"
+                                                class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 rounded border-white/10 bg-gray-900">
                                         </div>
-                                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                                            <span class="text-xs text-gray-300"><i class="fa-solid fa-location-crosshairs text-sage mr-2"></i> Geolocalización GPS Forense (Huella)</span>
-                                            <input type="checkbox" id="moduleGpsCheck" onchange="changeCompanyConfig()" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 rounded border-white/10 bg-gray-900" checked disabled>
+                                        <div
+                                            class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
+                                            <span class="text-xs text-gray-300"><i
+                                                    class="fa-solid fa-location-crosshairs text-sage mr-2"></i>
+                                                Geolocalización GPS Forense (Huella)</span>
+                                            <input type="checkbox" id="moduleGpsCheck" onchange="changeCompanyConfig()"
+                                                class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 rounded border-white/10 bg-gray-900"
+                                                checked disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -1523,101 +1896,135 @@
             </div>
 
             <!-- B. SUPER ADMIN GLOBAL VIEW -->
-            <div id="view-super-admin" class="view hidden w-full h-full min-h-[100vh] pb-24 md:pb-0 flex flex-col md:flex-row bg-[#030712] text-gray-200">
+            <div id="view-super-admin"
+                class="view hidden w-full h-full min-h-[100vh] pb-24 md:pb-0 flex flex-col md:flex-row bg-[#030712] text-gray-200">
                 <!-- Sidebar -->
-                <aside class="w-full md:w-64 premium-sidebar flex flex-col p-6 gap-6 md:min-h-screen border-r border-purple-500/10">
+                <aside
+                    class="w-full md:w-64 premium-sidebar flex flex-col p-6 gap-6 md:min-h-screen border-r border-purple-500/10">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-fern/20 border border-purple-500/20 rounded-xl flex items-center justify-center text-lg text-sage">
+                        <div
+                            class="w-10 h-10 bg-fern/20 border border-purple-500/20 rounded-xl flex items-center justify-center text-lg text-sage">
                             <i class="fa-solid fa-user-shield"></i>
                         </div>
                         <div>
-                            <h3 class="font-extrabold text-sm tracking-tight text-white font-outfit">SaaS Global Owner</h3>
-                            <span class="text-[9px] text-sage font-bold uppercase tracking-widest">Super Administrador</span>
+                            <h3 class="font-extrabold text-sm tracking-tight text-white font-outfit">SaaS Global Owner
+                            </h3>
+                            <span class="text-[9px] text-sage font-bold uppercase tracking-widest">Super
+                                Administrador</span>
                         </div>
                     </div>
-                    
+
                     <nav class="flex flex-col gap-2 mt-6 flex-1">
-                        <button onclick="switchSuperTab('monitor')" id="superBtn-monitor" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold bg-white/10 text-white transition-all text-left">
+                        <button onclick="switchSuperTab('monitor')" id="superBtn-monitor"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold bg-white/10 text-white transition-all text-left">
                             <i class="fa-solid fa-gauge text-sm text-sage w-5"></i> Dashboard Global
                         </button>
-                        <button onclick="switchSuperTab('companies')" id="superBtn-companies" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
+                        <button onclick="switchSuperTab('companies')" id="superBtn-companies"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
                             <i class="fa-solid fa-city text-sm w-5"></i> Gestión Empresas
                         </button>
-                        <button onclick="switchSuperTab('ia')" id="superBtn-ia" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
+                        <button onclick="switchSuperTab('ia')" id="superBtn-ia"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
                             <i class="fa-solid fa-wand-magic-sparkles text-sm w-5"></i> Métricas Gemini IA
                         </button>
-                        <button onclick="switchSuperTab('logs')" id="superBtn-logs" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
+                        <button onclick="switchSuperTab('logs')" id="superBtn-logs"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-gray-400 hover:bg-white/5 hover:text-white transition-all text-left">
                             <i class="fa-solid fa-terminal text-sm w-5"></i> Logs y Servidor
                         </button>
                     </nav>
-                    
-                    <button onclick="logout()" class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-red-400 hover:bg-red-950/20 transition-all text-left">
+
+                    <button onclick="logout()"
+                        class="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-red-400 hover:bg-red-950/20 transition-all text-left">
                         <i class="fa-solid fa-right-from-bracket text-sm w-5"></i> Cerrar Sesión
                     </button>
                 </aside>
-                
+
                 <!-- Content Area -->
                 <main class="flex-1 p-6 md:p-10 overflow-y-auto max-h-screen">
                     <header class="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
                         <div>
-                            <h2 class="text-2xl font-black text-white tracking-tight font-outfit" id="superActiveTabTitle">Global Control Center</h2>
-                            <p class="text-xs text-gray-400 mt-1">Supervisión e infraestructura de todo el ecosistema Opercheck SaaS.</p>
+                            <h2 class="text-2xl font-black text-white tracking-tight font-outfit"
+                                id="superActiveTabTitle">Global Control Center</h2>
+                            <p class="text-xs text-gray-400 mt-1">Supervisión e infraestructura de todo el ecosistema
+                                Opercheck SaaS.</p>
                         </div>
                         <div class="flex items-center gap-3">
-                            <div class="bg-purple-900/20 px-4 py-2 rounded-xl text-xs border border-purple-500/20 font-semibold text-purple-300">
+                            <div
+                                class="bg-purple-900/20 px-4 py-2 rounded-xl text-xs border border-purple-500/20 font-semibold text-purple-300">
                                 <span class="w-2 h-2 rounded-full bg-fern inline-block mr-1"></span> Modo Super Admin
                             </div>
                         </div>
                     </header>
-                    
+
                     <!-- TAB 1: GLOBAL MONITOR -->
                     <div id="superTab-monitor" class="super-tab space-y-8">
                         <!-- KPI Grid -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
+                            <div
+                                class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Empresas SaaS</p>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Empresas SaaS
+                                    </p>
                                     <h3 class="text-3xl font-black text-sage mt-2 font-outfit">3 Activas</h3>
                                     <p class="text-[10px] text-gray-400 mt-1">0 suspendidas</p>
                                 </div>
-                                <div class="w-12 h-12 bg-fern/10 border border-purple-500/20 rounded-2xl flex items-center justify-center text-xl text-sage"><i class="fa-solid fa-city"></i></div>
+                                <div
+                                    class="w-12 h-12 bg-fern/10 border border-purple-500/20 rounded-2xl flex items-center justify-center text-xl text-sage">
+                                    <i class="fa-solid fa-city"></i></div>
                             </div>
-                            <div class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
+                            <div
+                                class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Flota Global</p>
-                                    <h3 class="text-3xl font-black text-white mt-2 font-outfit" id="superKpiFleet">9</h3>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Flota Global
+                                    </p>
+                                    <h3 class="text-3xl font-black text-white mt-2 font-outfit" id="superKpiFleet">9
+                                    </h3>
                                     <p class="text-[10px] text-gray-400 mt-1">Vehículos totales</p>
                                 </div>
-                                <div class="w-12 h-12 bg-fern/10 border border-purple-500/20 rounded-2xl flex items-center justify-center text-xl text-sage"><i class="fa-solid fa-truck"></i></div>
+                                <div
+                                    class="w-12 h-12 bg-fern/10 border border-purple-500/20 rounded-2xl flex items-center justify-center text-xl text-sage">
+                                    <i class="fa-solid fa-truck"></i></div>
                             </div>
-                            <div class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
+                            <div
+                                class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Inspecciones Totales</p>
-                                    <h3 class="text-3xl font-black text-emerald-400 mt-2 font-outfit" id="superKpiInspections">284</h3>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Inspecciones
+                                        Totales</p>
+                                    <h3 class="text-3xl font-black text-emerald-400 mt-2 font-outfit"
+                                        id="superKpiInspections">284</h3>
                                     <p class="text-[10px] text-emerald-400 mt-1 font-bold">100% Firmas digitales</p>
                                 </div>
-                                <div class="w-12 h-12 bg-emerald-600/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-xl text-emerald-500"><i class="fa-solid fa-circle-check"></i></div>
+                                <div
+                                    class="w-12 h-12 bg-emerald-600/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-xl text-emerald-500">
+                                    <i class="fa-solid fa-circle-check"></i></div>
                             </div>
-                            <div class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
+                            <div
+                                class="glass p-6 rounded-3xl border border-white/5 flex items-center justify-between shadow-lg">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Consumo Gemini IA</p>
+                                    <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Consumo Gemini
+                                        IA</p>
                                     <h3 class="text-3xl font-black text-yellow-500 mt-2 font-outfit">74%</h3>
                                     <p class="text-[10px] text-gray-400 mt-1">Cuota mensual de tokens</p>
                                 </div>
-                                <div class="w-12 h-12 bg-yellow-600/10 border border-yellow-500/20 rounded-2xl flex items-center justify-center text-xl text-yellow-400"><i class="fa-solid fa-microchip"></i></div>
+                                <div
+                                    class="w-12 h-12 bg-yellow-600/10 border border-yellow-500/20 rounded-2xl flex items-center justify-center text-xl text-yellow-400">
+                                    <i class="fa-solid fa-microchip"></i></div>
                             </div>
                         </div>
-                        
+
                         <!-- System health & server specs -->
                         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                             <div class="glass p-6 rounded-3xl border border-white/5 lg:col-span-2">
-                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i class="fa-solid fa-server mr-2 text-sage"></i> Servidores & Rendimiento Backend</h3>
+                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i
+                                        class="fa-solid fa-server mr-2 text-sage"></i> Servidores & Rendimiento Backend
+                                </h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
                                         <span class="text-xs text-gray-400 block mb-1">Estado Uvicorn (FastAPI)</span>
                                         <div class="flex items-center gap-3">
                                             <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-                                            <span class="font-bold text-white text-base">SALUDABLE (99.98% uptime)</span>
+                                            <span class="font-bold text-white text-base">SALUDABLE (99.98%
+                                                uptime)</span>
                                         </div>
                                     </div>
                                     <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
@@ -1630,7 +2037,8 @@
                                         </div>
                                     </div>
                                     <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
-                                        <span class="text-xs text-gray-400 block mb-1">Latencia Endpoint /v1/analyze</span>
+                                        <span class="text-xs text-gray-400 block mb-1">Latencia Endpoint
+                                            /v1/analyze</span>
                                         <span class="font-bold text-white text-base">420ms promedio</span>
                                     </div>
                                     <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
@@ -1639,26 +2047,31 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
-                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i class="fa-solid fa-circle-exclamation mr-2 text-red-500"></i> Accidentes Globales</h3>
+                                <h3 class="font-bold text-sm text-gray-300 mb-4 uppercase tracking-widest"><i
+                                        class="fa-solid fa-circle-exclamation mr-2 text-red-500"></i> Accidentes
+                                    Globales</h3>
                                 <div class="text-center py-4">
                                     <h3 class="text-6xl font-black text-red-500 font-outfit">3</h3>
-                                    <p class="text-xs text-gray-400 mt-2 uppercase tracking-widest">Reportados este mes</p>
+                                    <p class="text-xs text-gray-400 mt-2 uppercase tracking-widest">Reportados este mes
+                                    </p>
                                 </div>
                                 <div class="text-xs text-red-300 bg-red-950/20 border border-red-500/10 p-3 rounded-xl">
-                                    <i class="fa-solid fa-circle-info mr-1 text-red-400"></i> Todos los accidentes cuentan con un PDF forense blindado con hash SHA-256 e imágenes.
+                                    <i class="fa-solid fa-circle-info mr-1 text-red-400"></i> Todos los accidentes
+                                    cuentan con un PDF forense blindado con hash SHA-256 e imágenes.
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- TAB 2: COMPANIES MANAGEMENT -->
                     <div id="superTab-companies" class="super-tab space-y-6 hidden">
                         <div class="glass rounded-3xl overflow-hidden border border-white/5">
                             <table class="w-full text-left border-collapse text-xs">
                                 <thead>
-                                    <tr class="bg-white/5 text-gray-400 font-bold uppercase tracking-widest border-b border-white/5">
+                                    <tr
+                                        class="bg-white/5 text-gray-400 font-bold uppercase tracking-widest border-b border-white/5">
                                         <th class="p-4">Empresa</th>
                                         <th class="p-4">Tipo Flota</th>
                                         <th class="p-4">SaaS Licencia</th>
@@ -1675,51 +2088,74 @@
                             </table>
                         </div>
                     </div>
-                    
+
                     <!-- TAB 3: GEMINI IA CONSUMPTION -->
                     <div id="superTab-ia" class="super-tab space-y-6 hidden">
                         <div class="glass p-6 rounded-3xl border border-white/5 space-y-6">
-                            <h3 class="font-bold text-sm text-gray-300 uppercase tracking-widest"><i class="fa-solid fa-microchip text-yellow-500 mr-2"></i> Inferencia & Tokens Gemini 1.5 Flash</h3>
-                            
+                            <h3 class="font-bold text-sm text-gray-300 uppercase tracking-widest"><i
+                                    class="fa-solid fa-microchip text-yellow-500 mr-2"></i> Inferencia & Tokens Gemini
+                                1.5 Flash</h3>
+
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="p-5 bg-white/5 rounded-2xl border border-white/5 space-y-4">
-                                    <span class="text-xs text-gray-400 font-bold uppercase tracking-widest block">Uso de Inferencia por Componente</span>
+                                    <span class="text-xs text-gray-400 font-bold uppercase tracking-widest block">Uso de
+                                        Inferencia por Componente</span>
                                     <div class="space-y-3 text-xs">
                                         <div>
-                                            <div class="flex justify-between text-gray-300 mb-1"><span>Vidrio y Parabrisas (IA-V)</span> <span>542 llamadas</span></div>
-                                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden"><div class="bg-fern h-full w-[65%]"></div></div>
+                                            <div class="flex justify-between text-gray-300 mb-1"><span>Vidrio y
+                                                    Parabrisas (IA-V)</span> <span>542 llamadas</span></div>
+                                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-fern h-full w-[65%]"></div>
+                                            </div>
                                         </div>
                                         <div>
-                                            <div class="flex justify-between text-gray-300 mb-1"><span>Desgaste de Llantas (IA-V)</span> <span>420 llamadas</span></div>
-                                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden"><div class="bg-fern h-full w-[50%]"></div></div>
+                                            <div class="flex justify-between text-gray-300 mb-1"><span>Desgaste de
+                                                    Llantas (IA-V)</span> <span>420 llamadas</span></div>
+                                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-fern h-full w-[50%]"></div>
+                                            </div>
                                         </div>
                                         <div>
-                                            <div class="flex justify-between text-gray-300 mb-1"><span>Humedad y Fugas (IA-V)</span> <span>312 llamadas</span></div>
-                                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden"><div class="bg-fern h-full w-[35%]"></div></div>
+                                            <div class="flex justify-between text-gray-300 mb-1"><span>Humedad y Fugas
+                                                    (IA-V)</span> <span>312 llamadas</span></div>
+                                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-fern h-full w-[35%]"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="p-5 bg-white/5 rounded-2xl border border-white/5 space-y-4">
-                                    <span class="text-xs text-gray-400 font-bold uppercase tracking-widest block">Finanzas & Costos de Consulta</span>
+                                    <span
+                                        class="text-xs text-gray-400 font-bold uppercase tracking-widest block">Finanzas
+                                        & Costos de Consulta</span>
                                     <div class="space-y-3 text-xs">
-                                        <div class="flex justify-between py-2 border-b border-white/5"><span class="text-gray-400">Costo total acumulado mensual</span> <span class="font-bold text-white">$14.28 USD</span></div>
-                                        <div class="flex justify-between py-2 border-b border-white/5"><span class="text-gray-400">Tokens de Entrada</span> <span class="font-bold text-white">4.8M tokens</span></div>
-                                        <div class="flex justify-between py-2 border-b border-white/5"><span class="text-gray-400">Tokens de Salida</span> <span class="font-bold text-white">1.2M tokens</span></div>
+                                        <div class="flex justify-between py-2 border-b border-white/5"><span
+                                                class="text-gray-400">Costo total acumulado mensual</span> <span
+                                                class="font-bold text-white">$14.28 USD</span></div>
+                                        <div class="flex justify-between py-2 border-b border-white/5"><span
+                                                class="text-gray-400">Tokens de Entrada</span> <span
+                                                class="font-bold text-white">4.8M tokens</span></div>
+                                        <div class="flex justify-between py-2 border-b border-white/5"><span
+                                                class="text-gray-400">Tokens de Salida</span> <span
+                                                class="font-bold text-white">1.2M tokens</span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- TAB 4: CONSOLE SYSTEM LOGS -->
                     <div id="superTab-logs" class="super-tab space-y-4 hidden">
                         <div class="flex justify-between items-center bg-white/5 p-4 rounded-2xl border border-white/5">
-                            <span class="text-xs text-gray-400 font-bold uppercase tracking-widest"><i class="fa-solid fa-terminal text-sage mr-1"></i> Logs del Servidor FastAPI en Vivo</span>
+                            <span class="text-xs text-gray-400 font-bold uppercase tracking-widest"><i
+                                    class="fa-solid fa-terminal text-sage mr-1"></i> Logs del Servidor FastAPI en
+                                Vivo</span>
                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block animate-ping"></span>
                         </div>
-                        
-                        <div class="console-log rounded-3xl p-6 h-96 overflow-y-auto text-xs text-green-400 space-y-1" id="superConsoleLogs">
+
+                        <div class="console-log rounded-3xl p-6 h-96 overflow-y-auto text-xs text-green-400 space-y-1"
+                            id="superConsoleLogs">
                             <!-- Populated in main.js -->
                         </div>
                     </div>
